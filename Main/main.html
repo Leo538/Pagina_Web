@@ -59,7 +59,39 @@
             <button class="prev">&#10094;</button>
             <button class="next">&#10095;</button>
         </div>
+        <script>
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+            const fadeEffect = document.querySelector('.fade');
         
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    if (i === index) {
+                        slide.classList.add('active');
+                    }
+                });
+        
+                fadeEffect.classList.add('active');
+                setTimeout(() => {
+                    fadeEffect.classList.remove('active');
+                }, 300);
+            }
+        
+            document.querySelector('.next').addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            });
+        
+            document.querySelector('.prev').addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+            });
+        
+            showSlide(currentSlide);
+        </script>
+                
         
 
     </body>
