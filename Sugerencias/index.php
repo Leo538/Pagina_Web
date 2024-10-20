@@ -39,7 +39,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="C:\xampp\htdocs\Pagina_Web\Pagina_Web\Sugerencias\Img\logo.png" alt="UTA Logo"> 
+            <img src="C:\xamp2\htdocs\Pagina_Web\Pagina_Web\Home\Main\Img\logo.png" alt="UTA Logo"> 
             <h1>Proceso de Elecciones UTA 2024</h1>
         </div>
         <nav>
@@ -60,15 +60,36 @@
         <!-- Sugerencias Generales -->
         <h2>Sugerencias Generales</h2>
         <textarea class="input-field textarea" placeholder="Escriba aquí sus sugerencias generales..."></textarea>
+        
+        <!-- Comentarios por Candidato -->
          <!-- Comentarios por Candidato -->
-         <h2>Comentarios por Candidato</h2>
-        <label for="candidato1">Candidato 1:</label>
-        <textarea id="candidato1" class="input-field textarea" placeholder="Escriba aquí su comentario sobre el Candidato 1..."></textarea>
+<h2>Comentarios por Candidato</h2>
 
-        <label for="candidato2">Candidato 2:</label>
-        <textarea id="candidato2" class="input-field textarea" placeholder="Escriba aquí su comentario sobre el Candidato 2..."></textarea>
+<div class="candidate-comments">
+    <div>
+        <label for="candidate1">Candidato 1: [Nombre del candidato]</label>
+        <textarea id="candidate1" class="input-field textarea" placeholder="Escriba sus comentarios sobre este candidato..."></textarea>
+    </div>
+    <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 1">
+</div>
 
-        <h2>Votación por Candidato</h2>
+<div class="candidate-comments">
+    <div>
+        <label for="candidate2">Candidato 2: [Nombre del candidato]</label>
+        <textarea id="candidate2" class="input-field textarea" placeholder="Escriba sus comentarios sobre este candidato..."></textarea>
+    </div>
+    <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 2">
+</div>
+<div class="candidate-comments">
+    <div>
+        <label for="candidate3">Candidato 3: [Nombre del candidato]</label>
+        <textarea id="candidate3" class="input-field textarea" placeholder="Escriba sus comentarios sobre este candidato..."></textarea>
+    </div>
+    <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 2">
+</div>
+
+        <!-- Sistema de Votación -->
+<h2>Votación por Candidato</h2>
 <form>
     <label>
         <input type="radio" name="voto" value="Candidato 1">
@@ -87,8 +108,6 @@
 
     <button type="submit" class="button">Votar</button>
 </form>
-
-
 <script>
     function confirmarVoto() {
         var votoSeleccionado = document.querySelector('input[name="voto"]:checked');
@@ -102,6 +121,5 @@
     }
 </script>
     </div>
-
 </body>
 </html>
