@@ -87,6 +87,20 @@
 
     <button type="submit" class="button">Votar</button>
 </form>
+
+
+<script>
+    function confirmarVoto() {
+        var votoSeleccionado = document.querySelector('input[name="voto"]:checked');
+        if (votoSeleccionado) {
+            alert("Has votado por: " + votoSeleccionado.value);
+            return true;
+        } else {
+            alert("Por favor, selecciona un candidato antes de votar.");
+            return false;
+        }
+    }
+</script>
     </div>
 
 </body>
