@@ -247,17 +247,17 @@ header {
 
         <div class="form-row">
             <div class="candidate-option">
-                <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 1">
+                <img src="Img\perfil.png" alt="Foto Candidato 1">
                 <input type="radio" id="vote1" name="vote" value="Candidato 1">
                 <P><label for="vote1">[Nombre del candidato]</label></P>
             </div>
             <div class="candidate-option">
-                <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 2">
+                <img src="Img\perfil.png" alt="Foto Candidato 2">
                 <input type="radio" id="vote2" name="vote" value="Candidato 2">
             <p><label for="vote2">[Nombre del candidato]</label></p>
             </div>
             <div class="candidate-option">
-                <img src="C:\Users\ACER_2023\Downloads\perfil.jpg"   alt="Foto Candidato 3">
+                <img src="Img\perfil.png"   alt="Foto Candidato 3">
                 <input type="radio" id="vote3" name="vote" value="Candidato 3">
             <p><label for="vote3">[Nombre del candidato]</label></p>
             </div>
