@@ -10,17 +10,20 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0px;
+            padding: 0; /* Asegurarse de que no haya padding en el body */
+            overflow-x: hidden; /* Evitar desbordamiento horizontal */
         }
         h1, h2 {
             color: #333;
         }
         .container {
-            max-width: 800px; /* Ajustado a 800px para dar más espacio a las imágenes */
-            margin: 0 auto;
+            max-width: 800px; /* Limitar el ancho a 800px */
+            margin: 0 auto; /* Centrar el contenedor */
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
             background-color: #f9f9f9;
+            box-sizing: border-box; /* Incluir padding y border en el ancho total */
         }
         .input-field {
             width: 100%;
