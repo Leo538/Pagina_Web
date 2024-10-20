@@ -104,7 +104,7 @@
                 }
         
                 .slide2 {
-                    background: url('C:/xamp2/htdocs/Pagina_Web/Pagina_Web/Main/Img/skt.png') no-repeat center center/cover; 
+                    background: url('Img/skt.png') no-repeat center center/cover; 
                 }
         
                 .slider .slide img {
@@ -246,7 +246,7 @@
         <body>
         <header>
             <div class="logo">
-                <img src="C:\xamp2\htdocs\Pagina_Web\Pagina_Web\Main\Img\logo.png" alt="UTA Logo"> 
+                <img src="Img\logo.png" alt="UTA Logo"> 
                 <h1>Proceso de Elecciones UTA 2024</h1>
             </div>
             <nav>
@@ -266,7 +266,7 @@
                         <p> Ingrese Información del candidato.</p>
                         <a href="#" class="btn">Más Información</a>
                     </div>
-                    <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Candidate Image">
+                    <img src="Img\perfil.jpg" alt="Candidate Image">
                 </div>
                 <div class="slide slide2">
                     <div class="content">
@@ -274,7 +274,7 @@
                         <p> Ingrese Información del candidato.</p>
                         <a href="#" class="btn">Más Información</a>
                     </div>
-                    <img src="C:\Users\ACER_2023\Downloads\MASCOTAUTAPropuesta.jpg" alt="Candidate Image">
+                    <img src="Img\MASCOTAUTAPropuesta.jpg" alt="Candidate Image">
                 </div>
             </div>
             <button class="prev">&#10094;</button>
