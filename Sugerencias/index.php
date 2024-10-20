@@ -130,18 +130,55 @@
                 <p><label for="vote3">[Nombre del candidato]</label></p>
                 </div>
             </div>
+
+                    <!-- Botón de votar -->
+        <div class="form-row">
+            <button class="button" onclick="submitVote()">Votar por este candidato</button>
+        </div>
+
+        <p id="confirmation-message" class="confirmation-message">¡Voto registrado con éxito!</p>
+    </div>
+</div>
 <script>
-    function confirmarVoto() {
-        var votoSeleccionado = document.querySelector('input[name="voto"]:checked');
-        if (votoSeleccionado) {
-            alert("Has votado por: " + votoSeleccionado.value);
-            return true;
+    // Función para enviar sugerencias
+    function submitSuggestions() {
+        alert("¡Sugerencias enviadas con éxito!");
+        // Aquí puedes agregar lógica para guardar las sugerencias
+    }
+
+    // Función para mostrar/ocultar las opciones de votación
+    function toggleVoteOptions() {
+        var voteContainer = document.getElementById('vote-container');
+        if (voteContainer.style.display === 'none' || voteContainer.style.display === '') {
+            voteContainer.style.display = 'block';
+        } else {
+            voteContainer.style.display = 'none';
+        }
+    }
+
+    // Función para registrar el voto
+    function submitVote() {
+        var selectedCandidate = document.querySelector('input[name="vote"]:checked');
+        var username = document.getElementById('username').value;
+        var email = document.getElementById('email').value;
+        
+        if (!username || !email) {
+            alert("Por favor, complete su nombre de usuario y correo electrónico.");
+            return;
+        }
+        
+        if (selectedCandidate) {
+            var confirmationMessage = document.getElementById('confirmation-message');
+            confirmationMessage.innerHTML = "Has votado por " + selectedCandidate.value + ". Usuario: " + username + ", Correo: " + email;
+            confirmationMessage.style.display = 'block';
         } else {
             alert("Por favor, selecciona un candidato antes de votar.");
-            return false;
         }
     }
 </script>
-    </div>
+<div class="footer-rights">
+    Derechos reservados UTA 2024
+</div>
+
 </body>
 </html>
