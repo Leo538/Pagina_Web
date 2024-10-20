@@ -9,9 +9,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0px;
+            margin: 0; /* Eliminar márgenes del body */
             padding: 0; /* Asegurarse de que no haya padding en el body */
             overflow-x: hidden; /* Evitar desbordamiento horizontal */
+            padding-top: 80px; /* Espacio para el header fijo */
         }
         h1, h2 {
             color: #333;
@@ -104,9 +105,11 @@ header {
     align-items: center;
     padding: 20px 50px;
     background-color: #b22222;
-    width: 100%; 
-    box-sizing: border-box; 
-    margin: 0; 
+    position: fixed; /* Hacer que el header se mantenga fijo */
+    top: 0; /* Posicionarlo en la parte superior */
+    left: 0; /* Alinear al lado izquierdo */
+    right: 0; /* Alinear al lado derecho */
+    z-index: 1000; /* Asegurarse de que esté por encima de otros elementos */
 }
 
         
