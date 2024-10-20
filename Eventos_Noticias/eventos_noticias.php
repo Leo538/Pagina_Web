@@ -5,116 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos y Noticias</title>
-    <link rel="stylesheet" href="../Home/Main/css/estilos.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        .content-section {
-            padding: 20px;
-            background-color: white;
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-        }
-
-        h2 {
-            color: #b22222;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .event,
-        .news {
-            margin-bottom: 40px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 15px;
-            text-align: center;
-        }
-
-        .event-title,
-        .news-title {
-            font-size: 1.5em;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .event-description,
-        .news-description {
-            font-size: 1em;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .event-date,
-        .news-date {
-            font-size: 0.9em;
-            color: #999;
-            margin-bottom: 20px;
-        }
-
-        .event-image,
-        .news-image {
-            width: 100%;
-            height: auto;
-            max-width: 500px;
-            margin-bottom: 20px;
-        }
-
-        .select-box {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
-
-        .select-box label {
-            font-size: 1.2em;
-            color: #333;
-            margin-right: 10px;
-        }
-
-        .select-box select {
-            padding: 10px;
-            font-size: 1em;
-            color: #333;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            width: 220px;
-            appearance: none;
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .pagination button {
-            padding: 10px;
-            margin: 0 5px;
-            background-color: #b22222;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .pagination button:disabled {
-            background-color: #ccc;
-        }
-
-        .pagination button:hover:not(:disabled) {
-            background-color: #ff6347;
-        }
-    </style>
+    <link rel="stylesheet" href="/Eventos_Noticias/styleEvents.css"> 
+    <link rel="stylesheet" href="../Home/Main/css/estilos.css"> 
 </head>
 
 <body>
@@ -176,48 +68,7 @@
         </div>
     </div>
 
-    <script>
-        let currentPage = 1;
-        const itemsPerPage = 3;
-        const events = document.querySelectorAll('.event');
-        const news = document.querySelectorAll('.news');
-
-        function displayEvents() {
-            const totalPages = Math.ceil(events.length / itemsPerPage);
-            events.forEach((event, index) => {
-                event.style.display = (index >= (currentPage - 1) * itemsPerPage && index < currentPage * itemsPerPage) ? "block" : "none";
-            });
-            document.getElementById("prevPage").disabled = currentPage === 1;
-            document.getElementById("nextPage").disabled = currentPage === totalPages;
-            document.getElementById("eventPagination").style.display = totalPages > 1 ? 'flex' : 'none';
-        }
-
-        function displayNews() {
-            const totalPages = Math.ceil(news.length / itemsPerPage);
-            news.forEach((article, index) => {
-                article.style.display = (index >= (currentPage - 1) * itemsPerPage && index < currentPage * itemsPerPage) ? "block" : "none";
-            });
-            document.getElementById("prevPageNews").disabled = currentPage === 1;
-            document.getElementById("nextPageNews").disabled = currentPage === totalPages;
-            document.getElementById("newsPagination").style.display = totalPages > 1 ? 'flex' : 'none';
-        }
-
-        function changePage(offset) {
-            currentPage += offset;
-            displayEvents();
-        }
-
-        function changePageNews(offset) {
-            currentPage += offset;
-            displayNews();
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            displayEvents();
-            displayNews();
-        });
-    </script>
-
+    <script src="/Eventos_Noticias/scriptsEvents.js"></script> 
 </body>
 
 </html>
