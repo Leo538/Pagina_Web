@@ -60,6 +60,13 @@
         <!-- Sugerencias Generales -->
         <h2>Sugerencias Generales</h2>
         <textarea class="input-field textarea" placeholder="Escriba aquí sus sugerencias generales..."></textarea>
+         <!-- Comentarios por Candidato -->
+         <h2>Comentarios por Candidato</h2>
+        <label for="candidato1">Candidato 1:</label>
+        <textarea id="candidato1" class="input-field textarea" placeholder="Escriba aquí su comentario sobre el Candidato 1..."></textarea>
+
+        <label for="candidato2">Candidato 2:</label>
+        <textarea id="candidato2" class="input-field textarea" placeholder="Escriba aquí su comentario sobre el Candidato 2..."></textarea>
     </div>
 </body>
 </html>
