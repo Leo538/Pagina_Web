@@ -256,8 +256,7 @@
             <a href="#"><i class="fas fa-home"></i> Inicio</a>
             <a href="#"><i class="fas fa-user"></i> Candidatos</a>
             <a href="#"><i class="fas fa-bullhorn"></i> Propuestas</a>
-            <a href="#" onclick="loadContent('../../Eventos_Noticias/eventos_noticias.html')"><i
-                    class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
+            <a href="#" onclick="loadContent('../../Eventos_Noticias/eventos_noticias.html',true)"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
             <a href="#"><i class="fas fa-comment-dots"></i> Sugerencias</a>
         </nav>
     </header>
@@ -267,7 +266,7 @@
         <p>Esta es la página principal de las elecciones. Selecciona una sección para ver más información.</p>
     </main>
 
-    <div class="slider">
+    <div id="slider" class="slider">
         <div class="fade"></div>
         <div class="slides">
             <div class="slide slide1 active">
@@ -291,6 +290,22 @@
         <button class="next">&#10095;</button>
     </div>
     <script>
+        function loadContent(page, isEventosNoticias = false) {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+            document.getElementById("main-content").innerHTML = this.responseText;
+        }
+            xhttp.open("GET", page, true);
+            xhttp.send();
+
+        // Si es la página de "Eventos y Noticias", ocultar el slider
+        if (isEventosNoticias) {
+            document.getElementById("slider").style.display = 'none';
+        } else {
+                document.getElementById("slider").style.display = 'block';
+            }
+        }
+
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
@@ -322,15 +337,6 @@
 
         showSlide(currentSlide);
 
-        // Función para cargar contenido de diferentes archivos HTML
-        function loadContent(page) {
-            const xhttp = new XMLHttpRequest();
-            xhttp.onload = function () {
-                document.getElementById("main-content").innerHTML = this.responseText;
-            }
-            xhttp.open("GET", page, true);
-            xhttp.send();
-        }
 
     </script>
     <div class="footer-rights">
