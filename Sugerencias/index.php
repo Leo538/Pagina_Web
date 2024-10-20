@@ -50,5 +50,16 @@
             <a href="#"><i class="fas fa-comment-dots"></i> Sugerencias</a>
         </nav>
     </header>
+
+    <div class="container">
+        <h1>Sugerencias y Votación para Candidato a Rector</h1>
+        
+        <h2>Instrucciones:</h2>
+        <p>Por favor, proporcione sus sugerencias o comentarios sobre los candidatos a rector. También puede votar por su candidato preferido a continuación.</p>
+        
+        <!-- Sugerencias Generales -->
+        <h2>Sugerencias Generales</h2>
+        <textarea class="input-field textarea" placeholder="Escriba aquí sus sugerencias generales..."></textarea>
+    </div>
 </body>
 </html>
