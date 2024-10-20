@@ -67,6 +67,27 @@
 
         <label for="candidato2">Candidato 2:</label>
         <textarea id="candidato2" class="input-field textarea" placeholder="Escriba aquí su comentario sobre el Candidato 2..."></textarea>
+
+        <h2>Votación por Candidato</h2>
+<form>
+    <label>
+        <input type="radio" name="voto" value="Candidato 1">
+        Candidato 1
+    </label><br>
+
+    <label>
+        <input type="radio" name="voto" value="Candidato 2">
+        Candidato 2
+    </label><br>
+
+    <label>
+        <input type="radio" name="voto" value="Candidato 3">
+        Candidato 3
+    </label><br>
+
+    <button type="submit" class="button">Votar</button>
+</form>
     </div>
+
 </body>
 </html>
