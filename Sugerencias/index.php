@@ -91,30 +91,45 @@
     <!-- Propuestas de mejora -->
     <h2>Propuestas de Mejora</h2>
     <textarea class="input-field textarea" placeholder="¿Tiene alguna sugerencia adicional para mejorar el proceso de selección o los criterios para elegir al próximo rector?"></textarea>
+
     <!-- Botón de Enviar Sugerencias -->
     <div class="form-row">
         <button class="button" onclick="submitSuggestions()">Enviar Sugerencias</button>
     </div>
-        <!-- Sistema de Votación -->
-<h2>Votación por Candidato</h2>
-<form>
-    <label>
-        <input type="radio" name="voto" value="Candidato 1">
-        Candidato 1
-    </label><br>
-
-    <label>
-        <input type="radio" name="voto" value="Candidato 2">
-        Candidato 2
-    </label><br>
-
-    <label>
-        <input type="radio" name="voto" value="Candidato 3">
-        Candidato 3
-    </label><br>
-
-    <button type="submit" class="button">Votar</button>
-</form>
+          <!-- Botón para Mostrar Opciones de Voto -->
+          <button class="button" onclick="toggleVoteOptions()">Votar por un candidato</button>
+        </div>
+    
+        <!-- Sección de Votación -->
+        <div id="vote-container" class="vote-container">
+            <!-- Datos del Votante -->
+            <h2>Datos del Votante</h2>
+            <div class="form-row">
+                <input type="text" id="username" class="input-field small-input" placeholder="Nombre de usuario">
+                <input type="email" id="email" class="input-field small-input" placeholder="Correo electrónico">
+            </div>
+    
+            <!-- Sección de votación con imágenes -->
+            <h2>Votar por un Candidato</h2>
+            <p>Seleccione su candidato preferido:</p>
+    
+            <div class="form-row">
+                <div class="candidate-option">
+                    <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 1">
+                    <input type="radio" id="vote1" name="vote" value="Candidato 1">
+                    <P><label for="vote1">[Nombre del candidato]</label></P>
+                </div>
+                <div class="candidate-option">
+                    <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 2">
+                    <input type="radio" id="vote2" name="vote" value="Candidato 2">
+                <p><label for="vote2">[Nombre del candidato]</label></p>
+                </div>
+                <div class="candidate-option">
+                    <img src="C:\Users\ACER_2023\Downloads\perfil.jpg"   alt="Foto Candidato 3">
+                    <input type="radio" id="vote3" name="vote" value="Candidato 3">
+                <p><label for="vote3">[Nombre del candidato]</label></p>
+                </div>
+            </div>
 <script>
     function confirmarVoto() {
         var votoSeleccionado = document.querySelector('input[name="voto"]:checked');
