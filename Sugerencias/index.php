@@ -91,7 +91,10 @@
     <!-- Propuestas de mejora -->
     <h2>Propuestas de Mejora</h2>
     <textarea class="input-field textarea" placeholder="¿Tiene alguna sugerencia adicional para mejorar el proceso de selección o los criterios para elegir al próximo rector?"></textarea>
-
+    <!-- Botón de Enviar Sugerencias -->
+    <div class="form-row">
+        <button class="button" onclick="submitSuggestions()">Enviar Sugerencias</button>
+    </div>
         <!-- Sistema de Votación -->
 <h2>Votación por Candidato</h2>
 <form>
