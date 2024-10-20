@@ -166,7 +166,7 @@ header {
 <body>
     <header>
         <div class="logo">
-            <img src="C:\xamp2\htdocs\Pagina_Web\Pagina_Web\Home\Main\Img\logo.png" alt="UTA Logo"> 
+            <img src="Img\logo.png" alt="UTA Logo"> 
             <h1>Proceso de Elecciones UTA 2024</h1>
         </div>
         <nav>
@@ -196,7 +196,7 @@ header {
         <label for="candidate1">Candidato 1: [Nombre del candidato]</label>
         <textarea id="candidate1" class="input-field textarea" placeholder="Escriba sus comentarios sobre este candidato..."></textarea>
     </div>
-    <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 1">
+    <img src="Img\perfil.png" alt="Foto Candidato 1">
 </div>
 
 <div class="candidate-comments">
@@ -204,14 +204,14 @@ header {
         <label for="candidate2">Candidato 2: [Nombre del candidato]</label>
         <textarea id="candidate2" class="input-field textarea" placeholder="Escriba sus comentarios sobre este candidato..."></textarea>
     </div>
-    <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 2">
+    <img src="Img\perfil.png" alt="Foto Candidato 2">
 </div>
 <div class="candidate-comments">
     <div>
         <label for="candidate3">Candidato 3: [Nombre del candidato]</label>
         <textarea id="candidate3" class="input-field textarea" placeholder="Escriba sus comentarios sobre este candidato..."></textarea>
     </div>
-    <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 2">
+    <img src="Img\perfil.png" alt="Foto Candidato 3">
 </div>
 
     <!-- Propuestas de mejora -->
