@@ -142,11 +142,6 @@
             margin-bottom: 15px;
         }
 
-        .proposal-card p {
-            font-size: 0.95em;
-            color: #666;
-        }
-
         footer {
             background-color: #b22222;
             color: white;
@@ -200,15 +195,15 @@
             <!-- Propuesta Candidato 1 -->
             <div class="proposal-card" id="proposalCandidato1">
                 <h3>Propuesta Candidato 1</h3>
-                <div class="proposal-title">Propuesta sobre infraestructura de la Facultad de Ciencias Administrativas</div>
-                <div class="proposal-description">Esta propuesta busca mejorar la infraestructura de la facultad, con un enfoque en la construcción de nuevos laboratorios, aulas equipadas con tecnología de punta, y mejoras en las áreas de estudio para los estudiantes.</div>
+                <div class="proposal-title" id="candidato1Title"></div>
+                <div class="proposal-description" id="candidato1Description"></div>
             </div>
 
             <!-- Propuesta Candidato 2 -->
             <div class="proposal-card" id="proposalCandidato2">
                 <h3>Propuesta Candidato 2</h3>
-                <div class="proposal-title">Propuesta sobre mejora en deportes para la Facultad de Ciencias de la Salud</div>
-                <div class="proposal-description">El candidato 2 propone una mejora en las instalaciones deportivas de la facultad, con el fin de fomentar la actividad física entre los estudiantes y mejorar los programas de deportes ya existentes, promoviendo el bienestar de la comunidad universitaria.</div>
+                <div class="proposal-title" id="candidato2Title"></div>
+                <div class="proposal-description" id="candidato2Description"></div>
             </div>
         </div>
     </div>
@@ -219,57 +214,66 @@
 
     <script>
         const propuestas = {
-            "Facultad de Ciencias Administrativas": {
-                candidato1: {
-                    title: "Propuesta sobre infraestructura de la Facultad de Ciencias Administrativas",
-                    description: "Esta propuesta busca mejorar la infraestructura de la facultad, con un enfoque en la construcción de nuevos laboratorios, aulas equipadas con tecnología de punta, y mejoras en las áreas de estudio para los estudiantes."
-                },
-                candidato2: {
-                    title: "No hay propuestas disponibles para este tema.",
-                    description: ""
-                }
-            },
             "Facultad de Ciencias de la Salud": {
-                candidato1: {
-                    title: "No hay propuestas disponibles para este tema.",
-                    description: ""
-                },
-                candidato2: {
-                    title: "Propuesta sobre mejora en deportes para la Facultad de Ciencias de la Salud",
-                    description: "El candidato 2 propone una mejora en las instalaciones deportivas de la facultad, con el fin de fomentar la actividad física entre los estudiantes y mejorar los programas de deportes ya existentes, promoviendo el bienestar de la comunidad universitaria."
-                }
+                candidato1: [
+                    "Propuesta 1: Mejora de Laboratorios - Renovación de los laboratorios de prácticas médicas para los estudiantes.",
+                    "Propuesta 2: Aulas Modernas - Equipar aulas con simuladores médicos avanzados para una enseñanza más interactiva.",
+                    "Propuesta 3: Programas de Intercambio - Implementar programas de intercambio con universidades internacionales en el área de salud.",
+                    "Propuesta 4: Formación Continua - Establecer cursos de formación continua para el personal médico de la facultad.",
+                    "Propuesta 5: Clínicas Universitarias - Reforma de las clínicas universitarias para brindar servicios de calidad a la comunidad.",
+                    "Propuesta 6: Investigación Médica - Fomentar la investigación en medicina y ciencias de la salud a través de subvenciones.",
+                    "Propuesta 7: Bienestar Estudiantil - Crear programas de salud mental y bienestar para los estudiantes de la facultad.",
+                    "Propuesta 8: Colaboraciones con Hospitales - Ampliar la colaboración con hospitales regionales para más oportunidades de práctica.",
+                    "Propuesta 9: Mejora de Infraestructuras - Construir un nuevo edificio de laboratorios equipado con tecnología de punta.",
+                    "Propuesta 10: Acceso a Biblioteca Digital - Acceso ilimitado a bibliotecas digitales especializadas en ciencias médicas."
+                ],
+                candidato2: [
+                    "Propuesta 1: Deportes para la Salud - Crear más espacios deportivos específicos para los estudiantes de salud.",
+                    "Propuesta 2: Clínicas Móviles - Establecer clínicas móviles para que los estudiantes puedan hacer prácticas en comunidades rurales.",
+                    "Propuesta 3: Biblioteca Especializada - Modernización de la biblioteca de la facultad con recursos especializados.",
+                    "Propuesta 4: Programa de Becas - Crear un programa de becas para estudiantes destacados en ciencias de la salud.",
+                    "Propuesta 5: Centros de Simulación - Construir centros de simulación avanzada para la práctica médica.",
+                    "Propuesta 6: Prevención de Enfermedades - Programas de prevención de enfermedades en las áreas de medicina preventiva.",
+                    "Propuesta 7: Movilidad Estudiantil - Facilitar la movilidad internacional para estudiantes de medicina.",
+                    "Propuesta 8: Capacitación Docente - Capacitación continua de los docentes en nuevas tecnologías médicas.",
+                    "Propuesta 9: Medicina Rural - Fomentar programas de salud y medicina rural a través de la facultad.",
+                    "Propuesta 10: Servicio Comunitario - Iniciar programas de servicio comunitario para los estudiantes de salud."
+                ]
             },
             "default": {
-                candidato1: {
-                    title: "No hay propuestas disponibles para este tema.",
-                    description: ""
-                },
-                candidato2: {
-                    title: "No hay propuestas disponibles para este tema.",
-                    description: ""
-                }
+                candidato1: ["No hay propuestas disponibles para este tema."],
+                candidato2: ["No hay propuestas disponibles para este tema."]
             }
         };
 
         function filterProposals() {
             var selectedFaculty = document.getElementById("faculty").value;
-            var proposalCandidato1Title = document.getElementById("proposalCandidato1").querySelector(".proposal-title");
-            var proposalCandidato1Desc = document.getElementById("proposalCandidato1").querySelector(".proposal-description");
-            var proposalCandidato2Title = document.getElementById("proposalCandidato2").querySelector(".proposal-title");
-            var proposalCandidato2Desc = document.getElementById("proposalCandidato2").querySelector(".proposal-description");
+            var candidato1Title = document.getElementById("candidato1Title");
+            var candidato1Description = document.getElementById("candidato1Description");
+            var candidato2Title = document.getElementById("candidato2Title");
+            var candidato2Description = document.getElementById("candidato2Description");
 
-            if (propuestas[selectedFaculty]) {
-                proposalCandidato1Title.textContent = propuestas[selectedFaculty].candidato1.title;
-                proposalCandidato1Desc.textContent = propuestas[selectedFaculty].candidato1.description;
-                proposalCandidato2Title.textContent = propuestas[selectedFaculty].candidato2.title;
-                proposalCandidato2Desc.textContent = propuestas[selectedFaculty].candidato2.description;
-            } else {
-                proposalCandidato1Title.textContent = propuestas["default"].candidato1.title;
-                proposalCandidato1Desc.textContent = propuestas["default"].candidato1.description;
-                proposalCandidato2Title.textContent = propuestas["default"].candidato2.title;
-                proposalCandidato2Desc.textContent = propuestas["default"].candidato2.description;
-            }
+            const candidato1Propuestas = propuestas[selectedFaculty]?.candidato1 || propuestas["default"].candidato1;
+            const candidato2Propuestas = propuestas[selectedFaculty]?.candidato2 || propuestas["default"].candidato2;
+
+            candidato1Title.innerHTML = "";
+            candidato1Description.innerHTML = "";
+            candidato2Title.innerHTML = "";
+            candidato2Description.innerHTML = "";
+
+            // Mostrar propuestas para Candidato 1 en el mismo cuadro
+            candidato1Propuestas.forEach((propuesta, index) => {
+                candidato1Title.innerHTML += `<p><b>Propuesta ${index + 1}:</b> ${propuesta}</p>`;
+            });
+
+            // Mostrar propuestas para Candidato 2 en el mismo cuadro
+            candidato2Propuestas.forEach((propuesta, index) => {
+                candidato2Title.innerHTML += `<p><b>Propuesta ${index + 1}:</b> ${propuesta}</p>`;
+            });
         }
+
+        // Inicializar mostrando todas las propuestas
+        filterProposals();
     </script>
 </body>
 </html>
