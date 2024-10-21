@@ -113,6 +113,7 @@
             width: calc(50% - 10px);
             margin-bottom: 20px;
             transition: transform 0.3s ease;
+            min-height: 150px;
         }
 
         .proposal-card:hover {
@@ -183,17 +184,16 @@
 
         <div class="proposals-grid" id="proposalsGrid">
             <!-- Propuesta Candidato 1 -->
-            <div class="proposal-card" data-category="Facultad de Ciencias Administrativas">
+            <div class="proposal-card" id="proposalCandidato1">
                 <h3>Propuesta Candidato 1</h3>
                 <p>Propuesta sobre infraestructura de la Facultad de Ciencias Administrativas.</p>
             </div>
 
             <!-- Propuesta Candidato 2 -->
-            <div class="proposal-card" data-category="Facultad de Ciencias de la Salud">
+            <div class="proposal-card" id="proposalCandidato2">
                 <h3>Propuesta Candidato 2</h3>
                 <p>Propuesta sobre mejora en deportes para la Facultad de Ciencias de la Salud.</p>
             </div>
-
         </div>
     </div>
 
@@ -202,17 +202,33 @@
     </footer>
 
     <script>
+        const propuestas = {
+            "Facultad de Ciencias Administrativas": {
+                candidato1: "Propuesta sobre infraestructura de la Facultad de Ciencias Administrativas.",
+                candidato2: "No hay propuestas disponibles para este tema."
+            },
+            "Facultad de Ciencias de la Salud": {
+                candidato1: "No hay propuestas disponibles para este tema.",
+                candidato2: "Propuesta sobre mejora en deportes para la Facultad de Ciencias de la Salud."
+            },
+            "default": {
+                candidato1: "No hay propuestas disponibles para este tema.",
+                candidato2: "No hay propuestas disponibles para este tema."
+            }
+        };
+
         function filterProposals() {
             var selectedFaculty = document.getElementById("faculty").value;
-            var proposals = document.querySelectorAll(".proposal-card");
+            var proposalCandidato1 = document.getElementById("proposalCandidato1").querySelector("p");
+            var proposalCandidato2 = document.getElementById("proposalCandidato2").querySelector("p");
 
-            proposals.forEach(function(proposal) {
-                if (selectedFaculty === "all" || proposal.getAttribute("data-category") === selectedFaculty) {
-                    proposal.style.display = "block";
-                } else {
-                    proposal.style.display = "none";
-                }
-            });
+            if (propuestas[selectedFaculty]) {
+                proposalCandidato1.textContent = propuestas[selectedFaculty].candidato1;
+                proposalCandidato2.textContent = propuestas[selectedFaculty].candidato2;
+            } else {
+                proposalCandidato1.textContent = propuestas["default"].candidato1;
+                proposalCandidato2.textContent = propuestas["default"].candidato2;
+            }
         }
     </script>
 </body>
