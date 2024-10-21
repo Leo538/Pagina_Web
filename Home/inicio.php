@@ -250,10 +250,10 @@
                 <h1>Proceso de Elecciones UTA 2024</h1>
             </div>
             <nav>
-                <a href="#"><i class="fas fa-home"></i> Inicio</a>
+                <a href="../Home/inicio.php"><i class="fas fa-home"></i> Inicio</a>
                 <a href="#"><i class="fas fa-user"></i> Candidatos</a>
                 <a href="#"><i class="fas fa-bullhorn"></i> Propuestas</a>
-                <a href="#"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
+                <a href='../Eventos_Noticias/eventos_noticias.php'><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
                 <a href="#"><i class="fas fa-comment-dots"></i> Sugerencias</a>
             </nav>
         </header>
