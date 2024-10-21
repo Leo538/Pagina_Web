@@ -79,8 +79,9 @@
         h2 {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 2em;
+            font-size: 2.2em;
             color: #333;
+            letter-spacing: 1px;
         }
 
         .filter-box {
@@ -91,11 +92,18 @@
         .filter-box select {
             padding: 10px 15px;
             font-size: 1em;
-            border-radius: 5px;
+            border-radius: 8px;
             border: 1px solid #ccc;
             width: 100%;
             max-width: 400px;
             margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .filter-box select:hover {
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
         }
 
         .proposals-grid {
@@ -108,38 +116,49 @@
         .proposal-card {
             background-color: #fff;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             width: calc(50% - 10px);
             margin-bottom: 20px;
-            transition: transform 0.3s ease;
-            min-height: 200px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 250px;
+            border-left: 6px solid #b22222;
         }
 
         .proposal-card:hover {
             transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         }
 
         .proposal-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
+            font-size: 1.8em;
+            margin-bottom: 15px;
             color: #b22222;
             text-align: center;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
         }
 
         .proposal-card .proposal-title {
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: bold;
             color: #444;
             margin-bottom: 8px;
-            text-align: center;
+            text-align: left;
         }
 
         .proposal-card .proposal-description {
-            font-size: 1em;
+            font-size: 1.1em;
             color: #666;
             text-align: justify;
             margin-bottom: 15px;
+        }
+
+        .proposal-card p {
+            font-size: 1em;
+            color: #444;
+            line-height: 1.6;
+            margin-left: 15px;
         }
 
         footer {
@@ -150,6 +169,32 @@
             position: relative;
             bottom: 0;
             width: 100%;
+        }
+
+        .proposal-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 1.1em;
+            background-color: #fafafa;
+            border-radius: 8px;
+            padding: 12px 15px;
+        }
+
+        .proposal-item:last-child {
+            border-bottom: none;
+        }
+
+
+        .proposal-item {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .proposal-item.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -195,15 +240,15 @@
             <!-- Propuesta Candidato 1 -->
             <div class="proposal-card" id="proposalCandidato1">
                 <h3>Propuesta Candidato 1</h3>
-                <div class="proposal-title" id="candidato1Title"></div>
-                <div class="proposal-description" id="candidato1Description"></div>
+                <div class="proposal-title">Propuestas del Candidato 1</div>
+                <div id="candidato1Description"></div>
             </div>
 
             <!-- Propuesta Candidato 2 -->
             <div class="proposal-card" id="proposalCandidato2">
                 <h3>Propuesta Candidato 2</h3>
-                <div class="proposal-title" id="candidato2Title"></div>
-                <div class="proposal-description" id="candidato2Description"></div>
+                <div class="proposal-title">Propuestas del Candidato 2</div>
+                <div id="candidato2Description"></div>
             </div>
         </div>
     </div>
@@ -214,65 +259,90 @@
 
     <script>
         const propuestas = {
-            "Facultad de Ciencias de la Salud": {
+            "Facultad de Ciencias Administrativas": {
                 candidato1: [
-                    "Propuesta 1: Mejora de Laboratorios - Renovación de los laboratorios de prácticas médicas para los estudiantes.",
-                    "Propuesta 2: Aulas Modernas - Equipar aulas con simuladores médicos avanzados para una enseñanza más interactiva.",
-                    "Propuesta 3: Programas de Intercambio - Implementar programas de intercambio con universidades internacionales en el área de salud.",
-                    "Propuesta 4: Formación Continua - Establecer cursos de formación continua para el personal médico de la facultad.",
-                    "Propuesta 5: Clínicas Universitarias - Reforma de las clínicas universitarias para brindar servicios de calidad a la comunidad.",
-                    "Propuesta 6: Investigación Médica - Fomentar la investigación en medicina y ciencias de la salud a través de subvenciones.",
-                    "Propuesta 7: Bienestar Estudiantil - Crear programas de salud mental y bienestar para los estudiantes de la facultad.",
-                    "Propuesta 8: Colaboraciones con Hospitales - Ampliar la colaboración con hospitales regionales para más oportunidades de práctica.",
-                    "Propuesta 9: Mejora de Infraestructuras - Construir un nuevo edificio de laboratorios equipado con tecnología de punta.",
-                    "Propuesta 10: Acceso a Biblioteca Digital - Acceso ilimitado a bibliotecas digitales especializadas en ciencias médicas."
+                    "Mejora de la infraestructura académica.",
+                    "Reforma de planes de estudio.",
+                    "Creación de centros de innovación.",
+                    "Expansión de programas de investigación.",
+                    "Fomento del emprendimiento universitario.",
+                    "Renovación de bibliotecas.",
+                    "Mejoras en el acceso digital.",
+                    "Creación de laboratorios modernos.",
+                    "Impulso a la internacionalización.",
+                    "Aumento de becas estudiantiles."
                 ],
                 candidato2: [
-                    "Propuesta 1: Deportes para la Salud - Crear más espacios deportivos específicos para los estudiantes de salud.",
-                    "Propuesta 2: Clínicas Móviles - Establecer clínicas móviles para que los estudiantes puedan hacer prácticas en comunidades rurales.",
-                    "Propuesta 3: Biblioteca Especializada - Modernización de la biblioteca de la facultad con recursos especializados.",
-                    "Propuesta 4: Programa de Becas - Crear un programa de becas para estudiantes destacados en ciencias de la salud.",
-                    "Propuesta 5: Centros de Simulación - Construir centros de simulación avanzada para la práctica médica.",
-                    "Propuesta 6: Prevención de Enfermedades - Programas de prevención de enfermedades en las áreas de medicina preventiva.",
-                    "Propuesta 7: Movilidad Estudiantil - Facilitar la movilidad internacional para estudiantes de medicina.",
-                    "Propuesta 8: Capacitación Docente - Capacitación continua de los docentes en nuevas tecnologías médicas.",
-                    "Propuesta 9: Medicina Rural - Fomentar programas de salud y medicina rural a través de la facultad.",
-                    "Propuesta 10: Servicio Comunitario - Iniciar programas de servicio comunitario para los estudiantes de salud."
+                    "Desarrollo de programas de bienestar estudiantil.",
+                    "Fomento de programas deportivos.",
+                    "Ampliación de espacios recreativos.",
+                    "Integración de tecnologías en la enseñanza.",
+                    "Mejora de la infraestructura del campus.",
+                    "Creación de laboratorios especializados.",
+                    "Fortalecimiento de redes de apoyo.",
+                    "Implementación de tutorías personalizadas.",
+                    "Fomento de la movilidad internacional.",
+                    "Establecimiento de convenios con empresas."
+                ]
+            },
+            "Facultad de Ciencias de la Salud": {
+                candidato1: [
+                    "Mejora de Laboratorios - Renovación de los laboratorios de prácticas médicas.",
+                    "Aulas Modernas - Equipar aulas con simuladores médicos.",
+                    "Programas de Intercambio - Implementar programas de intercambio internacionales.",
+                    "Formación Continua - Establecer cursos de formación continua para el personal médico.",
+                    "Clínicas Universitarias - Reforma de clínicas universitarias.",
+                    "Investigación Médica - Fomentar la investigación en medicina.",
+                    "Bienestar Estudiantil - Crear programas de salud mental.",
+                    "Colaboraciones con Hospitales - Ampliar la colaboración con hospitales regionales.",
+                    "Mejora de Infraestructuras - Construir un nuevo edificio de laboratorios.",
+                    "Acceso a Biblioteca Digital - Acceso ilimitado a bibliotecas médicas digitales."
+                ],
+                candidato2: [
+                    "Deportes para la Salud - Crear más espacios deportivos.",
+                    "Clínicas Móviles - Establecer clínicas móviles.",
+                    "Biblioteca Especializada - Modernización de la biblioteca de la facultad.",
+                    "Programa de Becas - Crear un programa de becas para estudiantes destacados.",
+                    "Centros de Simulación - Construir centros de simulación avanzada.",
+                    "Prevención de Enfermedades - Programas de prevención.",
+                    "Movilidad Estudiantil - Facilitar la movilidad internacional.",
+                    "Capacitación Docente - Capacitación continua para docentes.",
+                    "Medicina Rural - Fomentar programas de medicina rural.",
+                    "Servicio Comunitario - Programas de servicio comunitario."
                 ]
             },
             "default": {
-                candidato1: ["No hay propuestas disponibles para este tema."],
-                candidato2: ["No hay propuestas disponibles para este tema."]
+                candidato1: [
+                    "No hay propuestas disponibles para este tema."
+                ],
+                candidato2: [
+                    "No hay propuestas disponibles para este tema."
+                ]
             }
         };
 
         function filterProposals() {
-            var selectedFaculty = document.getElementById("faculty").value;
-            var candidato1Title = document.getElementById("candidato1Title");
-            var candidato1Description = document.getElementById("candidato1Description");
-            var candidato2Title = document.getElementById("candidato2Title");
-            var candidato2Description = document.getElementById("candidato2Description");
+            const faculty = document.getElementById("faculty").value;
+            const candidato1Description = document.getElementById("candidato1Description");
+            const candidato2Description = document.getElementById("candidato2Description");
 
-            const candidato1Propuestas = propuestas[selectedFaculty]?.candidato1 || propuestas["default"].candidato1;
-            const candidato2Propuestas = propuestas[selectedFaculty]?.candidato2 || propuestas["default"].candidato2;
+            const selectedProposals = faculty === 'all' 
+                ? Object.values(propuestas).reduce((acc, val) => {
+                    acc.candidato1 = [...acc.candidato1, ...val.candidato1];
+                    acc.candidato2 = [...acc.candidato2, ...val.candidato2];
+                    return acc;
+                }, { candidato1: [], candidato2: [] })
+                : propuestas[faculty] || propuestas["default"];
 
-            candidato1Title.innerHTML = "";
-            candidato1Description.innerHTML = "";
-            candidato2Title.innerHTML = "";
-            candidato2Description.innerHTML = "";
-
-            // Mostrar propuestas para Candidato 1 en el mismo cuadro
-            candidato1Propuestas.forEach((propuesta, index) => {
-                candidato1Title.innerHTML += `<p><b>Propuesta ${index + 1}:</b> ${propuesta}</p>`;
-            });
-
-            // Mostrar propuestas para Candidato 2 en el mismo cuadro
-            candidato2Propuestas.forEach((propuesta, index) => {
-                candidato2Title.innerHTML += `<p><b>Propuesta ${index + 1}:</b> ${propuesta}</p>`;
-            });
+            candidato1Description.innerHTML = selectedProposals.candidato1
+                .map((proposal, index) => `<div class="proposal-item visible"><strong>Propuesta ${index + 1}:</strong> ${proposal}</div>`)
+                .join('');
+            candidato2Description.innerHTML = selectedProposals.candidato2
+                .map((proposal, index) => `<div class="proposal-item visible"><strong>Propuesta ${index + 1}:</strong> ${proposal}</div>`)
+                .join('');
         }
 
-        // Inicializar mostrando todas las propuestas
+        
         filterProposals();
     </script>
 </body>
