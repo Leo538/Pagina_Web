@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propuestas</title>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -13,7 +14,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f4f4;
@@ -154,13 +156,6 @@
             margin-bottom: 15px;
         }
 
-        .proposal-card p {
-            font-size: 1em;
-            color: #444;
-            line-height: 1.6;
-            margin-left: 15px;
-        }
-
         footer {
             background-color: #b22222;
             color: white;
@@ -185,7 +180,6 @@
             border-bottom: none;
         }
 
-
         .proposal-item {
             opacity: 0;
             transform: translateY(10px);
@@ -198,6 +192,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -220,14 +215,15 @@
             <label for="faculty">Filtrar por Facultad o Interés:</label>
             <select id="faculty" onchange="filterProposals()">
                 <option value="all">Mostrar Todas</option>
-                <option value="Facultad de Ciencias Administrativas">Facultad de Ciencias Administrativas</option>
-                <option value="Facultad de Ciencias de la Salud">Facultad de Ciencias de la Salud</option>
-                <option value="Facultad de Ciencias Humanas y de la Educación">Facultad de Ciencias Humanas y de la Educación</option>
-                <option value="Facultad de Ciencias Agropecuarias">Facultad de Ciencias Agropecuarias</option>
-                <option value="Facultad de Ciencias de la Ingeniería y Aplicadas">Facultad de Ciencias de la Ingeniería y Aplicadas</option>
-                <option value="Facultad de Jurisprudencia y Ciencias Sociales">Facultad de Jurisprudencia y Ciencias Sociales</option>
-                <option value="Facultad de Diseño, Arquitectura y Artes">Facultad de Diseño, Arquitectura y Artes</option>
-                <option value="Facultad de Contabilidad y Auditoría">Facultad de Contabilidad y Auditoría</option>
+                <option value="Ciencias Administrativas">Ciencias Administrativas</option>
+                <option value="Ciencia e Ingeniería en Alimentos">Ciencia e Ingeniería en Alimentos</option>
+                <option value="Jurisprudencia y Ciencias Sociales">Jurisprudencia y Ciencias Sociales</option>
+                <option value="Contabilidad y Auditoría">Contabilidad y Auditoría</option>
+                <option value="Ciencias Humanas y de la Educación">Ciencias Humanas y de la Educación</option>
+                <option value="Ciencias de la Salud">Ciencias de la Salud</option>
+                <option value="Ingeniería Civil y Mecánica">Ingeniería Civil y Mecánica</option>
+                <option value="Ingeniería en Sistemas, Electrónica e Industrial">Ingeniería en Sistemas, Electrónica e
+                    Industrial</option>
                 <option value="infraestructura">Infraestructura</option>
                 <option value="deportes">Deportes</option>
                 <option value="cultura">Cultura</option>
@@ -239,15 +235,13 @@
         <div class="proposals-grid" id="proposalsGrid">
             <!-- Propuesta Candidato 1 -->
             <div class="proposal-card" id="proposalCandidato1">
-                <h3>Propuesta Candidato 1</h3>
-                <div class="proposal-title">Propuestas del Candidato 1</div>
+                <h3>Zara Camacho</h3>
                 <div id="candidato1Description"></div>
             </div>
 
             <!-- Propuesta Candidato 2 -->
             <div class="proposal-card" id="proposalCandidato2">
-                <h3>Propuesta Candidato 2</h3>
-                <div class="proposal-title">Propuestas del Candidato 2</div>
+                <h3>Mary Cruz</h3>
                 <div id="candidato2Description"></div>
             </div>
         </div>
@@ -259,91 +253,124 @@
 
     <script>
         const propuestas = {
-            "Facultad de Ciencias Administrativas": {
+            "Ciencias Administrativas": {
                 candidato1: [
-                    "Mejora de la infraestructura académica.",
-                    "Reforma de planes de estudio.",
-                    "Creación de centros de innovación.",
-                    "Expansión de programas de investigación.",
-                    "Fomento del emprendimiento universitario.",
-                    "Renovación de bibliotecas.",
-                    "Mejoras en el acceso digital.",
-                    "Creación de laboratorios modernos.",
-                    "Impulso a la internacionalización.",
-                    "Aumento de becas estudiantiles."
+                    { title: "Mejora de la infraestructura académica", description: "Renovación de edificios y adquisición de nuevos equipos." }
                 ],
                 candidato2: [
-                    "Desarrollo de programas de bienestar estudiantil.",
-                    "Fomento de programas deportivos.",
-                    "Ampliación de espacios recreativos.",
-                    "Integración de tecnologías en la enseñanza.",
-                    "Mejora de la infraestructura del campus.",
-                    "Creación de laboratorios especializados.",
-                    "Fortalecimiento de redes de apoyo.",
-                    "Implementación de tutorías personalizadas.",
-                    "Fomento de la movilidad internacional.",
-                    "Establecimiento de convenios con empresas."
+                    { title: "Desarrollo de programas de bienestar estudiantil", description: "Implementación de programas de apoyo psicológico y bienestar." }
                 ]
             },
-            "Facultad de Ciencias de la Salud": {
+            "Ciencia e Ingeniería en Alimentos": {
                 candidato1: [
-                    "Mejora de Laboratorios - Renovación de los laboratorios de prácticas médicas.",
-                    "Aulas Modernas - Equipar aulas con simuladores médicos.",
-                    "Programas de Intercambio - Implementar programas de intercambio internacionales.",
-                    "Formación Continua - Establecer cursos de formación continua para el personal médico.",
-                    "Clínicas Universitarias - Reforma de clínicas universitarias.",
-                    "Investigación Médica - Fomentar la investigación en medicina.",
-                    "Bienestar Estudiantil - Crear programas de salud mental.",
-                    "Colaboraciones con Hospitales - Ampliar la colaboración con hospitales regionales.",
-                    "Mejora de Infraestructuras - Construir un nuevo edificio de laboratorios.",
-                    "Acceso a Biblioteca Digital - Acceso ilimitado a bibliotecas médicas digitales."
+                    { title: "Optimización de laboratorios de alimentos", description: "Mejoras en los laboratorios y prácticas para estudiantes." }
                 ],
                 candidato2: [
-                    "Deportes para la Salud - Crear más espacios deportivos.",
-                    "Clínicas Móviles - Establecer clínicas móviles.",
-                    "Biblioteca Especializada - Modernización de la biblioteca de la facultad.",
-                    "Programa de Becas - Crear un programa de becas para estudiantes destacados.",
-                    "Centros de Simulación - Construir centros de simulación avanzada.",
-                    "Prevención de Enfermedades - Programas de prevención.",
-                    "Movilidad Estudiantil - Facilitar la movilidad internacional.",
-                    "Capacitación Docente - Capacitación continua para docentes.",
-                    "Medicina Rural - Fomentar programas de medicina rural.",
-                    "Servicio Comunitario - Programas de servicio comunitario."
+                    { title: "Creación de centros de investigación alimentaria", description: "Desarrollo de centros de investigación en tecnología alimentaria." }
+                ]
+            },
+            "Jurisprudencia y Ciencias Sociales": {
+                candidato1: [
+                    { title: "Aulas interactivas", description: "Incorporar tecnología interactiva en las aulas para fomentar el aprendizaje dinámico." }
+                ],
+                candidato2: [
+                    { title: "Clínica Jurídica Estudiantil", description: "Desarrollar una clínica jurídica donde los estudiantes puedan practicar con casos reales." }
+                ]
+            },
+            "Contabilidad y Auditoría": {
+                candidato1: [
+                    { title: "Modernización del programa de contabilidad", description: "Mejoras en el software de contabilidad utilizado en clases." }
+                ],
+                candidato2: [
+                    { title: "Integración de auditoría ambiental", description: "Incluir la auditoría ambiental en el currículo de los estudiantes." }
+                ]
+            },
+            "Ciencias Humanas y de la Educación": {
+                candidato1: [
+                    { title: "Aulas inclusivas", description: "Creación de aulas inclusivas con acceso para estudiantes con discapacidades." }
+                ],
+                candidato2: [
+                    { title: "Desarrollo pedagógico", description: "Programas de capacitación para los profesores en nuevas metodologías pedagógicas." }
+                ]
+            },
+            "Ciencias de la Salud": {
+                candidato1: [
+                    { title: "Mejora de laboratorios", description: "Renovación de los laboratorios de prácticas médicas." }
+                ],
+                candidato2: [
+                    { title: "Aulas modernas", description: "Equipar aulas con simuladores médicos avanzados." }
+                ]
+            },
+            "Ingeniería Civil y Mecánica": {
+                candidato1: [
+                    { title: "Ampliación de laboratorios", description: "Agregar más laboratorios especializados en materiales de construcción." }
+                ],
+                candidato2: [
+                    { title: "Nueva biblioteca técnica", description: "Desarrollar una biblioteca técnica con recursos avanzados." }
+                ]
+            },
+            "Ingeniería en Sistemas, Electrónica e Industrial": {
+                candidato1: [
+                    { title: "Renovación de equipos", description: "Actualizar equipos de cómputo y electrónica." }
+                ],
+                candidato2: [
+                    { title: "Mejora de la enseñanza online", description: "Desarrollar plataformas más eficientes para la enseñanza virtual." }
                 ]
             },
             "default": {
                 candidato1: [
-                    "No hay propuestas disponibles para este tema."
+                    { title: "No hay propuestas disponibles para este tema.", description: "" }
                 ],
                 candidato2: [
-                    "No hay propuestas disponibles para este tema."
+                    { title: "No hay propuestas disponibles para este tema.", description: "" }
                 ]
             }
         };
+
 
         function filterProposals() {
             const faculty = document.getElementById("faculty").value;
             const candidato1Description = document.getElementById("candidato1Description");
             const candidato2Description = document.getElementById("candidato2Description");
 
-            const selectedProposals = faculty === 'all' 
+            const selectedProposals = faculty === 'all'
                 ? Object.values(propuestas).reduce((acc, val) => {
-                    acc.candidato1 = [...acc.candidato1, ...val.candidato1];
-                    acc.candidato2 = [...acc.candidato2, ...val.candidato2];
+                    acc.candidato1 = [...acc.candidato1, ...val.candidato1.filter(p => p.title !== "No hay propuestas disponibles para este tema.")];
+                    acc.candidato2 = [...acc.candidato2, ...val.candidato2.filter(p => p.title !== "No hay propuestas disponibles para este tema.")];
                     return acc;
                 }, { candidato1: [], candidato2: [] })
                 : propuestas[faculty] || propuestas["default"];
 
-            candidato1Description.innerHTML = selectedProposals.candidato1
-                .map((proposal, index) => `<div class="proposal-item visible"><strong>Propuesta ${index + 1}:</strong> ${proposal}</div>`)
-                .join('');
-            candidato2Description.innerHTML = selectedProposals.candidato2
-                .map((proposal, index) => `<div class="proposal-item visible"><strong>Propuesta ${index + 1}:</strong> ${proposal}</div>`)
-                .join('');
+            // Candidato 1
+            if (selectedProposals.candidato1.length === 0 || selectedProposals.candidato1[0].title === "No hay propuestas disponibles para este tema.") {
+                candidato1Description.innerHTML = `<div class="proposal-item visible"><strong>No hay propuestas disponibles para este tema.</strong></div>`;
+            } else {
+                candidato1Description.innerHTML = selectedProposals.candidato1
+                    .map((proposal, index) => `
+                <div class="proposal-item visible">
+                    <strong>Propuesta ${index + 1}: ${proposal.title}</strong>
+                    <p>${proposal.description}</p>
+                </div>
+            `).join('');
+            }
+
+            // Candidato 2
+            if (selectedProposals.candidato2.length === 0 || selectedProposals.candidato2[0].title === "No hay propuestas disponibles para este tema.") {
+                candidato2Description.innerHTML = `<div class="proposal-item visible"><strong>No hay propuestas disponibles para este tema.</strong></div>`;
+            } else {
+                candidato2Description.innerHTML = selectedProposals.candidato2
+                    .map((proposal, index) => `
+                <div class="proposal-item visible">
+                    <strong>Propuesta ${index + 1}: ${proposal.title}</strong>
+                    <p>${proposal.description}</p>
+                </div>
+            `).join('');
+            }
         }
 
-        
         filterProposals();
+
     </script>
 </body>
+
 </html>
