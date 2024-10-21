@@ -113,7 +113,7 @@
             width: calc(50% - 10px);
             margin-bottom: 20px;
             transition: transform 0.3s ease;
-            min-height: 150px;
+            min-height: 200px;
         }
 
         .proposal-card:hover {
@@ -122,15 +122,29 @@
 
         .proposal-card h3 {
             font-size: 1.5em;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #b22222;
             text-align: center;
         }
 
-        .proposal-card p {
+        .proposal-card .proposal-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .proposal-card .proposal-description {
             font-size: 1em;
             color: #666;
             text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .proposal-card p {
+            font-size: 0.95em;
+            color: #666;
         }
 
         footer {
@@ -186,13 +200,15 @@
             <!-- Propuesta Candidato 1 -->
             <div class="proposal-card" id="proposalCandidato1">
                 <h3>Propuesta Candidato 1</h3>
-                <p>Propuesta sobre infraestructura de la Facultad de Ciencias Administrativas.</p>
+                <div class="proposal-title">Propuesta sobre infraestructura de la Facultad de Ciencias Administrativas</div>
+                <div class="proposal-description">Esta propuesta busca mejorar la infraestructura de la facultad, con un enfoque en la construcción de nuevos laboratorios, aulas equipadas con tecnología de punta, y mejoras en las áreas de estudio para los estudiantes.</div>
             </div>
 
             <!-- Propuesta Candidato 2 -->
             <div class="proposal-card" id="proposalCandidato2">
                 <h3>Propuesta Candidato 2</h3>
-                <p>Propuesta sobre mejora en deportes para la Facultad de Ciencias de la Salud.</p>
+                <div class="proposal-title">Propuesta sobre mejora en deportes para la Facultad de Ciencias de la Salud</div>
+                <div class="proposal-description">El candidato 2 propone una mejora en las instalaciones deportivas de la facultad, con el fin de fomentar la actividad física entre los estudiantes y mejorar los programas de deportes ya existentes, promoviendo el bienestar de la comunidad universitaria.</div>
             </div>
         </div>
     </div>
@@ -204,30 +220,54 @@
     <script>
         const propuestas = {
             "Facultad de Ciencias Administrativas": {
-                candidato1: "Propuesta sobre infraestructura de la Facultad de Ciencias Administrativas.",
-                candidato2: "No hay propuestas disponibles para este tema."
+                candidato1: {
+                    title: "Propuesta sobre infraestructura de la Facultad de Ciencias Administrativas",
+                    description: "Esta propuesta busca mejorar la infraestructura de la facultad, con un enfoque en la construcción de nuevos laboratorios, aulas equipadas con tecnología de punta, y mejoras en las áreas de estudio para los estudiantes."
+                },
+                candidato2: {
+                    title: "No hay propuestas disponibles para este tema.",
+                    description: ""
+                }
             },
             "Facultad de Ciencias de la Salud": {
-                candidato1: "No hay propuestas disponibles para este tema.",
-                candidato2: "Propuesta sobre mejora en deportes para la Facultad de Ciencias de la Salud."
+                candidato1: {
+                    title: "No hay propuestas disponibles para este tema.",
+                    description: ""
+                },
+                candidato2: {
+                    title: "Propuesta sobre mejora en deportes para la Facultad de Ciencias de la Salud",
+                    description: "El candidato 2 propone una mejora en las instalaciones deportivas de la facultad, con el fin de fomentar la actividad física entre los estudiantes y mejorar los programas de deportes ya existentes, promoviendo el bienestar de la comunidad universitaria."
+                }
             },
             "default": {
-                candidato1: "No hay propuestas disponibles para este tema.",
-                candidato2: "No hay propuestas disponibles para este tema."
+                candidato1: {
+                    title: "No hay propuestas disponibles para este tema.",
+                    description: ""
+                },
+                candidato2: {
+                    title: "No hay propuestas disponibles para este tema.",
+                    description: ""
+                }
             }
         };
 
         function filterProposals() {
             var selectedFaculty = document.getElementById("faculty").value;
-            var proposalCandidato1 = document.getElementById("proposalCandidato1").querySelector("p");
-            var proposalCandidato2 = document.getElementById("proposalCandidato2").querySelector("p");
+            var proposalCandidato1Title = document.getElementById("proposalCandidato1").querySelector(".proposal-title");
+            var proposalCandidato1Desc = document.getElementById("proposalCandidato1").querySelector(".proposal-description");
+            var proposalCandidato2Title = document.getElementById("proposalCandidato2").querySelector(".proposal-title");
+            var proposalCandidato2Desc = document.getElementById("proposalCandidato2").querySelector(".proposal-description");
 
             if (propuestas[selectedFaculty]) {
-                proposalCandidato1.textContent = propuestas[selectedFaculty].candidato1;
-                proposalCandidato2.textContent = propuestas[selectedFaculty].candidato2;
+                proposalCandidato1Title.textContent = propuestas[selectedFaculty].candidato1.title;
+                proposalCandidato1Desc.textContent = propuestas[selectedFaculty].candidato1.description;
+                proposalCandidato2Title.textContent = propuestas[selectedFaculty].candidato2.title;
+                proposalCandidato2Desc.textContent = propuestas[selectedFaculty].candidato2.description;
             } else {
-                proposalCandidato1.textContent = propuestas["default"].candidato1;
-                proposalCandidato2.textContent = propuestas["default"].candidato2;
+                proposalCandidato1Title.textContent = propuestas["default"].candidato1.title;
+                proposalCandidato1Desc.textContent = propuestas["default"].candidato1.description;
+                proposalCandidato2Title.textContent = propuestas["default"].candidato2.title;
+                proposalCandidato2Desc.textContent = propuestas["default"].candidato2.description;
             }
         }
     </script>
