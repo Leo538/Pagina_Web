@@ -196,11 +196,11 @@
 <body>
     <header>
         <div class="logo">
-            <img src="C:\xamp2\htdocs\Pagina_Web\Pagina_Web\Main\Img\logo.png" alt="UTA Logo">
+            <img src="../Home/Img/logo.png" alt="UTA Logo">
             <h1>Proceso de Elecciones UTA 2024</h1>
         </div>
         <nav>
-            <a href="#"><i class="fas fa-home"></i> Inicio</a>
+            <a href="../Home/inicio.php"><i class="fas fa-home"></i> Inicio</a>
             <a href="#"><i class="fas fa-user"></i> Candidatos</a>
             <a href="#"><i class="fas fa-bullhorn"></i> Propuestas</a>
             <a href="#"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
