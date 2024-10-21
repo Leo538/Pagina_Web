@@ -9,10 +9,9 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0; /* Eliminar márgenes del body */
+            margin: 0px;
             padding: 0; /* Asegurarse de que no haya padding en el body */
             overflow-x: hidden; /* Evitar desbordamiento horizontal */
-            padding-top: 80px; /* Espacio para el header fijo */
         }
         h1, h2 {
             color: #333;
@@ -83,100 +82,124 @@
             justify-content: space-around;
         }
         .candidate-comments {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+    
+        .candidate-comments img {
+            width: 150px;
+            height: 150px;
+            border: 2px solid black;
+        }	
+    
+        .candidate-comments .textarea {
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+    
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #b22222;
+            width: 100%; 
+            box-sizing: border-box; 
+            margin: 0; 
+            position: fixed; /* Hacer que el header se mantenga fijo */
+            top: 0; /* Posicionarlo en la parte superior */
+            left: 0; /* Alinear al lado izquierdo */
+            right: 0; /* Alinear al lado derecho */
+            z-index: 1000; /* Asegurarse de que esté por encima de otros elementos */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave */
+        }
 
-.candidate-comments img {
-    width: 150px;
-    height: 150px;
-    border: 2px solid black;
-}	
+        header.hidden {
+            transform: translateY(-100%); /* Mover el encabezado fuera de la vista */
+        }
 
-.candidate-comments .textarea {
-    flex-grow: 1;
-    margin-right: 20px;
-}
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background-color: #b22222;
-    position: fixed; /* Hacer que el header se mantenga fijo */
-    top: 0; /* Posicionarlo en la parte superior */
-    left: 0; /* Alinear al lado izquierdo */
-    right: 0; /* Alinear al lado derecho */
-    z-index: 1000; /* Asegurarse de que esté por encima de otros elementos */
-}
+        header:not(.hidden) {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra más fuerte al mostrar */
+        }
 
         
-                header .logo {
-                    display: flex;
-                    align-items: center; 
-                }
-        
-                header .logo img {
-                    width: 50px; 
-                    margin-right: 10px;
-                }
-        
-                header .logo h1 {
-                    color: #ffffff;
-                    font-size: 1.5em;
-                }
-        
-                header nav {
-                    display: flex;
-                    align-items: center;
-                }
-        
-                header nav a {
-                    color: white;
-                    text-decoration: none;
-                    margin: 0 15px;
-                    font-size: 1em;
-                    transition: color 0.3s;
-                    display: flex;
-                    align-items: center;
-                }
-        
-                header nav a i {
-                    margin-right: 8px;
-                }
-        
-                header nav a:hover {
-                    color: #2f2929; 
-                }
-                footer {
-                    text-align: center;
-                    padding: 20px;
-                    background-color: #b22222; 
-                    color: white;
-                    margin-top: 50px;
-                }
-                                .footer-rights {
-                    background-color: #b22222; 
-                    color: white; 
-                    text-align: center;
-                    padding: 10px;
-                    position: relative;
-                    bottom: 0;
-                    width: 100%;
-                    margin-top: 0px; 
-                }
+        header .logo {
+            display: flex;
+            align-items: center; 
+        }
+    
+        header .logo img {
+            width: 50px; 
+            margin-right: 10px;
+        }
+    
+        header .logo h1 {
+            color: #ffffff;
+            font-size: 1.5em;
+        }
+    
+        header nav {
+            display: flex;
+            align-items: center;
+        }
+    
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1em;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+    
+        header nav a i {
+            margin-right: 8px;
+        }
+    
+        header nav a:hover {
+            color: #2f2929; 
+        }
+    
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #b22222; 
+            color: white;
+            margin-top: 50px;
+        }
+    
+        .footer-rights {
+            background-color: #b22222; 
+            color: white; 
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 0px; 
+        }
     </style>
+    
 </head>
 <body>
-    <header>
+    
+    <header id="main-header">
+
         <div class="logo">
             <img src="Img\logo.png" alt="UTA Logo"> 
             <h1>Proceso de Elecciones UTA 2024</h1>
         </div>
         <nav>
-            <a href="#"><i class="fas fa-home"></i> Inicio</a>
+            
+        <a href="https://gitlab.com/manejo3/Pagina_Web/-/raw/sugerencias/Sugerencias/index.php">
+
+
+                            
+            <i class="fas fa-home"></i> Inicio</a>
             <a href="#"><i class="fas fa-user"></i> Candidatos</a>
             <a href="#"><i class="fas fa-bullhorn"></i> Propuestas</a>
             <a href="#"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
@@ -243,21 +266,24 @@ header {
 
         <!-- Sección de votación con imágenes -->
         <h2>Votar por un Candidato</h2>
+        <a href="https://gitlab.com/manejo3/Pagina_Web/-/raw/sugerencias/Sugerencias/index.php">
+            <button>Inicio</button>
+        </a>
         <p>Seleccione su candidato preferido:</p>
 
         <div class="form-row">
             <div class="candidate-option">
-                <img src="Img\perfil.png" alt="Foto Candidato 1">
+                <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 1">
                 <input type="radio" id="vote1" name="vote" value="Candidato 1">
                 <P><label for="vote1">[Nombre del candidato]</label></P>
             </div>
             <div class="candidate-option">
-                <img src="Img\perfil.png" alt="Foto Candidato 2">
+                <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 2">
                 <input type="radio" id="vote2" name="vote" value="Candidato 2">
             <p><label for="vote2">[Nombre del candidato]</label></p>
             </div>
             <div class="candidate-option">
-                <img src="Img\perfil.png"   alt="Foto Candidato 3">
+                <img src="C:\Users\ACER_2023\Downloads\perfil.jpg"   alt="Foto Candidato 3">
                 <input type="radio" id="vote3" name="vote" value="Candidato 3">
             <p><label for="vote3">[Nombre del candidato]</label></p>
             </div>
@@ -308,7 +334,34 @@ header {
             alert("Por favor, selecciona un candidato antes de votar.");
         }
     }
+
+   // Manejo del comportamiento del header
+   let lastScrollTop = 0;
+        const header = document.getElementById('main-header');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                header.classList.add('hidden'); // Ocultar el encabezado al desplazarse hacia abajo
+            } else {
+                header.classList.remove('hidden'); // Mostrar el encabezado al desplazarse hacia arriba
+                // Aquí eliminamos la clase transparent si el scroll es menor que 50
+                if (scrollTop <= 50) {
+                    header.classList.remove('transparent'); // Asegurarnos que el fondo es visible
+                }
+            }
+
+            lastScrollTop = scrollTop;
+        });
+
+        header.addEventListener('mouseenter', function() {
+            header.classList.remove('hidden'); // Mostrar el encabezado al pasar el mouse
+        });
 </script>
+
+
+
 <div class="footer-rights">
     Derechos reservados UTA 2024
 </div>
