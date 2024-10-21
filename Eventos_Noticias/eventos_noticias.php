@@ -27,12 +27,13 @@
                 <img src="/Eventos_Noticias/img/evento1.jpg" alt="Imagen del Evento 1" class="event-image">
                 <div class="event-description">Descripción breve del evento del Partido 1.</div>
                 <div class="event-date">Fecha: 2024-11-05 | Ubicación: Auditorio Principal</div>
+                <div class="event-party">Partido: Sueña, crea, innova</div> 
             </div>
             <div class="event" data-party="Juntos por el cambio">
                 <div class="event-title">Evento del Partido 2</div>
                 <img src="/Eventos_Noticias/img/evento2.jpg" alt="Imagen del Evento 2" class="event-image">
                 <div class="event-description">Descripción breve del evento del Partido 2.</div>
-                <div class="event-date">Fecha: 2024-11-10 | Ubicación: Sala de Conferencias</div>
+                <div class="event-party">Partido: Juntos por el cambio</div>
             </div>
         </div>
 
@@ -52,12 +53,14 @@
                 <img src="/Eventos_Noticias/img/noticia1.jpg" alt="Imagen de Noticia 1" class="news-image">
                 <div class="news-description">Descripción breve de la noticia del Partido 1.</div>
                 <div class="news-date">Fecha: 2024-10-20</div>
+                <div class="news-party">Partido: Sueña, crea, innova</div> 
             </div>
             <div class="news" data-party="Juntos por el cambio">
                 <div class="news-title">Noticia del Partido 2</div>
                 <img src="/Eventos_Noticias/img/noticia2.jpg" alt="Imagen de Noticia 2" class="news-image">
                 <div class="news-description">Descripción breve de la noticia del Partido 2.</div>
                 <div class="news-date">Fecha: 2024-10-18</div>
+                <div class="news-party">Partido: Juntos por el cambio</div>
             </div>
         </div>
 

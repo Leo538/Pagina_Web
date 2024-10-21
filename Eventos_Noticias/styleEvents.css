@@ -105,3 +105,10 @@ h2 {
 .pagination button:hover:not(:disabled) {
     background-color: #ff6347;
 }
+
+.event-party,
+.news-party {
+    font-style: italic;
+    color: #555;
+    margin-top: 10px;
+}
