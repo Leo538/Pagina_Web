@@ -13,10 +13,16 @@
             box-sizing: border-box;
         }
 
-        body {
+        html, body {
+            height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f4f4;
             color: #333;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
         }
 
         header {
@@ -66,6 +72,7 @@
         }
 
         .container {
+            flex-grow: 1;
             padding: 30px;
         }
 
@@ -125,12 +132,14 @@
             text-align: justify;
         }
 
-        .footer-rights {
+        footer {
             background-color: #b22222;
             color: white;
             text-align: center;
             padding: 10px;
-            margin-top: 40px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
@@ -185,13 +194,12 @@
                 <p>Propuesta sobre mejora en deportes para la Facultad de Ciencias de la Salud.</p>
             </div>
 
-            
         </div>
     </div>
 
-    <div class="footer-rights">
+    <footer>
         Derechos reservados UTA 2024
-    </div>
+    </footer>
 
     <script>
         function filterProposals() {
