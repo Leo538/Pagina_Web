@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff; 
+            background-color: #f4f4f4;
             color: #333;
         }
 
@@ -29,11 +29,11 @@
 
         header .logo {
             display: flex;
-            align-items: center; 
+            align-items: center;
         }
 
         header .logo img {
-            width: 50px; 
+            width: 50px;
             margin-right: 10px;
         }
 
@@ -62,67 +62,82 @@
         }
 
         header nav a:hover {
-            color: #2f2929; 
+            color: #f0f0f0;
         }
 
-        /* Estilos para las propuestas */
         .container {
-            padding: 20px;
+            padding: 30px;
+        }
+
+        h2 {
             text-align: center;
-        }
-
-        .propuestas-container {
-            display: flex;
-            justify-content: space-around;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .candidato-box {
-            width: 45%;
-            padding: 20px;
-            border: 2px solid #000;
-        }
-
-        .candidato-box h2 {
             margin-bottom: 20px;
-            font-size: 1.5em;
+            font-size: 2em;
+            color: #333;
         }
 
-        .propuestas-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .propuestas-list li {
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-
-        footer {
+        .filter-box {
             text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-box select {
+            padding: 10px 15px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .proposals-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .proposal-card {
+            background-color: #fff;
             padding: 20px;
-            background-color: #b22222; 
-            color: white;
-            margin-top: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 10px);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .proposal-card:hover {
+            transform: scale(1.05);
+        }
+
+        .proposal-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #b22222;
+            text-align: center;
+        }
+
+        .proposal-card p {
+            font-size: 1em;
+            color: #666;
+            text-align: justify;
         }
 
         .footer-rights {
-            background-color: #b22222; 
-            color: white; 
+            background-color: #b22222;
+            color: white;
             text-align: center;
             padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            margin-top: 0px; 
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="C:\xamp2\htdocs\Pagina_Web\Pagina_Web\Main\Img\logo.png" alt="UTA Logo"> 
+            <img src="C:\xamp2\htdocs\Pagina_Web\Pagina_Web\Main\Img\logo.png" alt="UTA Logo">
             <h1>Proceso de Elecciones UTA 2024</h1>
         </div>
         <nav>
@@ -134,34 +149,63 @@
         </nav>
     </header>
 
-    <!-- Contenedor de las propuestas de los candidatos -->
     <div class="container">
-        <div class="propuestas-container">
-            <!-- Propuestas de Candidato 1 -->
-            <div class="candidato-box" id="candidato1">
-                <h2>CANDIDATO 1</h2>
-                <ul class="propuestas-list">
-                    <li>Propuesta 1 del Candidato 1</li>
-                    <li>Propuesta 2 del Candidato 1</li>
-                    <li>Propuesta 3 del Candidato 1</li>
-                </ul>
+        <h2>Propuestas de los Candidatos</h2>
+
+        <div class="filter-box">
+            <label for="faculty">Filtrar por Facultad o Interés:</label>
+            <select id="faculty" onchange="filterProposals()">
+                <option value="all">Mostrar Todas</option>
+                <option value="Facultad de Ciencias Administrativas">Facultad de Ciencias Administrativas</option>
+                <option value="Facultad de Ciencias de la Salud">Facultad de Ciencias de la Salud</option>
+                <option value="Facultad de Ciencias Humanas y de la Educación">Facultad de Ciencias Humanas y de la Educación</option>
+                <option value="Facultad de Ciencias Agropecuarias">Facultad de Ciencias Agropecuarias</option>
+                <option value="Facultad de Ciencias de la Ingeniería y Aplicadas">Facultad de Ciencias de la Ingeniería y Aplicadas</option>
+                <option value="Facultad de Jurisprudencia y Ciencias Sociales">Facultad de Jurisprudencia y Ciencias Sociales</option>
+                <option value="Facultad de Diseño, Arquitectura y Artes">Facultad de Diseño, Arquitectura y Artes</option>
+                <option value="Facultad de Contabilidad y Auditoría">Facultad de Contabilidad y Auditoría</option>
+                <option value="infraestructura">Infraestructura</option>
+                <option value="deportes">Deportes</option>
+                <option value="cultura">Cultura</option>
+                <option value="investigación">Investigación</option>
+                <option value="vinculación">Vinculación con la Sociedad</option>
+            </select>
+        </div>
+
+        <div class="proposals-grid" id="proposalsGrid">
+            <!-- Propuesta Candidato 1 -->
+            <div class="proposal-card" data-category="Facultad de Ciencias Administrativas">
+                <h3>Propuesta Candidato 1</h3>
+                <p>Propuesta sobre infraestructura de la Facultad de Ciencias Administrativas.</p>
             </div>
 
-            <!-- Propuestas de Candidato 2 -->
-            <div class="candidato-box" id="candidato2">
-                <h2>CANDIDATO 2</h2>
-                <ul class="propuestas-list">
-                    <li>Propuesta 1 del Candidato 2</li>
-                    <li>Propuesta 2 del Candidato 2</li>
-                    <li>Propuesta 3 del Candidato 2</li>
-                </ul>
+            <!-- Propuesta Candidato 2 -->
+            <div class="proposal-card" data-category="Facultad de Ciencias de la Salud">
+                <h3>Propuesta Candidato 2</h3>
+                <p>Propuesta sobre mejora en deportes para la Facultad de Ciencias de la Salud.</p>
             </div>
+
+            
         </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer-rights">
         Derechos reservados UTA 2024
     </div>
+
+    <script>
+        function filterProposals() {
+            var selectedFaculty = document.getElementById("faculty").value;
+            var proposals = document.querySelectorAll(".proposal-card");
+
+            proposals.forEach(function(proposal) {
+                if (selectedFaculty === "all" || proposal.getAttribute("data-category") === selectedFaculty) {
+                    proposal.style.display = "block";
+                } else {
+                    proposal.style.display = "none";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
