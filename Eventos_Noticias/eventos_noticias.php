@@ -43,12 +43,18 @@
                 <?php foreach ($events as $event): ?>
                     <div class="event" data-party="<?php echo $event['NOM_PAR']; ?>">
                         <div class="event-title"><?php echo $event['TIT_EVT_NOT']; ?></div>
-                        <img src="/Eventos_Noticias/img/evento_default.jpg" alt="Imagen del Evento" class="event-image">
+
+                        <!-- Mostrar la imagen correspondiente -->
+                        <img src="<?php echo !empty($event['IMAGEN_EVT_NOT']) ? $event['IMAGEN_EVT_NOT'] : '/Eventos_Noticias/img/evento_default.jpg'; ?>"
+                            alt="Imagen del Evento" class="event-image">
+
                         <div class="event-description"><?php echo $event['DESC_EVT_NOT']; ?></div>
                         <div class="event-date">Fecha: <?php echo $event['FECHA_EVT_NOT']; ?> | Ubicación:
-                            <?php echo $event['UBICACION_EVT_NOT']; ?></div>
+                            <?php echo $event['UBICACION_EVT_NOT']; ?>
+                        </div>
                         <div class="event-party">Partido: <?php echo $event['NOM_PAR']; ?></div>
                     </div>
+
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
@@ -67,11 +73,16 @@
                 <?php foreach ($news as $newsItem): ?>
                     <div class="news" data-party="<?php echo $newsItem['NOM_PAR']; ?>">
                         <div class="news-title"><?php echo $newsItem['TIT_EVT_NOT']; ?></div>
-                        <img src="/Eventos_Noticias/img/noticia_default.jpg" alt="Imagen de la Noticia" class="news-image">
+
+                        <!-- Mostrar la imagen correspondiente -->
+                        <img src="<?php echo !empty($newsItem['IMAGEN_EVT_NOT']) ? $newsItem['IMAGEN_EVT_NOT'] : '/Eventos_Noticias/img/noticia_default.jpg'; ?>"
+                            alt="Imagen de la Noticia" class="news-image">
+
                         <div class="news-description"><?php echo $newsItem['DESC_EVT_NOT']; ?></div>
                         <div class="news-date">Fecha: <?php echo $newsItem['FECHA_EVT_NOT']; ?></div>
                         <div class="news-party">Partido: <?php echo $newsItem['NOM_PAR']; ?></div>
                     </div>
+
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>

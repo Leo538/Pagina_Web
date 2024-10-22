@@ -154,13 +154,12 @@ function createEventHTML(event) {
 
     eventDiv.innerHTML = `
         <div class="event-title">${event.TIT_EVT_NOT}</div>
-        <img src="/Eventos_Noticias/img/evento_default.jpg" alt="Imagen del Evento" class="event-image">
+        <img src="${event.IMAGEN_EVT_NOT || '/Eventos_Noticias/img/evento_default.jpg'}" alt="Imagen del Evento" class="event-image">
         <div class="event-description">${event.DESC_EVT_NOT}</div>
         <div class="event-date">Fecha: ${event.FECHA_EVT_NOT} | Ubicación: ${event.UBICACION_EVT_NOT || 'No disponible'}</div>
         <div class="event-party">Partido: ${event.NOM_PAR}</div>
     `;
 
-    document.getElementById('eventList').appendChild(eventDiv);
     return eventDiv;
 }
 
@@ -172,13 +171,13 @@ function createNewsHTML(newsItem) {
 
     newsDiv.innerHTML = `
         <div class="news-title">${newsItem.TIT_EVT_NOT}</div>
-        <img src="/Eventos_Noticias/img/noticia_default.jpg" alt="Imagen de la Noticia" class="news-image">
+        <img src="${newsItem.IMAGEN_EVT_NOT || '/Eventos_Noticias/img/noticia_default.jpg'}" alt="Imagen de la Noticia" class="news-image">
         <div class="news-description">${newsItem.DESC_EVT_NOT}</div>
         <div class="news-date">Fecha: ${newsItem.FECHA_EVT_NOT}</div>
         <div class="news-party">Partido: ${newsItem.NOM_PAR}</div>
     `;
 
-    document.getElementById('newsList').appendChild(newsDiv);
     return newsDiv;
 }
+    
 
