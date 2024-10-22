@@ -203,6 +203,7 @@ footer {
     background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro transparente */
     justify-content: center; /* Centrar el contenido */
     align-items: center; /* Centrar verticalmente */
+    overflow: auto; 
 }
 
 .modal-content {
@@ -273,4 +274,48 @@ footer {
     background-color: #f0f0f0;
     padding: 10px;
     border-radius: 4px;
+}
+.content {
+    display: flex;
+    align-items: center; /* Alinea el corazón al nivel del texto */
+}
+
+.heart {
+    color: #00ADEF;
+    font-size: 30px;
+    margin-right: 10px; /* Espacio entre el corazón y el texto */
+}
+
+.text {
+    font-size: 20px; /* Tamaño de la fuente */
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.text .pink {
+    color: #FF0080;
+}
+
+.text .blue {
+    color: #00ADEF;
+}
+.dark-blue {
+    color: #1A2E63; /* Color azul oscuro */
+    font-size: 24px; /* Tamaño ajustado */
+    margin-left: 20px; /* Mover hacia la derecha */
+    margin-right: 5px; /* Reducir el espacio entre las palabras */
+}
+
+.light-turquoise {
+    color: #35C3C1; /* Color turquesa */
+    font-size: 24px; /* Tamaño ajustado */
+    margin-left: 0px; /* Eliminar espacio adicional */
+    margin-right: 0px; /* Asegurar que no haya espacio innecesario */
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 24px; /* Ajustado para mantener consistencia */
+    margin-left: 20px; /* Mover todo el <h2> hacia la derecha */
+    display: inline; /* Asegura que el texto fluya correctamente */
 }

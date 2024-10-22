@@ -25,10 +25,18 @@
     </header>
 
 <body>
-<h2>#Juntos por la UTA</h2>
+<div class="content">
+    <div class="heart">&#10084;</div>
+    <div class="text">
+        <span class="pink">SUEÑA,</span><br>
+        <span class="blue">CREA,</span><br>
+        <span class="pink">INNOVA.</span>
+    </div>
+</div>
+
 <section id="candidates-section-1" class="candidates-section">
     <div class="card">
-        <img src="./Img/Mary_cruz.png" alt="Rectora">
+        <img src="./Img/prueba_Mary.png" alt="Rectora">
         <h3>Rectora</h3>
         <p>Descripción breve del candidato 1.</p>
         <a href="#" class="open-modal" data-id="1" data-modal="modal1">Ver más</a>
@@ -120,10 +128,12 @@
 
 <!-- Nuevos candidatos de otro partido -->
 
-<h2>#Otro Partido Político</h2>
+<h2>
+    <span class="dark-blue">Juntos por</span><span class="light-turquoise"> el Cambio</span>
+</h2>
 <section id="candidates-section-2" class="candidates-section">
     <div class="card">
-        <img src="./Img/Sara_Camacho.png" alt="Candidato 5">
+        <img src="./Img/prueba_Sara.png" alt="Candidato 5">
         <h3>Rectora</h3>
         <p>Descripción breve del candidato 5.</p>
         <a href="#" class="open-modal" data-id="5" data-modal="modal5">Ver más</a>
