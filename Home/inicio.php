@@ -20,7 +20,7 @@
 
         <a href="#candidatos"><i class="fas fa-user"></i> Candidatos</a>
         <a href="#propuestas"><i class="fas fa-bullhorn"></i> Propuestas</a>
-        <a href="#eventos"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
+        <a href="../Eventos_Noticias/eventos_noticias.php"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
         <a href="#sugerencias"><i class="fas fa-comment-dots"></i> Sugerencias</a>
     </nav>
 </header>
