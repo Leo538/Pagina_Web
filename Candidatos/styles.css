@@ -1,0 +1,193 @@
+
+
+/* Estilo para la sección de candidatos */
+.candidates-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin: 15px 0;
+}
+
+.card p {
+    font-size: 1em;
+    color: #666;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #b71c1c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Reseteo de estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo general del cuerpo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff; 
+    color: #333;
+}
+
+/* Estilo del header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #b22222; /* Color de fondo rojo */
+}
+
+/* Logo y título del header */
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px; /* Tamaño de la imagen del logo */
+    margin-right: 10px;
+}
+
+header .logo h1 {
+    color: #ffffff; /* Texto del título en blanco */
+    font-size: 1.5em; /* Tamaño del texto */
+}
+
+/* Barra de navegación */
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    color: white; /* Color de texto en blanco */
+    text-decoration: none;
+    margin: 0 15px; /* Espaciado entre los enlaces */
+    font-size: 1em; /* Tamaño del texto */
+    transition: color 0.3s; /* Transición suave al pasar el ratón */
+    display: flex;
+    align-items: center;
+}
+
+header nav a i {
+    margin-right: 8px; /* Espaciado entre el ícono y el texto */
+}
+
+header nav a:hover {
+    color: #2f2929; /* Color al pasar el ratón por los enlaces */
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #b22222; 
+    color: white;
+    margin-top: 50px;
+}
+
+.fade {
+    background-color: b22222; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1; 
+}
+
+.fade.active {
+    opacity: 1; 
+}
+
+.footer-rights {
+    background-color: #b22222; 
+    color: white; 
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0px; 
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.modal-content img {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.modal-content h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    font-size: 1.2em;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
