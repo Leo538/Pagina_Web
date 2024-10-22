@@ -12,7 +12,7 @@
 <body>
 <header>
     <div class="logo">
-        <img src="Img/logo.png" alt="UTA Logo"> 
+        <img src="Img\logo.png" alt="UTA Logo"> 
         <h1>Proceso de Elecciones UTA 2024</h1>
     </div>
     <nav>
@@ -34,45 +34,15 @@
                 <p>Ingrese Información del candidato.</p>
                 <a href="#" class="btn">Más Información</a>
             </div>
-<<<<<<< HEAD
-            <nav>
-                <a href="../Home/inicio.php"><i class="fas fa-home"></i> Inicio</a>
-                <a href="#"><i class="fas fa-user"></i> Candidatos</a>
-                <a href="../Propuestas/Propuestas.php"><i class="fas fa-bullhorn"></i> Propuestas</a>
-                <a href='../Eventos_Noticias/eventos_noticias.php'><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
-                <a href="#"><i class="fas fa-comment-dots"></i> Sugerencias</a>
-            </nav>
-        </header>
-        <div class="slider">
-            <div class="fade"></div>
-            <div class="slides">
-                <div class="slide slide1 active">
-                    <div class="content">
-                        <h1>Candidato1</h1>
-                        <p> Ingrese Información del candidato.</p>
-                        <a href="#" class="btn">Más Información</a>
-                    </div>
-                    <img src="Img\perfil.jpg" alt="Candidate Image">
-                </div>
-                <div class="slide slide2">
-                    <div class="content">
-                        <h1>Candidato 2</h1>
-                        <p> Ingrese Información del candidato.</p>
-                        <a href="#" class="btn">Más Información</a>
-                    </div>
-                    <img src="Img\MASCOTAUTAPropuesta.jpg" alt="Candidate Image">
-                </div>
-=======
-            <img src="Img/fo1.jpg" alt="Candidate Image">
+            <img src="Img\fo1.jpg" alt="Candidate Image">
         </div>
         <div class="slide slide2">
             <div class="content">
                 <h1>Propuestas</h1>
                 <p>Ingrese Información del candidato.</p>
                 <a href="#" class="btn">Más Información</a>
->>>>>>> Inicio
             </div>
-            <img src="Img/mari2.jpg" alt="Candidate Image">
+            <img src="Img\mari2.jpg" alt="Candidate Image">
         </div>
         <div class="slide slide2">
             <div class="content">
@@ -80,7 +50,7 @@
                 <p>Ingrese Información del candidato.</p>
                 <a href="#" class="btn">Más Información</a>
             </div>
-            <img src="Img/fo2.jpg" alt="Candidate Image">
+            <img src="Img\fo2.jpg" alt="Candidate Image">
         </div>
         <div class="slide slide2">
             <div class="content">
@@ -88,7 +58,7 @@
                 <p>Ingrese Información del candidato.</p>
                 <a href="#" class="btn">Más Información</a>
             </div>
-            <img src="Img/mari.jpg" alt="Candidate Image">
+            <img src="Img\mari.jpg" alt="Candidate Image">
         </div>  
     </div>
     <button class="prev">&#10094;</button>
@@ -130,7 +100,7 @@
     <h2>Eventos y Noticias</h2>
     <div class="eventos-grid">
         <div class="evento-card">
-            <img src="Img/anuncio.jpg" alt="Evento 1">
+            <img src="Img\anuncio.jpg" alt="Evento 1">
             <div class="evento-info">
                 <h3>Conferencia sobre Tecnología</h3>
                 <p>Únete a nuestra conferencia anual donde discutiremos los avances más recientes en tecnología y software.</p>
@@ -140,7 +110,7 @@
             </div>
         </div>
         <div class="evento-card">
-            <img src="Img/anuncio2.jpg" alt="Evento 2">
+            <img src="Img\anuncio2.jpg" alt="Evento 2">
             <div class="evento-info">
                 <h3>Hackathon 2024</h3>
                 <p>Participa en nuestro hackathon y demuestra tus habilidades de programación en un ambiente competitivo y colaborativo.</p>
@@ -150,7 +120,7 @@
             </div>
         </div>
         <div class="evento-card">
-            <img src="Img/anuncio2.jpg" alt="Evento 2">
+            <img src="Img\anuncio2.jpg" alt="Evento 2">
             <div class="evento-info">
                 <h3>Hackathon 2024</h3>
                 <p>Participa en nuestro hackathon y demuestra tus habilidades de programación en un ambiente competitivo y colaborativo.</p>
@@ -160,7 +130,7 @@
             </div>
         </div>
         <div class="evento-card">
-            <img src="Img/anuncio2.jpg" alt="Evento 2">
+            <img src="Img\anuncio2.jpg" alt="Evento 2">
             <div class="evento-info">
                 <h3>Hackathon 2024</h3>
                 <p>Participa en nuestro hackathon y demuestra tus habilidades de programación en un ambiente competitivo y colaborativo.</p>
@@ -185,7 +155,7 @@
                 </a>
             </div>
             <div class="sugerencia-image-container">
-                <img src="Img/anuncio.jpg" alt="Concierto" class="sugerencia-image">
+                <img src="Img\anuncio.jpg" alt="Concierto" class="sugerencia-image">
             </div>
         </div>
     </div>
