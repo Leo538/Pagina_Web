@@ -12,7 +12,7 @@
 <body>
 <header>
     <div class="logo">
-        <img src="logo.png" alt="UTA Logo"> 
+        <img src="Img/logo.png" alt="UTA Logo"> 
         <h1>Proceso de Elecciones UTA 2024</h1>
     </div>
     <nav>
@@ -34,7 +34,7 @@
                 <p>Ingrese Información del candidato.</p>
                 <a href="#" class="btn">Más Información</a>
             </div>
-            <img src="fo1.jpg" alt="Candidate Image">
+            <img src="Img/fo1.jpg" alt="Candidate Image">
         </div>
         <div class="slide slide2">
             <div class="content">
@@ -42,7 +42,7 @@
                 <p>Ingrese Información del candidato.</p>
                 <a href="#" class="btn">Más Información</a>
             </div>
-            <img src="mari2.jpg" alt="Candidate Image">
+            <img src="Img/mari2.jpg" alt="Candidate Image">
         </div>
         <div class="slide slide2">
             <div class="content">
@@ -50,7 +50,7 @@
                 <p>Ingrese Información del candidato.</p>
                 <a href="#" class="btn">Más Información</a>
             </div>
-            <img src="fo2.jpg" alt="Candidate Image">
+            <img src="Img/fo2.jpg" alt="Candidate Image">
         </div>
         <div class="slide slide2">
             <div class="content">
@@ -58,7 +58,7 @@
                 <p>Ingrese Información del candidato.</p>
                 <a href="#" class="btn">Más Información</a>
             </div>
-            <img src="mari.jpg" alt="Candidate Image">
+            <img src="Img/mari.jpg" alt="Candidate Image">
         </div>  
     </div>
     <button class="prev">&#10094;</button>
@@ -100,7 +100,7 @@
     <h2>Eventos y Noticias</h2>
     <div class="eventos-grid">
         <div class="evento-card">
-            <img src="anuncio.jpg" alt="Evento 1">
+            <img src="Img/anuncio.jpg" alt="Evento 1">
             <div class="evento-info">
                 <h3>Conferencia sobre Tecnología</h3>
                 <p>Únete a nuestra conferencia anual donde discutiremos los avances más recientes en tecnología y software.</p>
@@ -110,7 +110,7 @@
             </div>
         </div>
         <div class="evento-card">
-            <img src="anuncio2.jpg" alt="Evento 2">
+            <img src="Img/anuncio2.jpg" alt="Evento 2">
             <div class="evento-info">
                 <h3>Hackathon 2024</h3>
                 <p>Participa en nuestro hackathon y demuestra tus habilidades de programación en un ambiente competitivo y colaborativo.</p>
@@ -120,7 +120,7 @@
             </div>
         </div>
         <div class="evento-card">
-            <img src="anuncio2.jpg" alt="Evento 2">
+            <img src="Img/anuncio2.jpg" alt="Evento 2">
             <div class="evento-info">
                 <h3>Hackathon 2024</h3>
                 <p>Participa en nuestro hackathon y demuestra tus habilidades de programación en un ambiente competitivo y colaborativo.</p>
@@ -130,7 +130,7 @@
             </div>
         </div>
         <div class="evento-card">
-            <img src="anuncio2.jpg" alt="Evento 2">
+            <img src="Img/anuncio2.jpg" alt="Evento 2">
             <div class="evento-info">
                 <h3>Hackathon 2024</h3>
                 <p>Participa en nuestro hackathon y demuestra tus habilidades de programación en un ambiente competitivo y colaborativo.</p>
@@ -155,7 +155,7 @@
                 </a>
             </div>
             <div class="sugerencia-image-container">
-                <img src="anuncio.jpg" alt="Concierto" class="sugerencia-image">
+                <img src="Img/anuncio.jpg" alt="Concierto" class="sugerencia-image">
             </div>
         </div>
     </div>
