@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-include('config.php');
+include('../config/config.php');
 
 $categoria = isset($_POST['category']) ? $_POST['category'] : 'all';
 
