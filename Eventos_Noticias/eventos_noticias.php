@@ -45,7 +45,7 @@
                         <div class="event-title"><?php echo $event['TIT_EVT_NOT']; ?></div>
 
                         <!-- Mostrar la imagen correspondiente -->
-                        <img src="<?php echo !empty($event['IMAGEN_EVT_NOT']) ? $event['IMAGEN_EVT_NOT'] : '/Eventos_Noticias/img/evento_default.jpg'; ?>"
+                        <img src="<?php echo !empty($event['IMAGEN_EVT_NOT']) ? $event['IMAGEN_EVT_NOT'] : '/Pagina_Web/Pagina_Web/Eventos_Noticias/img/evento_default.jpg'; ?>"
                             alt="Imagen del Evento" class="event-image">
 
                         <div class="event-description"><?php echo $event['DESC_EVT_NOT']; ?></div>
