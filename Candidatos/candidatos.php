@@ -87,15 +87,26 @@
     </div>
     </div>
 
+
 <!-- Modal para candidato 2 -->
 <div id="modal2" class="modal" style="display: none;">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
+        <!-- Imagen del candidato -->
         <img id="candidate-img-2" src="" alt="Candidato">
+        <!-- Nombre del candidato -->
         <h3 id="candidate-name-2"></h3>
-        <p id="candidate-bio-2"></p>
+        <!-- Biografía -->
+        <h4>Biografía</h4>
+        <p id="candidate-bio-2" class="highlight"></p>
+        <!-- Experiencia -->
+        <h4>Experiencia</h4>
         <p id="candidate-experience-2"></p>
+        <!-- Visión -->
+        <h4>Visión</h4>
         <p id="candidate-vision-2"></p>
+        <!-- Logros -->
+        <h4>Logros</h4>
         <p id="candidate-achievements-2"></p>
     </div>
 </div>
@@ -104,11 +115,21 @@
 <div id="modal3" class="modal" style="display: none;">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
+        <!-- Imagen del candidato -->
         <img id="candidate-img-3" src="" alt="Candidato">
+        <!-- Nombre del candidato -->
         <h3 id="candidate-name-3"></h3>
-        <p id="candidate-bio-3"></p>
+        <!-- Biografía -->
+        <h4>Biografía</h4>
+        <p id="candidate-bio-3" class="highlight"></p>
+        <!-- Experiencia -->
+        <h4>Experiencia</h4>
         <p id="candidate-experience-3"></p>
+        <!-- Visión -->
+        <h4>Visión</h4>
         <p id="candidate-vision-3"></p>
+        <!-- Logros -->
+        <h4>Logros</h4>
         <p id="candidate-achievements-3"></p>
     </div>
 </div>
@@ -117,11 +138,21 @@
 <div id="modal4" class="modal" style="display: none;">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
+        <!-- Imagen del candidato -->
         <img id="candidate-img-4" src="" alt="Candidato">
+        <!-- Nombre del candidato -->
         <h3 id="candidate-name-4"></h3>
-        <p id="candidate-bio-4"></p>
+        <!-- Biografía -->
+        <h4>Biografía</h4>
+        <p id="candidate-bio-4" class="highlight"></p>
+        <!-- Experiencia -->
+        <h4>Experiencia</h4>
         <p id="candidate-experience-4"></p>
+        <!-- Visión -->
+        <h4>Visión</h4>
         <p id="candidate-vision-4"></p>
+        <!-- Logros -->
+        <h4>Logros</h4>
         <p id="candidate-achievements-4"></p>
     </div>
 </div>
@@ -165,11 +196,21 @@
 <div id="modal5" class="modal" style="display: none;">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
+        <!-- Imagen del candidato -->
         <img id="candidate-img-5" src="" alt="Candidato">
+        <!-- Nombre del candidato -->
         <h3 id="candidate-name-5"></h3>
-        <p id="candidate-bio-5"></p>
+        <!-- Biografía -->
+        <h4>Biografía</h4>
+        <p id="candidate-bio-5" class="highlight"></p>
+        <!-- Experiencia -->
+        <h4>Experiencia</h4>
         <p id="candidate-experience-5"></p>
+        <!-- Visión -->
+        <h4>Visión</h4>
         <p id="candidate-vision-5"></p>
+        <!-- Logros -->
+        <h4>Logros</h4>
         <p id="candidate-achievements-5"></p>
     </div>
 </div>
@@ -178,11 +219,21 @@
 <div id="modal6" class="modal" style="display: none;">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
+        <!-- Imagen del candidato -->
         <img id="candidate-img-6" src="" alt="Candidato">
+        <!-- Nombre del candidato -->
         <h3 id="candidate-name-6"></h3>
-        <p id="candidate-bio-6"></p>
+        <!-- Biografía -->
+        <h4>Biografía</h4>
+        <p id="candidate-bio-6" class="highlight"></p>
+        <!-- Experiencia -->
+        <h4>Experiencia</h4>
         <p id="candidate-experience-6"></p>
+        <!-- Visión -->
+        <h4>Visión</h4>
         <p id="candidate-vision-6"></p>
+        <!-- Logros -->
+        <h4>Logros</h4>
         <p id="candidate-achievements-6"></p>
     </div>
 </div>
@@ -191,11 +242,21 @@
 <div id="modal7" class="modal" style="display: none;">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
+        <!-- Imagen del candidato -->
         <img id="candidate-img-7" src="" alt="Candidato">
+        <!-- Nombre del candidato -->
         <h3 id="candidate-name-7"></h3>
-        <p id="candidate-bio-7"></p>
+        <!-- Biografía -->
+        <h4>Biografía</h4>
+        <p id="candidate-bio-7" class="highlight"></p>
+        <!-- Experiencia -->
+        <h4>Experiencia</h4>
         <p id="candidate-experience-7"></p>
+        <!-- Visión -->
+        <h4>Visión</h4>
         <p id="candidate-vision-7"></p>
+        <!-- Logros -->
+        <h4>Logros</h4>
         <p id="candidate-achievements-7"></p>
     </div>
 </div>
@@ -204,11 +265,21 @@
 <div id="modal8" class="modal" style="display: none;">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
+        <!-- Imagen del candidato -->
         <img id="candidate-img-8" src="" alt="Candidato">
+        <!-- Nombre del candidato -->
         <h3 id="candidate-name-8"></h3>
-        <p id="candidate-bio-8"></p>
+        <!-- Biografía -->
+        <h4>Biografía</h4>
+        <p id="candidate-bio-8" class="highlight"></p>
+        <!-- Experiencia -->
+        <h4>Experiencia</h4>
         <p id="candidate-experience-8"></p>
+        <!-- Visión -->
+        <h4>Visión</h4>
         <p id="candidate-vision-8"></p>
+        <!-- Logros -->
+        <h4>Logros</h4>
         <p id="candidate-achievements-8"></p>
     </div>
 </div>
