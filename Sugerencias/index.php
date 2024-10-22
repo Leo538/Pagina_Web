@@ -3,203 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sugerencias y Votación para Candidato a Rector</title>
+    <title>Elecciones UTA 2024</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0px;
-            padding: 0; /* Asegurarse de que no haya padding en el body */
-            overflow-x: hidden; /* Evitar desbordamiento horizontal */
-        }
-        h1, h2 {
-            color: #333;
-        }
-        .container {
-            max-width: 800px; /* Limitar el ancho a 800px */
-            margin: 0 auto; /* Centrar el contenedor */
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-            box-sizing: border-box; /* Incluir padding y border en el ancho total */
-        }
-        .input-field {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .textarea {
-            height: 100px;
-            resize: vertical;
-        }
-        .button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .button:hover {
-            background-color: #45a049;
-        }
-        .candidate-option {
-            margin: 10px 0;
-            text-align: center; /* Centrar las fotos y los textos */
-        }
-        .vote-container {
-            display: none; /* Inicialmente oculto */
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #ccc;
-        }
-        .confirmation-message {
-            display: none;
-            color: #28a745;
-            margin-top: 10px;
-        }
-        .form-row {
-            display: flex;
-            justify-content: space-between;
-        }
-        .form-row .button {
-            margin-left: 10px; /* Separación entre botones */
-        }
-        .small-input {
-            width: 48%; /* Ancho del campo de correo y usuario */
-        }
-        .form-row img {
-            width: 150px;
-            height: 150px;
-            border: 2px solid black;
-        }
-        .form-row {
-            justify-content: space-around;
-        }
-        .candidate-comments {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-    
-        .candidate-comments img {
-            width: 150px;
-            height: 150px;
-            border: 2px solid black;
-        }	
-    
-        .candidate-comments .textarea {
-            flex-grow: 1;
-            margin-right: 20px;
-        }
-    
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background-color: #b22222;
-            width: 100%; 
-            box-sizing: border-box; 
-            margin: 0; 
-            position: fixed; /* Hacer que el header se mantenga fijo */
-            top: 0; /* Posicionarlo en la parte superior */
-            left: 0; /* Alinear al lado izquierdo */
-            right: 0; /* Alinear al lado derecho */
-            z-index: 1000; /* Asegurarse de que esté por encima de otros elementos */
-            transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave */
-        }
+* {
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el tamaño total */
+    margin: 0; /* Elimina márgenes por defecto de todos los elementos */
+    padding: 0; /* Elimina el padding por defecto de todos los elementos */
+}
 
-        header.hidden {
-            transform: translateY(-100%); /* Mover el encabezado fuera de la vista */
-        }
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        header:not(.hidden) {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra más fuerte al mostrar */
-        }
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: calc(100vh - 2px); /* Altura total menos el tamaño del header y del footer */
+    width: 100vw;
+    gap: 0; /* Quitar espacios entre las imágenes */
+    padding: 0; /* Asegúrate de que no haya padding */
+}
 
-        
-        header .logo {
-            display: flex;
-            align-items: center; 
-        }
-    
-        header .logo img {
-            width: 50px; 
-            margin-right: 10px;
-        }
-    
-        header .logo h1 {
-            color: #ffffff;
-            font-size: 1.5em;
-        }
-    
-        header nav {
-            display: flex;
-            align-items: center;
-        }
-    
-        header nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1em;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-        }
-    
-        header nav a i {
-            margin-right: 8px;
-        }
-    
-        header nav a:hover {
-            color: #2f2929; 
-        }
-    
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #b22222; 
-            color: white;
-            margin-top: 50px;
-        }
-    
-        .footer-rights {
-            background-color: #b22222; 
-            color: white; 
-            text-align: center;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            margin-top: 0px; 
-        }
+.candidate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+/* Animación al pasar el mouse */
+.candidate:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    box-shadow: none; /* Elimina la sombra */
+}
+
+/* Animación al hacer click */
+.candidate:active {
+    transform: scale(0.95); /* Pequeño zoom inverso al hacer clic */
+    box-shadow: none; /* Elimina la sombra al hacer click */
+}
+
+.candidate img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
+    object-position: center;
+}
+
+/* Texto flotante que aparece al pasar el mouse */
+.candidate .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mostrar el texto al hacer hover */
+.candidate:hover .overlay {
+    opacity: 1; /* Texto aparece al hacer hover */
+}
+
+.overlay a {
+    color: white;
+    text-decoration: none;
+    background-color: #b22222;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px; /* Espacio entre los botones */
+}
+
+.overlay a:hover {
+    background-color: #d62828;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #b22222;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+header.hidden {
+    transform: translateY(-100%);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 35px;
+    margin-right: 15px;
+}
+
+header .logo h1 {
+    color: #ffffff;
+    font-size: 1.5em;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1em;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+header nav a i {
+    margin-right: 8px;
+}
+
+header nav a:hover {
+    color: #2f2929;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #b22222;
+    color: white;
+}
+
+.footer-rights {
+    background-color: #b22222; 
+    text-align: center;
+    padding: 0px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0px; 
+}
+
+.suggestions {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+/* Estilos para mostrar sugerencias cuando se hace scroll */
+.show {
+    display: block;
+}
+
     </style>
     
 </head>
 <body>
     
     <header id="main-header">
-
         <div class="logo">
-            <img src="Img\logo.png" alt="UTA Logo"> 
+            <img src="Img/logo.png" alt="UTA Logo">
             <h1>Proceso de Elecciones UTA 2024</h1>
         </div>
         <nav>
-            
-        <a href="https://gitlab.com/manejo3/Pagina_Web/-/raw/sugerencias/Sugerencias/index.php">
-
-
-                            
-            <i class="fas fa-home"></i> Inicio</a>
+            <a href="#"><i class="fas fa-home"></i> Inicio</a>
             <a href="#"><i class="fas fa-user"></i> Candidatos</a>
             <a href="#"><i class="fas fa-bullhorn"></i> Propuestas</a>
             <a href="#"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
@@ -207,165 +210,61 @@
         </nav>
     </header>
 
-<div class="container">
-    <h1>Sugerencias y Votación para Candidato a Rector</h1>
-    
-    <h2>Instrucciones:</h2>
-    <p>Por favor, proporcione sus sugerencias o comentarios sobre los candidatos a rector. También puede votar por su candidato preferido a continuación.</p>
-    
-    <!-- Sugerencias Generales -->
-    <h2>Sugerencias Generales</h2>
-    <textarea class="input-field textarea" placeholder="Escriba aquí sus sugerencias generales..."></textarea>
-    
-    <!-- Comentarios por Candidato -->
-<h2>Comentarios por Candidato</h2>
-
-<div class="candidate-comments">
-    <div>
-        <label for="candidate1">Candidato 1: [Nombre del candidato]</label>
-        <textarea id="candidate1" class="input-field textarea" placeholder="Escriba sus comentarios sobre este candidato..."></textarea>
-    </div>
-    <img src="Img\perfil.png" alt="Foto Candidato 1">
-</div>
-
-<div class="candidate-comments">
-    <div>
-        <label for="candidate2">Candidato 2: [Nombre del candidato]</label>
-        <textarea id="candidate2" class="input-field textarea" placeholder="Escriba sus comentarios sobre este candidato..."></textarea>
-    </div>
-    <img src="Img\perfil.png" alt="Foto Candidato 2">
-</div>
-<div class="candidate-comments">
-    <div>
-        <label for="candidate3">Candidato 3: [Nombre del candidato]</label>
-        <textarea id="candidate3" class="input-field textarea" placeholder="Escriba sus comentarios sobre este candidato..."></textarea>
-    </div>
-    <img src="Img\perfil.png" alt="Foto Candidato 3">
-</div>
-
-    <!-- Propuestas de mejora -->
-    <h2>Propuestas de Mejora</h2>
-    <textarea class="input-field textarea" placeholder="¿Tiene alguna sugerencia adicional para mejorar el proceso de selección o los criterios para elegir al próximo rector?"></textarea>
-
-    <!-- Botón de Enviar Sugerencias -->
-    <div class="form-row">
-        <button class="button" onclick="submitSuggestions()">Enviar Sugerencias</button>
-
-        <!-- Botón para Mostrar Opciones de Voto -->
-        <button class="button" onclick="toggleVoteOptions()">Votar por un candidato</button>
-    </div>
-
-    <!-- Sección de Votación -->
-    <div id="vote-container" class="vote-container">
-        <!-- Datos del Votante -->
-        <h2>Datos del Votante</h2>
-        <div class="form-row">
-            <input type="text" id="username" class="input-field small-input" placeholder="Nombre de usuario">
-            <input type="email" id="email" class="input-field small-input" placeholder="Correo electrónico">
-        </div>
-
-        <!-- Sección de votación con imágenes -->
-        <h2>Votar por un Candidato</h2>
-        <a href="https://gitlab.com/manejo3/Pagina_Web/-/raw/sugerencias/Sugerencias/index.php">
-            <button>Inicio</button>
-        </a>
-        <p>Seleccione su candidato preferido:</p>
-
-        <div class="form-row">
-            <div class="candidate-option">
-                <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 1">
-                <input type="radio" id="vote1" name="vote" value="Candidato 1">
-                <P><label for="vote1">[Nombre del candidato]</label></P>
-            </div>
-            <div class="candidate-option">
-                <img src="C:\Users\ACER_2023\Downloads\perfil.jpg" alt="Foto Candidato 2">
-                <input type="radio" id="vote2" name="vote" value="Candidato 2">
-            <p><label for="vote2">[Nombre del candidato]</label></p>
-            </div>
-            <div class="candidate-option">
-                <img src="C:\Users\ACER_2023\Downloads\perfil.jpg"   alt="Foto Candidato 3">
-                <input type="radio" id="vote3" name="vote" value="Candidato 3">
-            <p><label for="vote3">[Nombre del candidato]</label></p>
+    <div class="container">
+        <div class="candidate">
+            <a href="candidato1.php">
+                <img src="Img/marif.jpg" alt="Foto Candidato 1">
+            </a>
+            <div class="overlay">
+                <a href="candidato1.php">Dar sugerencias</a>
             </div>
         </div>
-
-        <!-- Botón de votar -->
-        <div class="form-row">
-            <button class="button" onclick="submitVote()">Votar por este candidato</button>
+        <div class="candidate">
+            <a href="candidato1.php">
+                <img src="Img\marif.jpg" alt="Foto Candidato 2">
+            </a>
+            <div class="overlay">
+                <a href="candidato2.php">Dar sugerencias</a>
+            </div>
         </div>
-
-        <p id="confirmation-message" class="confirmation-message">¡Voto registrado con éxito!</p>
+        <div class="candidate">
+            <a href="detalle_candidato3.html">
+                <img src="Img\VOTAR.jpg" alt="Foto Candidato 3">
+                
+            </a>
+            <div class="overlay">
+                <p><a href="sugerenciasGenerales.php" class="btn">Sugerencias y Propuestas Generales</a></p>
+                <p style="margin-top: 400px;"><a href="votos.php" class="btn">Votar</a></p>
+            </div>
+        </div>
     </div>
-</div>
-
-<script>
-    // Función para enviar sugerencias
-    function submitSuggestions() {
-        alert("¡Sugerencias enviadas con éxito!");
-        // Aquí puedes agregar lógica para guardar las sugerencias
-    }
-
-    // Función para mostrar/ocultar las opciones de votación
-    function toggleVoteOptions() {
-        var voteContainer = document.getElementById('vote-container');
-        if (voteContainer.style.display === 'none' || voteContainer.style.display === '') {
-            voteContainer.style.display = 'block';
-        } else {
-            voteContainer.style.display = 'none';
-        }
-    }
-
-    // Función para registrar el voto
-    function submitVote() {
-        var selectedCandidate = document.querySelector('input[name="vote"]:checked');
-        var username = document.getElementById('username').value;
-        var email = document.getElementById('email').value;
-        
-        if (!username || !email) {
-            alert("Por favor, complete su nombre de usuario y correo electrónico.");
-            return;
-        }
-        
-        if (selectedCandidate) {
-            var confirmationMessage = document.getElementById('confirmation-message');
-            confirmationMessage.innerHTML = "Has votado por " + selectedCandidate.value + ". Usuario: " + username + ", Correo: " + email;
-            confirmationMessage.style.display = 'block';
-        } else {
-            alert("Por favor, selecciona un candidato antes de votar.");
-        }
-    }
-
-   // Manejo del comportamiento del header
-   let lastScrollTop = 0;
+    
+    <div class="suggestions" id="suggestions">
+        <h3>Sugerencias Generales</h3>
+        <button onclick="location.href='sugerencias_generales.html'">Ver Sugerencias</button>
+        <h3>Propuestas de Mejora</h3>
+        <button onclick="location.href='propuestas_mejora.html'">Ver Propuestas</button>
+    </div>
+    
+    <script>
+        const suggestions = document.getElementById('suggestions');
         const header = document.getElementById('main-header');
-
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (scrollTop > lastScrollTop) {
-                header.classList.add('hidden'); // Ocultar el encabezado al desplazarse hacia abajo
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                suggestions.classList.add('show');
             } else {
-                header.classList.remove('hidden'); // Mostrar el encabezado al desplazarse hacia arriba
-                // Aquí eliminamos la clase transparent si el scroll es menor que 50
-                if (scrollTop <= 50) {
-                    header.classList.remove('transparent'); // Asegurarnos que el fondo es visible
-                }
+                suggestions.classList.remove('show');
             }
-
-            lastScrollTop = scrollTop;
-        });
-
-        header.addEventListener('mouseenter', function() {
-            header.classList.remove('hidden'); // Mostrar el encabezado al pasar el mouse
+        
+            if (lastScrollY < window.scrollY) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScrollY = window.scrollY;
         });
 </script>
-
-
-
-<div class="footer-rights">
-    Derechos reservados UTA 2024
-</div>
-
-
-</body>
+</body> 
 </html>
