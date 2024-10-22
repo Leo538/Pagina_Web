@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
@@ -128,6 +129,21 @@ h2 {
     text-align: center;
     border-bottom: 2px solid #f0f0f0;
     padding-bottom: 10px;
+}
+
+.proposal-card .proposal-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.proposal-card .proposal-description {
+    font-size: 1.1em;
+    color: #666;
+    text-align: justify;
+    margin-bottom: 15px;
 }
 
 footer {
