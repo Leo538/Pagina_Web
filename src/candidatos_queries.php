@@ -64,9 +64,11 @@ if (isset($_GET['id'])) {
 
     // Devolver todos los candidatos en formato JSON
     echo json_encode($candidates);
-    
+
 }
+
 
 // Cerrar la conexión
 mysqli_close($connection);
+
 ?>
