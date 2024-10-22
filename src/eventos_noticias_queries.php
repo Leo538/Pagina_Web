@@ -1,11 +1,8 @@
 <?php
-// Conectar a la base de datos
 include('../config/config.php');
 
-// Configurar la cabecera para devolver JSON
 header('Content-Type: application/json');
 
-// Inicializar las variables vacías para eventos y noticias
 $events = [];
 $news = [];
 
