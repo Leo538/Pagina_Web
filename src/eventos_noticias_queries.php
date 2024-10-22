@@ -2,6 +2,13 @@
 // Conectar a la base de datos
 include('../config/config.php');
 
+// Configurar la cabecera para devolver JSON
+header('Content-Type: application/json');
+
+// Inicializar las variables vacías para eventos y noticias
+$events = [];
+$news = [];
+
 // Consulta para obtener eventos y noticias
 $query = "SELECT ID_EVT_NOT, TIT_EVT_NOT, DESC_EVT_NOT, FECHA_EVT_NOT, TIPO_REG_EVT_NOT, UBICACION_EVT_NOT, NOM_PAR 
           FROM EVENTOS_NOTICIAS 
@@ -10,11 +17,8 @@ $query = "SELECT ID_EVT_NOT, TIT_EVT_NOT, DESC_EVT_NOT, FECHA_EVT_NOT, TIPO_REG_
 
 $result = $connection->query($query);
 
-if ($result->num_rows > 0) {
-    $events = [];
-    $news = [];
-
-    // Iterar sobre los resultados y separarlos en eventos y noticias
+// Comprobar si la consulta devuelve resultados
+if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         if ($row['TIPO_REG_EVT_NOT'] == 'EVENTO') {
             $events[] = $row;
@@ -22,14 +26,17 @@ if ($result->num_rows > 0) {
             $news[] = $row;
         }
     }
-
-    // Enviar los resultados en formato JSON
-    echo json_encode(['events' => $events, 'news' => $news]);
-
-} else {
-    echo json_encode(['events' => [], 'news' => []]);
 }
 
-// Cerrar conexión
+// Crear un arreglo de respuesta con los eventos y noticias
+$response = [
+    'events' => $events,
+    'news' => $news
+];
+
+// Devolver el JSON
+echo json_encode($response);
+
+// Cerrar la conexión
 $connection->close();
 ?>
