@@ -1,58 +1,62 @@
-// Datos de los candidatos
-const candidates = {
-    1: {
-        img: "./Img/Mary_cruz.png",
-        name: "Rectora",
-        bio: "Biografía de la Rectora. Descripción extensa del candidato.",
-        achievements: "Logros importantes de la Rectora, premios, estudios, etc."
-    },
-    2: {
-        img: "candidate2.jpg",
-        name: "Candidato 2",
-        bio: "Biografía del Candidato 2. Descripción extensa del candidato.",
-        achievements: "Logros importantes del Candidato 2, premios, estudios, etc."
-    },
-    3: {
-        img: "candidate3.jpg",
-        name: "Candidato 3",
-        bio: "Biografía del Candidato 3. Descripción extensa del candidato.",
-        achievements: "Logros importantes del Candidato 3, premios, estudios, etc."
-    },
-    4: {
-        img: "candidate4.jpg",
-        name: "Candidato 4",
-        bio: "Biografía del Candidato 4. Descripción extensa del candidato.",
-        achievements: "Logros importantes del Candidato 4, premios, estudios, etc."
-    }
-};
-
-// Abrir el modal
 document.querySelectorAll('.open-modal').forEach(button => {
     button.addEventListener('click', function(event) {
         event.preventDefault();
-        const candidateId = this.getAttribute('data-candidate');
-        const candidate = candidates[candidateId];
+        console.log("Evento 'Ver más' capturado");
 
-        // Rellenar la información en el modal
-        document.getElementById('candidate-img').src = candidate.img;
-        document.getElementById('candidate-name').textContent = candidate.name;
-        document.getElementById('candidate-bio').textContent = candidate.bio;
-        document.getElementById('candidate-achievements').textContent = candidate.achievements;
+        const candidateId = this.getAttribute('data-id');  // Obtener el ID del candidato desde el botón
+        const modalId = this.getAttribute('data-modal');   // Obtener el ID del modal a abrir
+        console.log("ID del candidato:", candidateId);
 
-        // Mostrar el modal
-        document.getElementById('candidateModal').style.display = 'flex';
+        // Hacer una solicitud AJAX para obtener los datos del candidato
+        fetch(`../src/candidatos_queries.php?id=${candidateId}`)
+            .then(response => response.json())
+            .then(candidate => {
+                if (candidate.error) {
+                    console.error(candidate.error);
+                    return;
+                }
+
+                // Verificar si los elementos existen antes de intentar modificar sus propiedades
+                const imgElement = document.getElementById(`candidate-img-${candidateId}`);
+                const nameElement = document.getElementById(`candidate-name-${candidateId}`);
+                const bioElement = document.getElementById(`candidate-bio-${candidateId}`);
+                const experienceElement = document.getElementById(`candidate-experience-${candidateId}`);
+                const visionElement = document.getElementById(`candidate-vision-${candidateId}`);
+                const achievementsElement = document.getElementById(`candidate-achievements-${candidateId}`);
+
+                // Verifica si los elementos existen
+                if (!imgElement || !nameElement || !bioElement || !experienceElement || !visionElement || !achievementsElement) {
+                    console.error("Error: No se encontraron los elementos del modal para el candidato con ID:", candidateId);
+                    return;
+                }
+
+                // Rellenar la información en el modal correspondiente
+                imgElement.src = `./Img/${candidate.name}.png`;
+                nameElement.textContent = candidate.name;
+                bioElement.textContent = candidate.bio;
+                experienceElement.textContent = candidate.experience;
+                visionElement.textContent = candidate.vision;
+                achievementsElement.textContent = candidate.achievements;
+
+                // Mostrar el modal específico para este candidato
+                document.getElementById(modalId).style.display = 'flex';
+            })
+            .catch(error => console.error('Error al obtener los datos:', error));
     });
 });
 
-// Cerrar el modal
-document.querySelector('.close-modal').addEventListener('click', function() {
-    document.getElementById('candidateModal').style.display = 'none';
+// Cerrar el modal cuando se haga clic en el botón de cierre
+document.querySelectorAll('.close-modal').forEach(button => {
+    button.addEventListener('click', function() {
+        this.closest('.modal').style.display = 'none';
+    });
 });
 
 // Cerrar el modal si se hace clic fuera de la ventana modal
 window.addEventListener('click', function(event) {
-    const modal = document.getElementById('candidateModal');
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
+    document.querySelectorAll('.modal').forEach(modal => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
 });
