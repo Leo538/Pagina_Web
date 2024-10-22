@@ -57,17 +57,27 @@
 </section>
 
 <!-- Modal para candidato 1 -->
-<div id="modal1" class="modal" style="display: none;">
+<div id="modal1" class="modal">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
+        <!-- Imagen del candidato -->
         <img id="candidate-img-1" src="" alt="Candidato">
+        <!-- Nombre del candidato -->
         <h3 id="candidate-name-1"></h3>
-        <p id="candidate-bio-1"></p>
+        <!-- Biografía -->
+        <h4>Biografía</h4>
+        <p id="candidate-bio-1" class="highlight"></p>
+        <!-- Experiencia -->
+        <h4>Experiencia</h4>
         <p id="candidate-experience-1"></p>
+        <!-- Visión -->
+        <h4>Visión</h4>
         <p id="candidate-vision-1"></p>
+        <!-- Logros -->
+        <h4>Logros</h4>
         <p id="candidate-achievements-1"></p>
     </div>
-</div>
+    </div>
 
 <!-- Modal para candidato 2 -->
 <div id="modal2" class="modal" style="display: none;">
