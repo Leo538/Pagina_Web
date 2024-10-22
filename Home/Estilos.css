@@ -102,7 +102,7 @@ header nav a:hover {
 }
 
 .slide2 {
-    background: url('C:/xamp2/htdocs/Pagina_Web/Maincopi/Img/skt.png') no-repeat center center/cover; 
+    background: url('Img/skt.png') no-repeat center center/cover; 
 }
 
 .slider .slide img {
@@ -174,7 +174,7 @@ section {
 }
 
 #candidatos {
-    background-image: url('uta.jpg'); /* Ruta de la imagen generada */
+    background-image: url('Img/uta.jpg'); /* Ruta de la imagen generada */
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
@@ -218,7 +218,7 @@ section {
 
 #propuestas {
     
-    background-image: url('imagendefondo.jpg'); /* Ruta a tu imagen */
+    background-image: url('Img/imagendefondo.jpg'); /* Ruta a tu imagen */
     background-size: cover; /* Asegura que la imagen cubra todo el área */
     background-position: center; /* Centra la imagen en la sección */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -232,7 +232,7 @@ section {
 }
 
 #sugerencias {
-    background-image: url('imagendefondofinal.png'); /* Ruta a tu imagen */
+    background-image: url('Img/imagendefondofinal.png'); /* Ruta a tu imagen */
     background-size: cover; /* Asegura que la imagen cubra todo el área */
     background-position: center; /* Centra la imagen en la sección */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -283,7 +283,7 @@ footer {
 
 .eventos-container {
     
-    background-image: url('eventos.jpg'); /* Ruta a tu imagen */
+    background-image: url('Img/eventos.jpg'); /* Ruta a tu imagen */
     background-size: cover; /* Asegura que la imagen cubra todo el área */
     background-position: center; /* Centra la imagen en la sección */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -391,7 +391,7 @@ footer {
     font-weight: bold;
 }
 .background {
-    background-image: url('imagendefondo.jpg'); /* Cambia la ruta según sea necesario */
+    background-image: url('Img/imagendefondo.jpg'); /* Cambia la ruta según sea necesario */
     background-size: cover;
     background-position: center;
     height: 60vh;
