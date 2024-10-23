@@ -10,29 +10,64 @@ let news = [];   // Todas las noticias
 
 // Función para mostrar los eventos paginados
 function displayEvents() {
-    const totalPagesEvents = Math.ceil(filteredEvents.length / itemsPerPage);
+    const totalPagesEvents = Math.ceil(events.length / itemsPerPage);
 
-    filteredEvents.forEach((event, index) => {
-        event.style.display = (index >= (currentPageEvents - 1) * itemsPerPage && index < currentPageEvents * itemsPerPage) ? "block" : "none";
+    // Limpiar la lista de eventos actual
+    document.getElementById('eventList').innerHTML = '';
+
+    // Mostrar solo los eventos correspondientes a la página actual
+    const start = (currentPageEvents - 1) * itemsPerPage;
+    const end = currentPageEvents * itemsPerPage;
+    const eventsToShow = events.slice(start, end);
+
+    eventsToShow.forEach(event => {
+        document.getElementById('eventList').appendChild(event);
     });
 
-    document.getElementById("prevPage").disabled = currentPageEvents === 1;
-    document.getElementById("nextPage").disabled = currentPageEvents === totalPagesEvents;
-    document.getElementById("eventPagination").style.display = totalPagesEvents > 1 ? 'flex' : 'none';
+    const prevPageButton = document.getElementById("prevPageEvents");
+    const nextPageButton = document.getElementById("nextPageEvents");
+
+    // Mostrar u ocultar la paginación solo si hay más de 3 eventos
+    if (events.length > itemsPerPage) {
+        document.getElementById("eventPagination").style.display = 'flex';  // Mostrar botones
+        prevPageButton.disabled = currentPageEvents === 1;
+        nextPageButton.disabled = currentPageEvents === totalPagesEvents;
+    } else {
+        document.getElementById("eventPagination").style.display = 'none';  // Ocultar botones
+    }
 }
+
 
 // Función para mostrar las noticias paginadas
 function displayNews() {
-    const totalPagesNews = Math.ceil(filteredNews.length / itemsPerPage);
+    const totalPagesNews = Math.ceil(news.length / itemsPerPage);
 
-    filteredNews.forEach((newsItem, index) => {
-        newsItem.style.display = (index >= (currentPageNews - 1) * itemsPerPage && index < currentPageNews * itemsPerPage) ? "block" : "none";
+    // Limpiar la lista de noticias actual
+    document.getElementById('newsList').innerHTML = '';
+
+    // Mostrar solo las noticias correspondientes a la página actual
+    const start = (currentPageNews - 1) * itemsPerPage;
+    const end = currentPageNews * itemsPerPage;
+    const newsToShow = news.slice(start, end);
+
+    newsToShow.forEach(newsItem => {
+        document.getElementById('newsList').appendChild(newsItem);
     });
 
-    document.getElementById("prevPageNews").disabled = currentPageNews === 1;
-    document.getElementById("nextPageNews").disabled = currentPageNews === totalPagesNews;
-    document.getElementById("newsPagination").style.display = totalPagesNews > 1 ? 'flex' : 'none';
+    const prevPageButton = document.getElementById("prevPageNews");
+    const nextPageButton = document.getElementById("nextPageNews");
+
+    // Mostrar u ocultar la paginación solo si hay más de 3 noticias
+    if (news.length > itemsPerPage) {
+        document.getElementById("newsPagination").style.display = 'flex';  // Mostrar botones
+        prevPageButton.disabled = currentPageNews === 1;
+        nextPageButton.disabled = currentPageNews === totalPagesNews;
+    } else {
+        document.getElementById("newsPagination").style.display = 'none';  // Ocultar botones
+    }
 }
+
+
 
 // Función para filtrar por partido político
 function filterByParty() {
@@ -71,20 +106,78 @@ function filterByParty() {
 
 
 // Cambiar página para eventos
-function changePage(offset) {
-    currentPageEvents += offset;
-    displayEvents();
+function changePage(offset, type) {
+    if (type === 'events') {
+        currentPageEvents += offset;
+        displayEvents();
+    } else if (type === 'news') {
+        currentPageNews += offset;
+        displayNews();
+    }
 }
 
-// Cambiar página para noticias
-function changePageNews(offset) {
-    currentPageNews += offset;
-    displayNews();
-}
 
-// Inicializar la página con todos los eventos y noticias
 document.addEventListener('DOMContentLoaded', function () {
-    events = [...document.querySelectorAll('.event')]; // Inicializar después de que el DOM esté listo
-    news = [...document.querySelectorAll('.news')];    // Inicializar después de que el DOM esté listo
-    filterByParty();  // Mostrar todos los eventos y noticias al cargar
+    // Solicitud para obtener eventos y noticias desde PHP
+    fetch('../src/eventos_noticias_queries.php')
+        .then(response => response.json())
+        .then(data => {
+            // Procesar los eventos y noticias desde el servidor
+            events = data.events.map(event => createEventHTML(event));
+            news = data.news.map(newsItem => createNewsHTML(newsItem));
+
+            // Ocultar mensajes si hay eventos y noticias
+            if (events.length > 0) {
+                document.querySelector("#noEventsMessage").style.display = 'none';
+            } else {
+                document.querySelector("#noEventsMessage").style.display = 'block';
+            }
+
+            if (news.length > 0) {
+                document.querySelector("#noNewsMessage").style.display = 'none';
+            } else {
+                document.querySelector("#noNewsMessage").style.display = 'block';
+            }
+
+            // Filtrar y mostrar los datos iniciales
+            filterByParty();
+        })
+        .catch(error => console.error('Error fetching events and news:', error));
 });
+
+
+// Función para crear el HTML de un evento
+function createEventHTML(event) {
+    const eventDiv = document.createElement('div');
+    eventDiv.classList.add('event');
+    eventDiv.setAttribute('data-party', event.NOM_PAR);
+
+    eventDiv.innerHTML = `
+        <div class="event-title">${event.TIT_EVT_NOT}</div>
+        <img src="${event.IMAGEN_EVT_NOT || '/Eventos_Noticias/img/evento_default.jpg'}" alt="Imagen del Evento" class="event-image">
+        <div class="event-description">${event.DESC_EVT_NOT}</div>
+        <div class="event-date">Fecha: ${event.FECHA_EVT_NOT} | Ubicación: ${event.UBICACION_EVT_NOT || 'No disponible'}</div>
+        <div class="event-party">Partido: ${event.NOM_PAR}</div>
+    `;
+
+    return eventDiv;
+}
+
+// Función para crear el HTML de una noticia
+function createNewsHTML(newsItem) {
+    const newsDiv = document.createElement('div');
+    newsDiv.classList.add('news');
+    newsDiv.setAttribute('data-party', newsItem.NOM_PAR);
+
+    newsDiv.innerHTML = `
+        <div class="news-title">${newsItem.TIT_EVT_NOT}</div>
+        <img src="${newsItem.IMAGEN_EVT_NOT || '/Eventos_Noticias/img/noticia_default.jpg'}" alt="Imagen de la Noticia" class="news-image">
+        <div class="news-description">${newsItem.DESC_EVT_NOT}</div>
+        <div class="news-date">Fecha: ${newsItem.FECHA_EVT_NOT}</div>
+        <div class="news-party">Partido: ${newsItem.NOM_PAR}</div>
+    `;
+
+    return newsDiv;
+}
+    
+

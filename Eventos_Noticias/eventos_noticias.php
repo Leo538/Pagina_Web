@@ -37,62 +37,68 @@
     <!-- Sección de Eventos -->
     <div id="events" class="content-section">
         <h2>Eventos</h2>
+        <p id="noEventsMessage">No hay eventos disponibles.</p> <!-- Mensaje que será ocultado -->
         <div id="eventList">
-            <div class="event" data-party="Sueña, crea, innova">
-                <div class="event-title">Evento del Partido 1</div>
-                <img src="/Eventos_Noticias/img/evento1.jpg" alt="Imagen del Evento 1" class="event-image">
-                <div class="event-description">Descripción breve del evento del Partido 1.</div>
-                <div class="event-date">Fecha: 2024-11-05 | Ubicación: Auditorio Principal</div>
-                <div class="event-party">Partido: Sueña, crea, innova</div>
-            </div>
-            <div class="event" data-party="Juntos por el cambio">
-                <div class="event-title">Evento del Partido 2</div>
-                <img src="/Eventos_Noticias/img/evento2.jpg" alt="Imagen del Evento 2" class="event-image">
-                <div class="event-description">Descripción breve del evento del Partido 2.</div>
-                <div class="event-party">Partido: Juntos por el cambio</div>
-            </div>
-        </div>
+            <?php if (!empty($events)): ?>
+                <?php foreach ($events as $event): ?>
+                    <div class="event" data-party="<?php echo $event['NOM_PAR']; ?>">
+                        <div class="event-title"><?php echo $event['TIT_EVT_NOT']; ?></div>
 
-        <!-- Paginación -->
+                        <!-- Mostrar la imagen correspondiente -->
+                        <img src="<?php echo !empty($event['IMAGEN_EVT_NOT']) ? $event['IMAGEN_EVT_NOT'] : '/Pagina_Web/Pagina_Web/Eventos_Noticias/img/evento_default.jpg'; ?>"
+                            alt="Imagen del Evento" class="event-image">
+
+                        <div class="event-description"><?php echo $event['DESC_EVT_NOT']; ?></div>
+                        <div class="event-date">Fecha: <?php echo $event['FECHA_EVT_NOT']; ?> | Ubicación:
+                            <?php echo $event['UBICACION_EVT_NOT']; ?>
+                        </div>
+                        <div class="event-party">Partido: <?php echo $event['NOM_PAR']; ?></div>
+                    </div>
+
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+        <!-- Paginación de eventos -->
         <div class="pagination" id="eventPagination">
-            <button id="prevPage" onclick="changePage(-1)">Anterior</button>
-            <button id="nextPage" onclick="changePage(1)">Siguiente</button>
+            <button id="prevPageEvents" onclick="changePage(-1, 'events')">Anterior</button>
+            <button id="nextPageEvents" onclick="changePage(1, 'events')">Siguiente</button>
         </div>
     </div>
 
-    <!-- Sección de Noticias -->
     <div id="news" class="content-section">
         <h2>Últimas Noticias</h2>
+        <p id="noNewsMessage">No hay noticias disponibles.</p> <!-- Mensaje que será ocultado -->
         <div id="newsList">
-            <div class="news" data-party="Sueña, crea, innova">
-                <div class="news-title">Noticia del Partido 1</div>
-                <img src="/Eventos_Noticias/img/noticia1.jpg" alt="Imagen de Noticia 1" class="news-image">
-                <div class="news-description">Descripción breve de la noticia del Partido 1.</div>
-                <div class="news-date">Fecha: 2024-10-20</div>
-                <div class="news-party">Partido: Sueña, crea, innova</div>
-            </div>
-            <div class="news" data-party="Juntos por el cambio">
-                <div class="news-title">Noticia del Partido 2</div>
-                <img src="/Eventos_Noticias/img/noticia2.jpg" alt="Imagen de Noticia 2" class="news-image">
-                <div class="news-description">Descripción breve de la noticia del Partido 2.</div>
-                <div class="news-date">Fecha: 2024-10-18</div>
-                <div class="news-party">Partido: Juntos por el cambio</div>
-            </div>
-        </div>
+            <?php if (!empty($news)): ?>
+                <?php foreach ($news as $newsItem): ?>
+                    <div class="news" data-party="<?php echo $newsItem['NOM_PAR']; ?>">
+                        <div class="news-title"><?php echo $newsItem['TIT_EVT_NOT']; ?></div>
 
-        <!-- Paginación -->
+                        <!-- Mostrar la imagen correspondiente -->
+                        <img src="<?php echo !empty($newsItem['IMAGEN_EVT_NOT']) ? $newsItem['IMAGEN_EVT_NOT'] : '/Eventos_Noticias/img/noticia_default.jpg'; ?>"
+                            alt="Imagen de la Noticia" class="news-image">
+
+                        <div class="news-description"><?php echo $newsItem['DESC_EVT_NOT']; ?></div>
+                        <div class="news-date">Fecha: <?php echo $newsItem['FECHA_EVT_NOT']; ?></div>
+                        <div class="news-party">Partido: <?php echo $newsItem['NOM_PAR']; ?></div>
+                    </div>
+
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+        <!-- Paginación de noticias -->
         <div class="pagination" id="newsPagination">
-            <button id="prevPageNews" onclick="changePageNews(-1)">Anterior</button>
-            <button id="nextPageNews" onclick="changePageNews(1)">Siguiente</button>
+            <button id="prevPageNews" onclick="changePage(-1, 'news')">Anterior</button>
+            <button id="nextPageNews" onclick="changePage(1, 'news')">Siguiente</button>
         </div>
     </div>
+
 
     <div class="footer-rights">
         Derechos reservados UTA 2024
     </div>
+
     <script src="scriptsEvents.js"></script>
-
-
 
 </body>
 
