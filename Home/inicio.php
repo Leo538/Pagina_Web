@@ -1,5 +1,5 @@
 <?php
-$eventos_noticias = include('../Home/src/inicio_queries.php');
+$eventos_noticias = include('../src/inicio_queries.php');
 include('../Config/config.php');
 
 ?>
@@ -25,7 +25,7 @@ include('../Config/config.php');
         <a href="#"><i class="fas fa-home"></i> Inicio</a>
         <a href="#candidatos"><i class="fas fa-user"></i> Candidatos</a>
         <a href="#propuestas"><i class="fas fa-bullhorn"></i> Propuestas</a>
-        <a href="#eventos"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
+        <a href="../Eventos_Noticias/eventos_noticias.php"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
         <a href="#sugerencias"><i class="fas fa-comment-dots"></i> Sugerencias</a>
     </nav>
 </header>
@@ -52,6 +52,9 @@ include('../Config/config.php');
 
             <img src="Img\mari2.jpg" alt="Propuesta Image">
 
+            <img src="Img\mari2.jpg" alt="Propuesta Image">
+            <img src="Img\mari2.jpg" alt="Candidate Image">
+
         </div>
         <div class="slide slide2">
             <div class="content">
@@ -64,6 +67,8 @@ include('../Config/config.php');
 
             <img src="Img\fo2.jpg" alt="Evento Image">
 
+            <img src="Img\fo2.jpg" alt="Evento Image">
+            <img src="Img\fo2.jpg" alt="Candidate Image">
         </div>
         <div class="slide slide2">
             <div class="content">
@@ -78,6 +83,11 @@ include('../Config/config.php');
             <img src="Img\mari.jpg" alt="Sugerencias Image">
         </div>
 
+            <img src="Img\mari.jpg" alt="Sugerencias Image">
+        </div>
+            <img src="Img\mari.jpg" alt="Candidate Image">
+        </div>  
+>>>>>>> Inicio
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
@@ -112,6 +122,8 @@ include('../Config/config.php');
 
             <img src="Img\anuncio.jpg" alt="Evento Imagen">
 
+            <img src="Img\anuncio.jpg" alt="Evento Imagen">
+            <img src="Img\anuncio.jpg" alt="Evento 1">
             <div class="evento-info">
                 <h3><?php echo htmlspecialchars($evento_noticia['titulo']); ?></h3>
                 <p><?php echo htmlspecialchars($evento_noticia['descripcion']); ?></p>
@@ -121,6 +133,7 @@ include('../Config/config.php');
                 </div>
         </div>
 
+        <?php endforeach; ?>
         <div class="evento-card">
             <img src="Img\anuncio2.jpg" alt="Evento 2">
             <div class="evento-info">
