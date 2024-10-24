@@ -291,11 +291,13 @@ footer {
     align-items: center; /* Alinea el corazón al nivel del texto */
 }
 
+
 .heart {
     color: #00ADEF;
     font-size: 30px;
     margin-right: 10px; /* Espacio entre el corazón y el texto */
 }
+
 
 .text {
     font-size: 20px; /* Tamaño de la fuente */
