@@ -5,6 +5,7 @@ document.querySelectorAll('.open-modal').forEach(button => {
 
         const candidateId = this.getAttribute('data-id');  // Obtener el ID del candidato desde el botón
         const modalId = this.getAttribute('data-modal');   // Obtener el ID del modal a abrir
+        const imgSrc = this.getAttribute('data-img');      // Obtener la imagen desde el atributo data-img
         console.log("ID del candidato:", candidateId);
 
         // Hacer una solicitud AJAX para obtener los datos del candidato
@@ -30,8 +31,10 @@ document.querySelectorAll('.open-modal').forEach(button => {
                     return;
                 }
 
-                // Rellenar la información en el modal correspondiente
-                imgElement.src = `./Img/${candidate.name}.png`;
+                // Fijar la imagen desde el atributo data-img
+                imgElement.src = `./Img/${imgSrc}`;  // Usa la imagen local específica desde data-img
+
+                // Rellenar los demás datos en el modal desde la base de datos
                 nameElement.textContent = candidate.name;
                 bioElement.textContent = candidate.bio;
                 experienceElement.textContent = candidate.experience;

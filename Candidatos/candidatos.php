@@ -36,29 +36,29 @@
 
 <section id="candidates-section-1" class="candidates-section">
     <div class="card">
-        <img src="./Img/prueba_Mary.png" alt="Rectora">
+        <img src="./Img/Mary_Cruz.png" alt="Rectora">
         <h3>Rectora</h3>
         <p>Descripción breve del candidato 1.</p>
-        <a href="#" class="open-modal" data-id="1" data-modal="modal1">Ver más</a>
+        <a href="#" class="open-modal" data-id="1" data-modal="modal1" data-img="Mary_Cruz.png">Ver más</a>
     </div>
 
     <div class="card">
         <img src="candidate2.jpg" alt="Candidato 2">
-        <h3>Vice Rector Administrativo</h3>
+        <h3>ViceRector Administrativo</h3>
         <p>Descripción breve del candidato 2.</p>
         <a href="#" class="open-modal" data-id="2" data-modal="modal2">Ver más</a>
     </div>
 
     <div class="card">
         <img src="candidate3.jpg" alt="Candidato 3">
-        <h3>Vice Rector Investigación</h3>
+        <h3>ViceRector Investigación</h3>
         <p>Descripción breve del candidato 3.</p>
         <a href="#" class="open-modal" data-id="3" data-modal="modal3">Ver más</a>
     </div>
 
     <div class="card">
         <img src="candidate4.jpg" alt="Candidato 4">
-        <h3>Vice Rector Académico</h3>
+        <h3>ViceRector Académico</h3>
         <p>Descripción breve del candidato 4.</p>
         <a href="#" class="open-modal" data-id="4" data-modal="modal4">Ver más</a>
     </div>
@@ -69,7 +69,7 @@
     <div class="modal-content">
         <span class="close-modal">&times;</span>
         <!-- Imagen del candidato -->
-        <img id="candidate-img-1" src="" alt="Candidato">
+        <img id="candidate-img-1" src="Mary_Cruz.png" alt="Candidato">
         <!-- Nombre del candidato -->
         <h3 id="candidate-name-1"></h3>
         <!-- Biografía -->
