@@ -1,6 +1,6 @@
 <?php
 // Incluir archivo de configuración para la conexión a la base de datos
-include('../Config/config.php');
+include('../config/config.php');
 
 // Consulta para obtener hasta 5 eventos o noticias aleatorios y sin repeticiones
 $sql_eventos_noticias = "SELECT TIT_EVT_NOT, DESC_EVT_NOT FROM EVENTOS_NOTICIAS ORDER BY RAND() LIMIT 5";
