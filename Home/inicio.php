@@ -1,5 +1,5 @@
 <?php
-$eventos_noticias = include('../Home/src/inicio_queries.php');
+$eventos_noticias = include('../src/inicio_queries.php');
 include('../Config/config.php');
 
 ?>
