@@ -1,6 +1,6 @@
 <?php
-$eventos_noticias = include('../Home/src/inicio_queries.php');
-include('../Config/config.php');
+$eventos_noticias = include('../src/inicio_queries.php');
+include('../config/config.php');
 
 ?>
 
