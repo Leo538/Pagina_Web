@@ -46,21 +46,21 @@
         <img src="candidate2.jpg" alt="Candidato 2">
         <h3>ViceRector Administrativo</h3>
         <p>Descripción breve del candidato 2.</p>
-        <a href="#" class="open-modal" data-id="2" data-modal="modal2">Ver más</a>
+        <a href="#" class="open-modal" data-id="2" data-modal="modal2" data-img="">Ver más</a>
     </div>
 
     <div class="card">
         <img src="candidate3.jpg" alt="Candidato 3">
         <h3>ViceRector Investigación</h3>
         <p>Descripción breve del candidato 3.</p>
-        <a href="#" class="open-modal" data-id="3" data-modal="modal3">Ver más</a>
+        <a href="#" class="open-modal" data-id="3" data-modal="modal3" data-img="">Ver más</a>
     </div>
 
     <div class="card">
         <img src="candidate4.jpg" alt="Candidato 4">
         <h3>ViceRector Académico</h3>
         <p>Descripción breve del candidato 4.</p>
-        <a href="#" class="open-modal" data-id="4" data-modal="modal4">Ver más</a>
+        <a href="#" class="open-modal" data-id="4" data-modal="modal4" data-img="">Ver más</a>
     </div>
 </section>
 
@@ -167,28 +167,28 @@
         <img src="./Img/prueba_Sara.png" alt="Candidato 5">
         <h3>Rectora</h3>
         <p>Descripción breve del candidato 5.</p>
-        <a href="#" class="open-modal" data-id="5" data-modal="modal5">Ver más</a>
+        <a href="#" class="open-modal" data-id="5" data-modal="modal5"  data-img="prueba_Sara.png">Ver más</a>
     </div>
 
     <div class="card">
         <img src="candidate6.jpg" alt="Candidato 6">
         <h3>Vice Rector Administrativo</h3>
         <p>Descripción breve del candidato 6.</p>
-        <a href="#" class="open-modal" data-id="6" data-modal="modal6">Ver más</a>
+        <a href="#" class="open-modal" data-id="6" data-modal="modal6"  data-img="">Ver más</a>
     </div>
 
     <div class="card">
         <img src="candidate7.jpg" alt="Candidato 7">
         <h3>Vice Rector Investigación</h3>
         <p>Descripción breve del candidato 7.</p>
-        <a href="#" class="open-modal" data-id="7" data-modal="modal7">Ver más</a>
+        <a href="#" class="open-modal" data-id="7" data-modal="modal7" data-img="">Ver más</a>
     </div>
 
     <div class="card">
         <img src="candidate8.jpg" alt="Candidato 8">
         <h3>Vice Rector Académico</h3>
         <p>Descripción breve del candidato 8.</p>
-        <a href="#" class="open-modal" data-id="8" data-modal="modal8">Ver más</a>
+        <a href="#" class="open-modal" data-id="8" data-modal="modal8" data-img="">Ver más</a>
     </div>
 </section>
 
