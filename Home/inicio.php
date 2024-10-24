@@ -87,7 +87,6 @@ include('../Config/config.php');
         </div>
             <img src="Img\mari.jpg" alt="Candidate Image">
         </div>  
->>>>>>> Inicio
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
