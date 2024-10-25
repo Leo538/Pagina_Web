@@ -401,7 +401,6 @@ function mostrarModal(mensaje) {
             // Inicialmente ocultar la sección de votos
             votosSection.style.display = "none";
 
-            // Agregar evento de clic al botón
             verVotosBtn.addEventListener('click', function () {
                 console.log("Botón 'Ver todos los votos' fue presionado."); // Línea para depurar
                 if (votosSection.style.display === "none") {
