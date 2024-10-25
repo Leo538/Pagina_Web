@@ -1,12 +1,35 @@
+<?php
+// Incluir el archivo de consultas
+$eventos_noticias = include('../src/partido2_sugerencias_queries.php');
+include('../Config/config.php');
+
+
+$nombrePartido = obtenerNombrePartido(2);
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Sobre nuestros estudiantes</title>
     <style>
+            input[type="email"] {
+        width: 100%; /* Aumentar el ancho al 100% del contenedor */
+        padding: 10px; /* Añadir padding para que se vea más grande */
+        font-size: 1em; /* Tamaño de fuente igual al del textarea */
+        border: 1px solid #CCC;
+        border-radius: 5px;
+        margin-bottom: 20px; /* Espacio inferior */
+    }
+    
+    textarea {
+        width: 100%; /* Asegura que el textarea también ocupe el 100% del ancho */
+    }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -197,6 +220,45 @@
         .content h1 {
             text-align: center;
         }
+        .btn1-enviar {
+    background-color: #2c3e50; /* Color de fondo similar al botón "Regresar" */
+    color: white; /* Texto blanco */
+    border: 2px solid #2c3e50; /* Borde del mismo color */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 4px 2px; /* Margen */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s, border-color 0.3s; /* Transición suave para el color de fondo y borde */
+}
+
+.btn1-enviar:hover {
+    background-color: #34495e; /* Color de fondo al pasar el ratón */
+    border-color: #34495e; /* Cambiar el color del borde al pasar el ratón */
+}
+.input-group {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    margin-bottom: 20px; /* Espacio entre los grupos de entrada */
+}
+
+.input-group label {
+    margin-right: 10px; /* Espacio entre la etiqueta y el campo de entrada */
+    flex-basis: 30%; /* Controla el ancho de la etiqueta */
+}
+
+.input-group input {
+    flex-basis: 65%; /* Controla el ancho del campo de entrada */
+    padding: 10px; /* Añadir padding para que se vea más grande */
+    font-size: 1em; /* Tamaño de fuente */
+    border: 1px solid #CCC;
+    border-radius: 5px;
+}
+
+
     </style>
 </head>
 <body>
@@ -206,7 +268,6 @@
             <h1>Proceso de Elecciones UTA 2024</h1>
         </div>
         <nav>
-        <nav>
             <a href="../Home/inicio.php"><i class="fas fa-home"></i> Inicio</a>
             <a href="../Candidatos/Candidatos.php"><i class="fas fa-user"></i> Candidatos</a>
             <a href="../Propuestas/Propuestas.php"><i class="fas fa-bullhorn"></i> Propuestas</a>
@@ -215,31 +276,47 @@
         </nav>
     </header>
 
-<div class="container">
-    <div class="card">
-        <img src="Img/mari2.jpg" alt="Imagen de un estudiante">
-        <div class="content">
+    <div class="container">
+        <div class="card">
+            <img src="Img/Sara.png" alt="Imagen de un estudiante">
+            <div class="content">
             <div class="form-section">
-                <h1 style="text-align: center;">Ing Mg Mari Cruz</h1>
-                <label for="sugerencias">Sugerencias:</label>
-                <textarea id="sugerencias" placeholder="Escribe tus sugerencias aquí..."></textarea>
-            </div>
             <div class="form-section">
-                <label for="propuestas">Propuestas:</label>
-                <textarea id="propuestas" placeholder="Escribe tus propuestas aquí..."></textarea>
+    <h1 style="text-align: center;"><?php echo htmlspecialchars($nombrePartido); ?></h1>
+    <form method="POST" action="candidato2.php"> 
+    <div class="input-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre de usuario" required>
+    </div>
+    <div class="input-group">
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+        </div>
+
+        <label for="sugerencias">Sugerencias:</label>
+        <textarea id="sugerencias" name="sugerencias" placeholder="Escribe tus sugerencias aquí..." required></textarea>
+        
+        <label for="propuestas">Propuestas:</label>
+        <textarea id="propuestas" name="propuestas" placeholder="Escribe tus propuestas aquí..." required></textarea>
+        
+        <label for="comentarios">Comentarios:</label>
+        <textarea id="comentarios" name="comentarios" placeholder="Escribe tus comentarios aquí..." required></textarea>
+        
+        <input type="hidden" name="id_partido" value="2"> <!-- Aquí se define el ID del partido -->
+        
+        <div class="buttons">
+            <button type="submit" class="btn1-enviar">Enviar Sugerencias</button>
+            <a href="index.php" class="btn-regresar">Regresar</a>
+        </div>
+    </form>
+</div>
+
+</div>
             </div>
-            <div class="form-section">
-                <label for="comentarios">Comentarios:</label>
-                <textarea id="comentarios" placeholder="Escribe tus comentarios sobre la candidata aquí..."></textarea>
-            </div>
-            <div class="buttons">
-                <a href="URL_DE_ENVIO" class="btn-enviar">Enviar Sugerencias</a>
-                <a href="index.php" class="btn-regresar">Regresar</a>
-            </div>
-            
         </div>
     </div>
-</div>
+
+
 
 <div class="footer-rights">
     Derechos reservados Team Sangre 2024
