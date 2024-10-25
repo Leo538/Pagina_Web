@@ -392,8 +392,6 @@ if (isset($_GET['mensaje'])) {
             <div class="botones">
                 <button type="button" onclick="location.href='index.php'">Regresar</button>
                 <button type="submit">Votar</button>
-                <button type="button" id="verVotosBtn">Ver todos los votos</button>
-                <!-- Cambiado a id para facilidad -->
             </div>
         </form>
 
@@ -455,21 +453,6 @@ if (isset($_GET['mensaje'])) {
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function () {
-            const verVotosBtn = document.getElementById('verVotosBtn');
-            const votosSection = document.getElementById('votosSection');
-
-            votosSection.style.display = "none";
-
-            verVotosBtn.addEventListener('click', function () {
-                console.log("Botón 'Ver todos los votos' fue presionado."); // Línea para depurar
-                if (votosSection.style.display === "none") {
-                    votosSection.style.display = "block";
-                } else {
-                    votosSection.style.display = "none";
-                }
-            });
-        });
 
         document.addEventListener('DOMContentLoaded', function () {
             const urlParams = new URLSearchParams(window.location.search);
