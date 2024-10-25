@@ -160,60 +160,6 @@ footer {
     background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro transparente */
     justify-content: center; /* Centrar el contenido horizontalmente */
     align-items: center; /* Centrar el contenido verticalmente */
-    display: flex; /* Asegura el centrado */
-    overflow: auto; /* Para evitar problemas en pantallas pequeñas */
-}
-
-.modal-content {
-    background-color: white; /* Fondo blanco */
-    border-radius: 12px; /* Bordes más suaves */
-    padding: 30px; /* Más espacio interno */
-    width: 90%; /* Ancho del modal en pantallas pequeñas */
-    max-width: 600px; /* Ancho máximo del modal en pantallas grandes */
-    max-height: 85vh; /* Asegura que no sea más alto que la pantalla */
-    overflow-y: auto; /* Agrega scroll si el contenido es demasiado alto */
-    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.25); /* Sombra más suave */
-    position: relative; /* Para el botón de cierre */
-    text-align: left; /* Alinear el texto a la izquierda */
-}
-
-.modal-content img {
-    width: 160px;  /* Tamaño de imagen ajustado */
-    height: 160px;
-    border-radius: 50%; /* Mantén la imagen redonda */
-    display: block;
-    margin: 0 auto 20px auto; /* Centrar la imagen con margen inferior */
-    object-fit: cover; /* Asegura que la imagen llene el contenedor sin distorsión */
-}
-.modal-content h3 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.modal-content p {
-    font-size: 1.2em;
-}
-
-.close-modal {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-/* Estilos para el modal */
-.modal {
-    display: none; /* Ocultar por defecto */
-    position: fixed; /* Fijarlo en la pantalla */
-    z-index: 1; /* Asegura que esté por encima del contenido */
-    left: 0;
-    top: 0;
-    width: 100%; /* Toma todo el ancho de la pantalla */
-    height: 100%; /* Toma todo el alto de la pantalla */
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro transparente */
-    justify-content: center; /* Centrar el contenido horizontalmente */
-    align-items: center; /* Centrar el contenido verticalmente */
-    display: flex; /* Asegura el centrado */
     overflow: auto; /* Para evitar problemas en pantallas pequeñas */
 }
 
@@ -289,7 +235,9 @@ footer {
     padding: 10px;
     border-radius: 4px;
 }
+
 .content {
+    margin-top: 20px;
     display: flex;
     align-items: center; /* Alinea el corazón al nivel del texto */
 }
