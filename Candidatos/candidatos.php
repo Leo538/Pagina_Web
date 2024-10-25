@@ -43,10 +43,10 @@
     </div>
 
     <div class="card">
-        <img src="candidate2.jpg" alt="Candidato 2">
-        <h3>ViceRector Administrativo</h3>
+        <img src="./Img/Vinicio_Mejia" alt="Candidato 2">
+        <h3>Vicerrector</h3>
         <p>Descripción breve del candidato 2.</p>
-        <a href="#" class="open-modal" data-id="2" data-modal="modal2" data-img="">Ver más</a>
+        <a href="#" class="open-modal" data-id="2" data-modal="modal2" data-img="Vinicio_Mejia.png">Ver más</a>
     </div>
 
     <div class="card">
