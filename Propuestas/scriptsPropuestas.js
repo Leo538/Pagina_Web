@@ -1,4 +1,9 @@
+// Mensaje para verificar que el archivo de JavaScript está cargado
+console.log("Script cargado correctamente");
+
 function filterProposals() {
+    console.log("Evento onchange activado"); // Verificar si el evento se activa
+
     var selectedFaculty = document.getElementById("faculty").value;
 
     // Realizar una solicitud AJAX para obtener las propuestas desde el servidor
@@ -11,6 +16,7 @@ function filterProposals() {
     })
     .then(response => response.json())
     .then(data => {
+        console.log("Datos recibidos del servidor:", data); // Verificar los datos recibidos
         displayProposals(data);
     })
     .catch(error => console.error('Error:', error));
@@ -24,13 +30,16 @@ function displayProposals(proposals) {
     candidato1Description.innerHTML = "";
     candidato2Description.innerHTML = "";
 
-    // Nombres de los partidos
-    const nombrePartido1 = 'Sueña, Crea, Innova'; 
-    const nombrePartido2 = 'Juntos por el Cambio';
+    // Nombres de los partidos (convertidos a minúsculas y sin espacios extra)
+    const nombrePartido1 = 'sueña, crea, innova'.toLowerCase().trim(); 
+    const nombrePartido2 = 'juntos por el cambio'.toLowerCase().trim();
 
     // Filtrar las propuestas por partido
-    const partido1Proposals = proposals.filter(proposal => proposal.partido === nombrePartido1);
-    const partido2Proposals = proposals.filter(proposal => proposal.partido === nombrePartido2);
+    const partido1Proposals = proposals.filter(proposal => proposal.partido.toLowerCase().trim() === nombrePartido1);
+    const partido2Proposals = proposals.filter(proposal => proposal.partido.toLowerCase().trim() === nombrePartido2);
+
+    console.log("Propuestas Partido 1:", partido1Proposals); // Verificar filtrado
+    console.log("Propuestas Partido 2:", partido2Proposals);
 
     // Mostrar las propuestas del Partido 1
     if (partido1Proposals.length > 0) {
@@ -58,6 +67,7 @@ function displayProposals(proposals) {
         candidato2Description.innerHTML = `<div class="proposal-item visible"><strong>No hay propuestas disponibles para este tema.</strong></div>`;
     }
 }
+
 
 // Inicializar con la primera opción
 filterProposals();

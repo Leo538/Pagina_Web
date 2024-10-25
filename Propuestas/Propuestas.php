@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propuestas</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="estilosPropuestas.css">
 </head>
-
 <body>
     <header>
         <div class="logo">
@@ -17,11 +14,11 @@
             <h1>Proceso de Elecciones UTA 2024</h1>
         </div>
         <nav>
-        <a href="../Home/inicio.php"><i class="fas fa-home"></i> Inicio</a>
-                <a href="../Candidatos/candidatos.php"><i class="fas fa-user"></i> Candidatos</a>
-                <a href="../Propuestas/Propuestas.php"><i class="fas fa-bullhorn"></i> Propuestas</a>
-                <a href='../Eventos_Noticias/eventos_noticias.php'><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
-                <a href="#"><i class="fas fa-comment-dots"></i> Sugerencias</a>
+            <a href="../Home/inicio.php"><i class="fas fa-home"></i> Inicio</a>
+            <a href="../Candidatos/candidatos.php"><i class="fas fa-user"></i> Candidatos</a>
+            <a href="../Propuestas/Propuestas.php"><i class="fas fa-bullhorn"></i> Propuestas</a>
+            <a href='../Eventos_Noticias/eventos_noticias.php'><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
+            <a href="#"><i class="fas fa-comment-dots"></i> Sugerencias</a>
         </nav>
     </header>
 
@@ -41,8 +38,7 @@
                 <option value="Ciencias de la Salud">Ciencias de la Salud</option>
                 <option value="Ingeniería Civil y Mecánica">Ingeniería Civil y Mecánica</option>
                 <option value="Ingeniería en Sistemas, Electrónica e Industrial">Ingeniería en Sistemas, Electrónica e Industrial</option>
-
-                <!-- Intereses que se mantienen -->
+                <!-- Intereses adicionales -->
                 <option value="infraestructura">Infraestructura</option>
                 <option value="deportes">Deportes</option>
                 <option value="cultura">Cultura</option>
@@ -72,5 +68,4 @@
 
     <script src="scriptsPropuestas.js"></script>
 </body>
-
 </html>
