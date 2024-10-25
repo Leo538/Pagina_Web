@@ -398,7 +398,6 @@ function mostrarModal(mensaje) {
             const verVotosBtn = document.getElementById('verVotosBtn');
             const votosSection = document.getElementById('votosSection');
 
-            // Inicialmente ocultar la sección de votos
             votosSection.style.display = "none";
 
             verVotosBtn.addEventListener('click', function () {
