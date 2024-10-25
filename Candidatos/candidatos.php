@@ -38,29 +38,29 @@
     <div class="card">
         <img src="./Img/Mary_Cruz.png" alt="Rectora">
         <h3>Rectora</h3>
-        <p>Descripción breve del candidato 1.</p>
+        <p> Profesional con sólida formación en contabilidad y administración. Tiene un doctorado en Economía y Finanzas por la Universidad Rey Juan Carlos de España y la Universidad Técnica de Ambato. </p>
         <a href="#" class="open-modal" data-id="1" data-modal="modal1" data-img="Mary_Cruz.png">Ver más</a>
     </div>
 
     <div class="card">
-        <img src="./Img/Vinicio_Mejia" alt="Candidato 2">
+        <img src="./Img/Vinicio_Mejia.png" alt="Candidato 2">
         <h3>Vicerrector</h3>
-        <p>Descripción breve del candidato 2.</p>
+        <p>Profesional con un Doctorado en Ciencias Sociales con Mención en Gerencia. Cuenta con un MBA de la Universidad San Francisco de Quito. Su experiencia principal se enfoca en la gestión empresarial y el servicio de atención al cliente. </p>
         <a href="#" class="open-modal" data-id="2" data-modal="modal2" data-img="Vinicio_Mejia.png">Ver más</a>
     </div>
 
     <div class="card">
-        <img src="candidate3.jpg" alt="Candidato 3">
-        <h3>ViceRector Investigación</h3>
-        <p>Descripción breve del candidato 3.</p>
-        <a href="#" class="open-modal" data-id="3" data-modal="modal3" data-img="">Ver más</a>
+        <img src="./Img/Juan_Paredes.png" alt="Candidato 3">
+        <h3>Vicerrector</h3>
+        <p>Profesional en Ingeniería Mecánica con una maestría en Diseño Mecánico de la Universidad Técnica de Ambato. Tiene una línea de investigación enfocada en diseño, materiales y producción.</p>
+        <a href="#" class="open-modal" data-id="3" data-modal="modal3" data-img="Juan_Paredes.png">Ver más</a>
     </div>
 
     <div class="card">
-        <img src="candidate4.jpg" alt="Candidato 4">
-        <h3>ViceRector Académico</h3>
-        <p>Descripción breve del candidato 4.</p>
-        <a href="#" class="open-modal" data-id="4" data-modal="modal4" data-img="">Ver más</a>
+        <img src="./Img/Sandra_Villacis.png" alt="Candidato 4">
+        <h3>Vicerrectora</h3>
+        <p> Profesional de la Universidad Técnica de Ambato, especializada en medicina. Su trayectoria académica y profesional está verificada por la UTA, donde realiza sus labores docentes y de investigación.</p>
+        <a href="#" class="open-modal" data-id="4" data-modal="modal4" data-img="Sandra_Villacis.png">Ver más</a>
     </div>
 </section>
 
@@ -164,10 +164,10 @@
 </h2>
 <section id="candidates-section-2" class="candidates-section">
     <div class="card">
-        <img src="./Img/prueba_Sara.png" alt="Candidato 5">
+        <img src="./Img/Sara_Camacho.png" alt="Candidato 5">
         <h3>Rectora</h3>
         <p>Descripción breve del candidato 5.</p>
-        <a href="#" class="open-modal" data-id="5" data-modal="modal5"  data-img="prueba_Sara.png">Ver más</a>
+        <a href="#" class="open-modal" data-id="5" data-modal="modal5"  data-img="Sara_Camacho.png">Ver más</a>
     </div>
 
     <div class="card">

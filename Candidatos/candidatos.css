@@ -38,6 +38,9 @@
 .card p {
     font-size: 1em;
     color: #666;
+    text-align: justify; /* Para justificar el texto */
+    width: 100%; /* Asegúrate de que el ancho esté definido correctamente */
+    margin: 0 auto; /* Centra el bloque de texto si es necesario */
 }
 
 .card a {
