@@ -24,10 +24,10 @@ include('../config/config.php');
         <h1>Proceso de Elecciones UTA 2024</h1>
     </div>
     <nav>
-        <a href=""><i class="fas fa-home"></i> Inicio</a>
-        <a href=""><i class="fas fa-user"></i> Candidatos</a>
-        <a href=""><i class="fas fa-bullhorn"></i> Propuestas</a>
-        <a href="#eventos"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
+        <a href="../Home/inicio.php"><i class="fas fa-home"></i> Inicio</a>
+        <a href="#candidatos"><i class="fas fa-user"></i> Candidatos</a>
+        <a href="#propuestas"><i class="fas fa-bullhorn"></i> Propuestas</a>
+        <a href="#eventos_noticias"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
         <a href="#sugerencias"><i class="fas fa-comment-dots"></i> Sugerencias</a>
     </nav>
 </header>
@@ -84,7 +84,7 @@ include('../config/config.php');
     <div class="candidatos-container">
         <div class="candidatos-text">
             <h1>Conoce a nuestros candidatos</h1>
-            <a href="#" class="btn">Ver más información de los candidatos</a>
+            <a href="../Candidatos/candidatos.php" class="btn">Ver más información de los candidatos</a>
         </div>
     </div>
 </section>
@@ -96,11 +96,11 @@ include('../config/config.php');
     <div class="background">
         <div class="text">
             Tú <br> Nueva manera. <br> Nuevo comienzo.
-            <p><a href="#url_destino" class="button-link">Conoce más sobre las propuestas</a></p>
+            <p><a href="../Propuestas/Propuestas.php" class="button-link">Conoce más sobre las propuestas</a></p>
         </div>
     </div>
 </section>
-<section class="eventos-container">
+<section id ="eventos_noticias" class="eventos-container">
 <h2>
     <span style="color: red; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
         Eventos y
@@ -118,7 +118,7 @@ include('../config/config.php');
                 <p><?php echo htmlspecialchars($evento_noticia['descripcion']); ?></p>
             </div>
             <div class="overlay">
-                <a href="pagina_evento1.html">Más información</a> <!-- Cambia la URL según sea necesario -->
+                <a href="../Eventos_Noticias/eventos_noticias.php">Más información</a> <!-- Cambia la URL según sea necesario -->
                 </div>
         </div>
         
@@ -137,7 +137,7 @@ include('../config/config.php');
                 <h2 class="sugerencia-subtitle"><?php echo htmlspecialchars($sugerencia_titulo); ?></h2>
                 <p class="sugerencia-highlight">Partido: <?php echo htmlspecialchars($nombre_partido); ?></p>
                 <p class="sugerencia-description"><?php echo htmlspecialchars($sugerencia_descripcion); ?></p>
-                <a href="" class="sugerencia-button">
+                <a href="../Sugerencias/index.php" class="sugerencia-button">
                     <button>ver más</button>
                 </a>
             </div>
