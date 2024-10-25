@@ -213,7 +213,7 @@ footer {
     <div class="container">
         <div class="candidate">
             <a href="candidato1.php">
-                <img src="Img/BannerMari.jpg" alt="Foto Candidato 1">
+                <img src="Img/BannerSara.jpg" alt="Foto Candidato 1">
             </a>
             <div class="overlay">
                 <a href="candidato1.php">Dar sugerencias</a>
@@ -221,7 +221,7 @@ footer {
         </div>
         <div class="candidate">
             <a href="candidato2.php">
-                <img src="Img/BannerSara.jpg" alt="Foto Candidato 2">
+                <img src="Img/BannerSaraFinal.jpg" alt="Foto Candidato 2">
             </a>
             <div class="overlay">
                 <a href="candidato2.php">Dar sugerencias</a>
@@ -229,7 +229,7 @@ footer {
         </div>
         <div class="candidate">
             <a href="detalle_candidato3.html">
-                <img src="Img\VOTARFINAL.jpg" alt="Foto Candidato 3">
+                <img src="Img\VOTARFINALnegro.jpg" alt="Foto Candidato 3">
                 
             </a>
             <div class="overlay">

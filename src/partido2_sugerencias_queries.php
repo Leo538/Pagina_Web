@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         curl_close($ch);
 
         // Mostrar mensaje de éxito y redireccionar
-        echo "<script>alert('¡Sugerencias enviadas con éxito!'); window.location.href = 'candidato1.php';</script>";
+        echo "<script>alert('¡Sugerencias enviadas con éxito!'); window.location.href = 'candidato2.php';</script>";
     } else {
         echo "Error al enviar sugerencias: " . $stmt->error;
     }

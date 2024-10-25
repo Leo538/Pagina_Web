@@ -313,7 +313,7 @@ if (isset($_GET['mensaje'])) {
             </div>
             <div class="candidatos">
                 <div class="candidato">
-                    <img src="Img/mari.jpg" alt="Candidato 1">
+                    <img src="Img/BANNERVOTOMARI.jpg" alt="Candidato 1">
                     <div>
                         <h2><?php echo htmlspecialchars($nombrePartido1); ?></h2>
                         <label>
@@ -322,7 +322,7 @@ if (isset($_GET['mensaje'])) {
                     </div>
                 </div>
                 <div class="candidato">
-                    <img src="Img/Sara.png" alt="Candidato 2">
+                    <img src="Img/BANNERVOTOSARA.jpg" alt="Candidato 2">
                     <div>
                         <h2><?php echo htmlspecialchars($nombrePartido2); ?></h2>
                         <label>
@@ -341,14 +341,14 @@ if (isset($_GET['mensaje'])) {
         <div class="votos-section" id="votosSection">
             <h2>Resultados de Votos</h2>
             <div class="voto-candidato">
-                <img src="Img/mari.jpg" alt="Candidato 1">
+                <img src="Img/BANNERVOTOMARI.jpg" alt="Candidato 1">
                 <div>
                     <h3><?php echo htmlspecialchars($nombrePartido1); ?></h3>
                     <p>Cantidad de votos: <strong><?php echo isset($votosPorPartido[1]) ? $votosPorPartido[1] : 0; ?></strong></p>
                 </div>
             </div>
             <div class="voto-candidato">
-                <img src="Img/Sara.png" alt="Candidato 2">
+                <img src="Img/BANNERVOTOSARA.jpg" alt="Candidato 2">
                 <div>
                     <h3><?php echo htmlspecialchars($nombrePartido2); ?></h3>
                     <p>Cantidad de votos: <strong><?php echo isset($votosPorPartido[2]) ? $votosPorPartido[2] : 0; ?></strong></p>

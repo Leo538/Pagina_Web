@@ -18,43 +18,50 @@ $nombrePartido = obtenerNombrePartido(2);
 
     <title>Sobre nuestros estudiantes</title>
     <style>
-            input[type="email"] {
-        width: 100%; /* Aumentar el ancho al 100% del contenedor */
-        padding: 10px; /* Añadir padding para que se vea más grande */
-        font-size: 1em; /* Tamaño de fuente igual al del textarea */
-        border: 1px solid #CCC;
-        border-radius: 5px;
-        margin-bottom: 20px; /* Espacio inferior */
-    }
-    
-    textarea {
-        width: 100%; /* Asegura que el textarea también ocupe el 100% del ancho */
-    }
+        /* Fondo animado */
+        @keyframes animatedBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #E0E0E0;
+            background: linear-gradient(270deg, #001f3f 60%, #00ffcc 40%); /* 70% azul marino, 30% celeste con verde */
+            background-size: 400% 400%;
+            animation: animatedBackground 10s ease infinite; /* Animación del fondo */
             overflow-x: hidden; /* Evita el desbordamiento horizontal */
         }
-        
-        * {
-            box-sizing: border-box; /* Asegura que el padding y borde se incluyan en el tamaño total del elemento */
+
+        /* Mantener los demás estilos intactos */
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+            margin-bottom: 20px;
         }
-        
+
+        textarea {
+            width: 100%;
+        }
+
         .container {
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #2B4657;
             color: #FFF;
-            width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho de la pantalla */
+            width: 100%;
             padding: 20px;
             box-sizing: border-box;
-            max-width: 100vw; /* Evita que el contenedor sobrepase el 100% del ancho de la ventana */
-            overflow: hidden; /* Evita que el contenido desborde horizontalmente */
+            max-width: 100vw;
+            overflow: hidden;
         }
+
         .card {
             display: flex;
             background-color: #F7F7F7;
@@ -62,24 +69,29 @@ $nombrePartido = obtenerNombrePartido(2);
             max-width: 4000px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         .card img {
             width: 50%;
             height: auto;
             object-fit: cover;
         }
+
         .content {
             padding: 40px;
             flex: 1;
         }
+
         .content h1 {
             color: #2B4657;
             font-size: 2em;
             margin-bottom: 20px;
         }
+
         .content p {
             color: #7A7A7A;
             line-height: 1.6;
         }
+
         .content a {
             display: inline-block;
             padding: 10px 20px;
@@ -89,54 +101,57 @@ $nombrePartido = obtenerNombrePartido(2);
             text-decoration: none;
             border-radius: 5px;
         }
+
         .content a:hover {
             background-color: #435A6A;
         }
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 50px;
             background-color: #b22222;
-            width: 100%; 
-            box-sizing: border-box; 
-            margin: 0; 
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0;
             position: fixed;
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            z-index: 1000; 
-            transition: background-color 0.3s ease, transform 0.3s ease; 
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
+
         header.hidden {
             transform: translateY(-100%);
         }
 
         header:not(.hidden) {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
-        
+
         header .logo {
             display: flex;
-            align-items: center; 
+            align-items: center;
         }
-        
+
         header .logo img {
-            width: 50px; 
+            width: 50px;
             margin-right: 10px;
         }
-        
+
         header .logo h1 {
             color: #ffffff;
             font-size: 1.5em;
         }
-        
+
         header nav {
             display: flex;
             align-items: center;
         }
-        
+
         header nav a {
             color: white;
             text-decoration: none;
@@ -146,41 +161,45 @@ $nombrePartido = obtenerNombrePartido(2);
             display: flex;
             align-items: center;
         }
-        
+
         header nav a i {
             margin-right: 8px;
         }
-        
+
         header nav a:hover {
-            color: #2f2929; 
+            color: #2f2929;
         }
+
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #b22222; 
+            background-color: #b22222;
             color: white;
             margin-top: 50px;
         }
-        
+
         .footer-rights {
-            background-color: #b22222; 
-            color: white; 
+            background-color: #b22222;
+            color: white;
             text-align: center;
             padding: 10px;
             position: relative;
             bottom: 0;
             width: 100%;
-            margin-top: 0px; 
+            margin-top: 0px;
         }
+
         .form-section {
             margin-top: 20px;
         }
+
         .form-section label {
             display: block;
             margin-bottom: 10px;
             font-size: 1.2em;
             color: #2B4657;
         }
+
         .form-section textarea {
             width: 100%;
             height: 80px;
@@ -191,11 +210,13 @@ $nombrePartido = obtenerNombrePartido(2);
             margin-bottom: 20px;
             resize: none;
         }
+
         .buttons {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
         }
+
         .buttons a {
             padding: 10px 20px;
             font-size: 1em;
@@ -203,62 +224,66 @@ $nombrePartido = obtenerNombrePartido(2);
             cursor: pointer;
             transition: background-color 0.3s ease;
             text-align: center;
-            color: white; /* Text color */
-            text-decoration: none; /* No underline */
-            display: inline-block; /* Make it block */
+            color: white;
+            text-decoration: none;
+            display: inline-block;
         }
+
         .buttons a:hover {
             background-color: #435A6A;
         }
+
         .btn-enviar {
             background-color: #2B4657;
         }
+
         .btn-regresar {
             background-color: #CCC;
             color: #2B4657;
         }
+
         .content h1 {
             text-align: center;
         }
+
         .btn1-enviar {
-    background-color: #2c3e50; /* Color de fondo similar al botón "Regresar" */
-    color: white; /* Texto blanco */
-    border: 2px solid #2c3e50; /* Borde del mismo color */
-    padding: 10px 20px; /* Espaciado interno */
-    text-align: center; /* Centrar texto */
-    text-decoration: none; /* Sin subrayado */
-    display: inline-block; /* Mostrar en línea */
-    font-size: 16px; /* Tamaño de fuente */
-    margin: 4px 2px; /* Margen */
-    cursor: pointer; /* Cambia el cursor al pasar el ratón */
-    border-radius: 4px; /* Bordes redondeados */
-    transition: background-color 0.3s, border-color 0.3s; /* Transición suave para el color de fondo y borde */
-}
+            background-color: #2c3e50;
+            color: white;
+            border: 2px solid #2c3e50;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
 
-.btn1-enviar:hover {
-    background-color: #34495e; /* Color de fondo al pasar el ratón */
-    border-color: #34495e; /* Cambiar el color del borde al pasar el ratón */
-}
-.input-group {
-    display: flex;
-    justify-content: space-between; /* Espacio entre los elementos */
-    margin-bottom: 20px; /* Espacio entre los grupos de entrada */
-}
+        .btn1-enviar:hover {
+            background-color: #34495e;
+            border-color: #34495e;
+        }
 
-.input-group label {
-    margin-right: 10px; /* Espacio entre la etiqueta y el campo de entrada */
-    flex-basis: 30%; /* Controla el ancho de la etiqueta */
-}
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
 
-.input-group input {
-    flex-basis: 65%; /* Controla el ancho del campo de entrada */
-    padding: 10px; /* Añadir padding para que se vea más grande */
-    font-size: 1em; /* Tamaño de fuente */
-    border: 1px solid #CCC;
-    border-radius: 5px;
-}
+        .input-group label {
+            margin-right: 10px;
+            flex-basis: 30%;
+        }
 
-
+        .input-group input {
+            flex-basis: 65%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -278,7 +303,7 @@ $nombrePartido = obtenerNombrePartido(2);
 
     <div class="container">
         <div class="card">
-            <img src="Img/Sara.png" alt="Imagen de un estudiante">
+            <img src="Img/CANDIDATA2.jpg" alt="Imagen de un estudiante">
             <div class="content">
             <div class="form-section">
             <div class="form-section">
