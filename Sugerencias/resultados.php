@@ -3,8 +3,8 @@
 include('../config/config.php');
 $eventos_noticias = include('../src/resultado_queries.php');
 
-$nombrePartido1 = obtenerNombrePartido(3);
-$nombrePartido2 = obtenerNombrePartido(4);
+$nombrePartido1 = obtenerNombrePartido(1);
+$nombrePartido2 = obtenerNombrePartido(2);
 $votosPorPartido = obtenerVotosPorPartido();
 // Sumar los votos para calcular el total
 $totalVotos = array_sum($votosPorPartido);
