@@ -2,7 +2,6 @@
 include('../config/config.php');
 
 $eventos_noticias = include('../src/inicio_queries.php');
-$eventos_noticias = include('../src/inicio_queries.php');
 include('../config/config.php');
 
 ?>
