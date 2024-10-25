@@ -3,7 +3,8 @@
 include('../config/config.php');
 
 // Función para obtener el nombre del partido político según su ID_PAR
-function obtenerNombrePartido($idPartido) {
+function obtenerNombrePartido($idPartido)
+{
     global $connection;  // Hacer disponible la variable de conexión en la función
 
     // Consulta SQL para obtener el nombre del partido político
@@ -12,11 +13,19 @@ function obtenerNombrePartido($idPartido) {
     $stmt->bind_param("i", $idPartido);  // Vincular el ID del partido como parámetro
     $stmt->execute();
     $result = $stmt->get_result();
-    $nombrePartido = $result->fetch_assoc();
-    return $nombrePartido['NOM_PAR'];
+
+    // Verificar si se obtuvo algún resultado antes de acceder a él
+    if ($result && $result->num_rows > 0) {
+        $nombrePartido = $result->fetch_assoc();
+        return $nombrePartido['NOM_PAR'];
+    } else {
+        return "Partido no encontrado";  // Mensaje alternativo si no se encuentra el partido
+    }
 }
+
 // Función para obtener la cantidad de votos por cada partido político
-function obtenerVotosPorPartido() {
+function obtenerVotosPorPartido()
+{
     global $connection;
 
     // Consulta SQL para contar los votos por partido
@@ -41,14 +50,14 @@ $mensajeError = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
     $correo = $_POST['correo'];
-    
-// Validar si se ha seleccionado un candidato
-if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
-    $candidato = $_POST['candidato'];
-} else {
-    $mensajeError = "Por favor selecciona un Partido politico.";
 
-}
+    // Validar si se ha seleccionado un candidato
+    if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
+        $candidato = $_POST['candidato'];
+    } else {
+        $mensajeError = "Por favor selecciona un Partido politico.";
+
+    }
 
 
     // Validar que todos los campos estén llenos
@@ -110,7 +119,7 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
                         </a>
                     </div>
                 </div>";
-                            } else {
+            } else {
                 // Permitir votar ya que no ha votado antes
                 $stmt_voto = $connection->prepare("INSERT INTO VOTOS (ID_PAR_VOT) VALUES (?)");
                 $stmt_voto->bind_param("i", $candidato);
@@ -178,9 +187,9 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
                                 </a>
                             </div>
                         </div>";
-                        
-                                      } else {
-                                        echo "
+
+                    } else {
+                        echo "
                                         <div style='
                                             background-color: #ffcdd2; 
                                             color: #b71c1c; 
@@ -219,7 +228,7 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
                                                 </a>
                                             </div>
                                         </div>";
-                                                            }
+                    }
                 } else {
                     echo "
                     <div style='
@@ -259,7 +268,8 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
                                 Volver al inicio
                             </a>
                         </div>
-                    </div>";                }
+                    </div>";
+                }
             }
             $stmt_vot_check->close();
         } else {
@@ -340,7 +350,7 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
     </div>
 </div>";
 
-                                      } else {
+                    } else {
                         echo "Error al registrar el voto: " . $stmt_registro->error;
                     }
                 } else {
@@ -401,7 +411,7 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
                     </a>
                 </div>
             </div>";
-            
+
         }
     }
 }
