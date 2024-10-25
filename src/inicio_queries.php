@@ -4,6 +4,19 @@ include('../config/config.php');
 
 // Consulta para obtener hasta 5 eventos o noticias aleatorios y sin repeticiones
 $sql_eventos_noticias = "SELECT TIT_EVT_NOT, DESC_EVT_NOT FROM EVENTOS_NOTICIAS ORDER BY RAND() LIMIT 5";
+$sql_eventos_noticias = "
+    (SELECT TIT_EVT_NOT, DESC_EVT_NOT 
+     FROM EVENTOS_NOTICIAS 
+     WHERE TIPO_REG_EVT_NOT = 'EVENTO' 
+     ORDER BY RAND() 
+     LIMIT 2)
+    UNION
+    (SELECT TIT_EVT_NOT, DESC_EVT_NOT 
+     FROM EVENTOS_NOTICIAS 
+     WHERE TIPO_REG_EVT_NOT = 'NOTICIA' 
+     ORDER BY RAND() 
+     LIMIT 2)";
+     
 $result_eventos_noticias = $connection->query($sql_eventos_noticias);
 
 // Manejar errores de la consulta de eventos y noticias
@@ -84,6 +97,26 @@ if (!$result_evento_random) {
 $evento_random = $result_evento_random->fetch_assoc();
 $evento_titulo = $evento_random['TIT_EVT_NOT'] ?? 'No disponible';
 $evento_descripcion = $evento_random['DESC_EVT_NOT'] ?? 'No disponible';
+
+
+// Definir el ID del partido a consultar
+$id_par = 1; // Cambia este valor por el ID que deseas buscar
+
+// Preparar y ejecutar la consulta para obtener el nombre y la descripción del partido
+$sql_partido = "SELECT NOM_PAR, DESC_PAR FROM PARTIDOS_POLITICOS WHERE ID_PAR = ?";
+$stmt_partido = $connection->prepare($sql_partido);
+$stmt_partido->bind_param("i", $id_par);
+$stmt_partido->execute();
+$partido_result = $stmt_partido->get_result();
+$partido = $partido_result->fetch_assoc();
+
+// Asignar los valores a variables con valores predeterminados en caso de que no se encuentre el partido
+$nombre_partido = $partido['NOM_PAR'] ?? 'No disponible';
+$descripcion_partido = $partido['DESC_PAR'] ?? 'No disponible';
+
+// Cerrar conexión
+$stmt_partido->close();
+
 
 // Cerrar conexión
 $connection->close();

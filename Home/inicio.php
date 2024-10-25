@@ -2,6 +2,8 @@
 include('../config/config.php');
 
 $eventos_noticias = include('../src/inicio_queries.php');
+$eventos_noticias = include('../src/inicio_queries.php');
+include('../config/config.php');
 
 ?>
 
@@ -23,10 +25,10 @@ $eventos_noticias = include('../src/inicio_queries.php');
         <h1>Proceso de Elecciones UTA 2024</h1>
     </div>
     <nav>
-        <a href="#"><i class="fas fa-home"></i> Inicio</a>
-        <a href="#candidatos"><i class="fas fa-user"></i> Candidatos</a>
-        <a href="#propuestas"><i class="fas fa-bullhorn"></i> Propuestas</a>
-        <a href="../Eventos_Noticias/eventos_noticias.php"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
+        <a href=""><i class="fas fa-home"></i> Inicio</a>
+        <a href=""><i class="fas fa-user"></i> Candidatos</a>
+        <a href=""><i class="fas fa-bullhorn"></i> Propuestas</a>
+        <a href="#eventos"><i class="fas fa-calendar-alt"></i> Eventos y Noticias</a>
         <a href="#sugerencias"><i class="fas fa-comment-dots"></i> Sugerencias</a>
     </nav>
 </header>
@@ -48,14 +50,7 @@ $eventos_noticias = include('../src/inicio_queries.php');
                 <p><?php echo htmlspecialchars($propuesta_descripcion); ?></p>
                 <a href="#" class="btn">Más Información</a>
             </div>
-
-            <img src="Img\mari2.jpg" alt="Candidate Image">
-
             <img src="Img\mari2.jpg" alt="Propuesta Image">
-
-            <img src="Img\mari2.jpg" alt="Propuesta Image">
-            <img src="Img\mari2.jpg" alt="Candidate Image">
-
         </div>
         <div class="slide slide2">
             <div class="content">
@@ -63,13 +58,7 @@ $eventos_noticias = include('../src/inicio_queries.php');
                 <p><?php echo htmlspecialchars($evento_descripcion); ?></p>
                 <a href="#" class="btn">Más Información</a>
             </div>
-
-            <img src="Img\fo2.jpg" alt="Candidate Image">
-
             <img src="Img\fo2.jpg" alt="Evento Image">
-
-            <img src="Img\fo2.jpg" alt="Evento Image">
-            <img src="Img\fo2.jpg" alt="Candidate Image">
         </div>
         <div class="slide slide2">
             <div class="content">
@@ -77,17 +66,16 @@ $eventos_noticias = include('../src/inicio_queries.php');
             <p><?php echo htmlspecialchars($sugerencia_descripcion); ?></p>
             <a href="#" class="btn">Más Información</a>
             </div>
-
-            <img src="Img\mari.jpg" alt="Candidate Image">
-        </div>  
-
             <img src="Img\mari.jpg" alt="Sugerencias Image">
         </div>
-
+        <div class="slide slide2">
+            <div class="content">
+            <h1><?php echo htmlspecialchars($nombre_partido); ?></h1>
+            <p><?php echo htmlspecialchars($descripcion_partido); ?></p>
+            <a href="#" class="btn">Más Información</a>
+            </div>
             <img src="Img\mari.jpg" alt="Sugerencias Image">
         </div>
-            <img src="Img\mari.jpg" alt="Candidate Image">
-        </div>  
     </div>
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
@@ -103,8 +91,9 @@ $eventos_noticias = include('../src/inicio_queries.php');
 </section>
 
 <section id="propuestas">
-    <h1>Propuestas</h1>
-    <p>Puedes ver nuestras propuestas a continuación.</p>
+    <h1> <span style="color: red; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
+        PROPUESTAS
+    </span>  </h1>
     <div class="background">
         <div class="text">
             Tú <br> Nueva manera. <br> Nuevo comienzo.
@@ -113,17 +102,18 @@ $eventos_noticias = include('../src/inicio_queries.php');
     </div>
 </section>
 <section class="eventos-container">
-    <h2>Eventos y Noticias</h2>
+<h2>
+    <span style="color: red; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
+        Eventos y
+    </span>  
+    <span style="color: red; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
+        Noticias
+    </span>
+</h2>
     <div class="eventos-grid">
         <?php foreach ($eventos_noticias as $evento_noticia): ?>
         <div class="evento-card">
-
-            <img src="Img\anuncio.jpg" alt="Evento 1">
-
             <img src="Img\anuncio.jpg" alt="Evento Imagen">
-
-            <img src="Img\anuncio.jpg" alt="Evento Imagen">
-            <img src="Img\anuncio.jpg" alt="Evento 1">
             <div class="evento-info">
                 <h3><?php echo htmlspecialchars($evento_noticia['titulo']); ?></h3>
                 <p><?php echo htmlspecialchars($evento_noticia['descripcion']); ?></p>
@@ -132,44 +122,16 @@ $eventos_noticias = include('../src/inicio_queries.php');
                 <a href="pagina_evento1.html">Más información</a> <!-- Cambia la URL según sea necesario -->
                 </div>
         </div>
-
+        
         <?php endforeach; ?>
-        <div class="evento-card">
-            <img src="Img\anuncio2.jpg" alt="Evento 2">
-            <div class="evento-info">
-                <h3>Hackathon 2024</h3>
-                <p>Participa en nuestro hackathon y demuestra tus habilidades de programación en un ambiente competitivo y colaborativo.</p>
-            </div>
-            <div class="overlay">
-                <a href="pagina_evento2.html">Más información</a> <!-- Cambia la URL según sea necesario -->
-            </div>
-        </div>
-        <div class="evento-card">
-            <img src="Img\anuncio2.jpg" alt="Evento 2">
-            <div class="evento-info">
-                <h3>Hackathon 2024</h3>
-                <p>Participa en nuestro hackathon y demuestra tus habilidades de programación en un ambiente competitivo y colaborativo.</p>
-            </div>
-            <div class="overlay">
-                <a href="pagina_evento2.html">Más información</a> <!-- Cambia la URL según sea necesario -->
-            </div>
-        </div>
-        <div class="evento-card">
-            <img src="Img\anuncio2.jpg" alt="Evento 2">
-            <div class="evento-info">
-                <h3>Hackathon 2024</h3>
-                <p>Participa en nuestro hackathon y demuestra tus habilidades de programación en un ambiente competitivo y colaborativo.</p>
-            </div>
-            <div class="overlay">
-                <a href="pagina_evento2.html">Más información</a> <!-- Cambia la URL según sea necesario -->
-            </div>
-        </div>
-    </div>
+
 
 </section>
 
 <section id="sugerencias">
-    <h1 class="sugerencias-title">Sugerencias</h1>
+    <h1 class="sugerencias-title"> <span style="color: red; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;">
+        SUGERENCIAS
+    </span>  </h1>
     <div class="sugerencias-container">
         <div class="sugerencia-card">
             <div class="sugerencia-content">
