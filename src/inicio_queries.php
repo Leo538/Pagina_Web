@@ -4,7 +4,7 @@ include('../config/config.php');
 
 // Consulta para obtener hasta 5 eventos o noticias aleatorios y sin repeticiones
 $sql_eventos_noticias = "SELECT TIT_EVT_NOT, DESC_EVT_NOT FROM EVENTOS_NOTICIAS ORDER BY RAND() LIMIT 5";
-$result_eventos_noticias = $conn->query($sql_eventos_noticias);
+$result_eventos_noticias = $connection->query($sql_eventos_noticias);
 
 // Manejar errores de la consulta de eventos y noticias
 if (!$result_eventos_noticias) {
