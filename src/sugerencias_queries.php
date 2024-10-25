@@ -1,14 +1,14 @@
 <?php
 // Incluir archivo de configuración para la conexión a la base de datos
-include('../Config/config.php');
+include('../config/config.php');
 
 // Función para obtener el nombre del partido político según su ID_PAR
 function obtenerNombrePartido($idPartido) {
-    global $conn;  // Hacer disponible la variable de conexión en la función
+    global $connection;  // Hacer disponible la variable de conexión en la función
 
     // Consulta SQL para obtener el nombre del partido político
     $sql = "SELECT NOM_PAR FROM PARTIDOS_POLITICOS WHERE ID_PAR = ?";
-    $stmt = $conn->prepare($sql);
+    $stmt = $connection->prepare($sql);
     $stmt->bind_param("i", $idPartido);  // Vincular el ID del partido como parámetro
     $stmt->execute();
     $result = $stmt->get_result();
@@ -17,13 +17,13 @@ function obtenerNombrePartido($idPartido) {
 }
 // Función para obtener la cantidad de votos por cada partido político
 function obtenerVotosPorPartido() {
-    global $conn;
+    global $connection;
 
     // Consulta SQL para contar los votos por partido
     $sql = "SELECT ID_PAR_VOT, COUNT(*) AS cantidad_votos 
             FROM VOTOS 
             GROUP BY ID_PAR_VOT";
-    $result = $conn->query($sql);
+    $result = $connection->query($sql);
 
     $votosPorPartido = [];
     while ($row = $result->fetch_assoc()) {
@@ -54,7 +54,7 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
     // Validar que todos los campos estén llenos
     if (!empty($nombre) && !empty($correo) && !empty($candidato)) {
         // Verificar si el usuario ya existe en la tabla USUARIOS
-        $stmt_check = $conn->prepare("SELECT ID_USU FROM USUARIOS WHERE NOM_USU = ? OR EMAIL_USU = ?");
+        $stmt_check = $connection->prepare("SELECT ID_USU FROM USUARIOS WHERE NOM_USU = ? OR EMAIL_USU = ?");
         $stmt_check->bind_param("ss", $nombre, $correo);
         $stmt_check->execute();
         $result_check = $stmt_check->get_result();
@@ -65,7 +65,7 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
             $id_usuario = $usuario['ID_USU'];
 
             // Verificar si el usuario ya ha votado
-            $stmt_vot_check = $conn->prepare("SELECT * FROM REGISTROS_VOTOS WHERE ID_USU_RES = ?");
+            $stmt_vot_check = $connection->prepare("SELECT * FROM REGISTROS_VOTOS WHERE ID_USU_RES = ?");
             $stmt_vot_check->bind_param("i", $id_usuario);
             $stmt_vot_check->execute();
             $result_vot_check = $stmt_vot_check->get_result();
@@ -112,7 +112,7 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
                 </div>";
                             } else {
                 // Permitir votar ya que no ha votado antes
-                $stmt_voto = $conn->prepare("INSERT INTO VOTOS (ID_PAR_VOT) VALUES (?)");
+                $stmt_voto = $connection->prepare("INSERT INTO VOTOS (ID_PAR_VOT) VALUES (?)");
                 $stmt_voto->bind_param("i", $candidato);
 
                 if ($stmt_voto->execute()) {
@@ -120,7 +120,7 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
                     $id_voto = $stmt_voto->insert_id;
 
                     // Registrar la relación en la tabla REGISTROS_VOTOS
-                    $stmt_registro = $conn->prepare("INSERT INTO REGISTROS_VOTOS (ID_USU_RES, ID_VOT_RES) VALUES (?, ?)");
+                    $stmt_registro = $connection->prepare("INSERT INTO REGISTROS_VOTOS (ID_USU_RES, ID_VOT_RES) VALUES (?, ?)");
                     $stmt_registro->bind_param("ii", $id_usuario, $id_voto);
                     if ($stmt_registro->execute()) {
                         // Enviar correo al usuario
@@ -264,7 +264,7 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
             $stmt_vot_check->close();
         } else {
             // Insertar nuevo usuario si no existe
-            $stmt = $conn->prepare("INSERT INTO USUARIOS (NOM_USU, EMAIL_USU) VALUES (?, ?)");
+            $stmt = $connection->prepare("INSERT INTO USUARIOS (NOM_USU, EMAIL_USU) VALUES (?, ?)");
             $stmt->bind_param("ss", $nombre, $correo);
 
             if ($stmt->execute()) {
@@ -272,7 +272,7 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
                 $id_usuario = $stmt->insert_id;
 
                 // Preparar consulta para insertar voto
-                $stmt_voto = $conn->prepare("INSERT INTO VOTOS (ID_PAR_VOT) VALUES (?)");
+                $stmt_voto = $connection->prepare("INSERT INTO VOTOS (ID_PAR_VOT) VALUES (?)");
                 $stmt_voto->bind_param("i", $candidato);
 
                 if ($stmt_voto->execute()) {
@@ -280,7 +280,7 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
                     $id_voto = $stmt_voto->insert_id;
 
                     // Registrar la relación en la tabla REGISTROS_VOTOS
-                    $stmt_registro = $conn->prepare("INSERT INTO REGISTROS_VOTOS (ID_USU_RES, ID_VOT_RES) VALUES (?, ?)");
+                    $stmt_registro = $connection->prepare("INSERT INTO REGISTROS_VOTOS (ID_USU_RES, ID_VOT_RES) VALUES (?, ?)");
                     $stmt_registro->bind_param("ii", $id_usuario, $id_voto);
                     if ($stmt_registro->execute()) {
                         // Enviar correo al usuario
@@ -405,5 +405,5 @@ if (isset($_POST['candidato']) && !empty($_POST['candidato'])) {
         }
     }
 }
-$conn->close();
+$connection->close();
 ?>

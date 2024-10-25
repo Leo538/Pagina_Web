@@ -1,7 +1,7 @@
 <?php
 // Incluir el archivo de consultas
 $eventos_noticias = include('../src/sugerencias_queries.php');
-include('../Config/config.php');
+include('../config/config.php');
 
 $nombrePartido1 = obtenerNombrePartido(3);
 $nombrePartido2 = obtenerNombrePartido(4);
