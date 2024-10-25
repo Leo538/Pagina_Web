@@ -308,8 +308,8 @@ $nombrePartido = obtenerNombrePartido(1);
             <div class="content">
             <div class="form-section">
             <div class="form-section">
-    <h1 style="text-align: center;"><?php echo htmlspecialchars($nombrePartido); ?></h1>
-    <form method="POST" action="candidato2.php"> 
+            <h1 style="text-align: center;"><span style="color: #a30280; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;"><?php echo htmlspecialchars($nombrePartido); ?></span></h1>
+                <form method="POST" action="candidato1.php"> 
     <div class="input-group">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" placeholder="Nombre de usuario" required>

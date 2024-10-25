@@ -234,6 +234,7 @@ footer {
             </a>
             <div class="overlay">
                 <p style="margin-top: 100px;"><a href="votos.php" class="btn">Votar</a></p>
+                <p style="margin-top: 400px;"><a href="resultados.php" class="btn">Ver Votos</a></p>
             </div>
         </div>
     </div>
