@@ -39,7 +39,6 @@ include('../config/config.php');
             <div class="content">
                 <h1><?php echo htmlspecialchars($candidato_nombre); ?></h1>
                 <p><?php echo htmlspecialchars($candidato_biografia); ?></p>
-                <a href="#" class="btn">Más Información</a>
             </div>
             <img src="Img\fo1.jpg" alt="Candidate Image">
         </div>
@@ -47,7 +46,6 @@ include('../config/config.php');
             <div class="content">
                 <h1><?php echo htmlspecialchars($propuesta_titulo); ?></h1>
                 <p><?php echo htmlspecialchars($propuesta_descripcion); ?></p>
-                <a href="#" class="btn">Más Información</a>
             </div>
             <img src="Img\mari2.jpg" alt="Propuesta Image">
         </div>
@@ -55,7 +53,6 @@ include('../config/config.php');
             <div class="content">
                 <h1><?php echo htmlspecialchars($evento_titulo); ?></h1>
                 <p><?php echo htmlspecialchars($evento_descripcion); ?></p>
-                <a href="#" class="btn">Más Información</a>
             </div>
             <img src="Img\fo2.jpg" alt="Evento Image">
         </div>
@@ -63,7 +60,6 @@ include('../config/config.php');
             <div class="content">
             <h1><?php echo htmlspecialchars($sugerencia_titulo); ?></h1>
             <p><?php echo htmlspecialchars($sugerencia_descripcion); ?></p>
-            <a href="#" class="btn">Más Información</a>
             </div>
             <img src="Img\mari.jpg" alt="Sugerencias Image">
         </div>
@@ -71,7 +67,6 @@ include('../config/config.php');
             <div class="content">
             <h1><?php echo htmlspecialchars($nombre_partido); ?></h1>
             <p><?php echo htmlspecialchars($descripcion_partido); ?></p>
-            <a href="#" class="btn">Más Información</a>
             </div>
             <img src="Img\mari.jpg" alt="Sugerencias Image">
         </div>
