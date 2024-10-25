@@ -213,15 +213,15 @@ footer {
     <div class="container">
         <div class="candidate">
             <a href="candidato1.php">
-                <img src="Img/marif.jpg" alt="Foto Candidato 1">
+                <img src="Img/BannerSara.jpg" alt="Foto Candidato 1">
             </a>
             <div class="overlay">
                 <a href="candidato1.php">Dar sugerencias</a>
             </div>
         </div>
         <div class="candidate">
-            <a href="candidato1.php">
-                <img src="Img\marif.jpg" alt="Foto Candidato 2">
+            <a href="candidato2.php">
+                <img src="Img/BannerSaraFinal.jpg" alt="Foto Candidato 2">
             </a>
             <div class="overlay">
                 <a href="candidato2.php">Dar sugerencias</a>
@@ -229,21 +229,13 @@ footer {
         </div>
         <div class="candidate">
             <a href="detalle_candidato3.html">
-                <img src="Img\VOTAR.jpg" alt="Foto Candidato 3">
+                <img src="Img\VOTARFINALnegro.jpg" alt="Foto Candidato 3">
                 
             </a>
             <div class="overlay">
-                <p><a href="sugerenciasGenerales.php" class="btn">Sugerencias y Propuestas Generales</a></p>
-                <p style="margin-top: 400px;"><a href="votos.php" class="btn">Votar</a></p>
+                <p style="margin-top: 100px;"><a href="votos.php" class="btn">Votar</a></p>
             </div>
         </div>
-    </div>
-    
-    <div class="suggestions" id="suggestions">
-        <h3>Sugerencias Generales</h3>
-        <button onclick="location.href='sugerencias_generales.html'">Ver Sugerencias</button>
-        <h3>Propuestas de Mejora</h3>
-        <button onclick="location.href='propuestas_mejora.html'">Ver Propuestas</button>
     </div>
     
     <script>

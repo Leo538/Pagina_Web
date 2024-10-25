@@ -1,3 +1,20 @@
+<?php
+// Incluir el archivo de consultas
+$eventos_noticias = include('../src/sugerencias_queries.php');
+include('../config/config.php');
+
+$nombrePartido1 = obtenerNombrePartido(3);
+$nombrePartido2 = obtenerNombrePartido(4);
+$votosPorPartido = obtenerVotosPorPartido();
+
+if (isset($_GET['mensaje'])) {
+    echo "<script>alert('" . htmlspecialchars($_GET['mensaje']) . "');</script>";
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -212,6 +229,56 @@
         header nav a:hover {
             color: #2f2929;
         }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeInModal 0.3s ease;
+            max-width: 500px;
+            width: 80%;
+        }
+
+        .modal-content p {
+            margin: 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @keyframes fadeInModal {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -220,7 +287,13 @@
             <img src="Img\logo.png" alt="UTA Logo"> 
             <h1>Proceso de Elecciones UTA 2024</h1>
         </div>
-        <nav>
+            <!-- Modal -->
+    <div id="modalAviso" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalTexto"></p>
+        </div>
+    </div>
         <nav>
             <a href="../Home/inicio.php"><i class="fas fa-home"></i> Inicio</a>
             <a href="../Candidatos/Candidatos.php"><i class="fas fa-user"></i> Candidatos</a>
@@ -229,62 +302,84 @@
             <a href="../Sugerencias/index.php"><i class="fas fa-comment-dots"></i> Sugerencias</a>
         </nav>
     </header>
+
     <div class="container">
         <h1>SELECCIONAR CANDIDATO PARA EL VOTO</h1>
-        
-        <!-- Formulario de usuario -->
-        <div class="formulario">
-            <input type="text" id="nombre" placeholder="Nombre de usuario" required>
-            <input type="email" id="correo" placeholder="Correo electrónico" required>
-        </div>
-        
-        <div class="candidatos">
-            <div class="candidato">
-                <img src="Img/mari.jpg" alt="Candidato 1">
-                <div>
-                    <h2>Nombre del Candidato 1</h2>
-                    <label>
-                        <input type="radio" name="candidato" value="candidato1"> Seleccionar
-                    </label>
+
+        <form action="votos.php" method="POST" onsubmit="return validarFormulario();">
+            <div class="formulario">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre de usuario" required>
+                <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required>
+            </div>
+            <div class="candidatos">
+                <div class="candidato">
+                    <img src="Img/BANNERVOTOMARI.jpg" alt="Candidato 1">
+                    <div>
+                        <h2><?php echo htmlspecialchars($nombrePartido1); ?></h2>
+                        <label>
+                            <input type="radio" name="candidato" value="1"> Seleccionar
+                        </label>
+                    </div>
+                </div>
+                <div class="candidato">
+                    <img src="Img/BANNERVOTOSARA.jpg" alt="Candidato 2">
+                    <div>
+                        <h2><?php echo htmlspecialchars($nombrePartido2); ?></h2>
+                        <label>
+                            <input type="radio" name="candidato" value="2"> Seleccionar
+                        </label>
+                    </div>
                 </div>
             </div>
-            <div class="candidato">
-                <img src="Img/mari2.jpg" alt="Candidato 2">
-                <div>
-                    <h2>Nombre del Candidato 2</h2>
-                    <label>
-                        <input type="radio" name="candidato" value="candidato2"> Seleccionar
-                    </label>
-                </div>
+            <div class="botones">
+                <button type="button" onclick="location.href='index.php'">Regresar</button>
+                <button type="submit">Votar</button>
+                <button type="button" id="verVotosBtn">Ver todos los votos</button> <!-- Cambiado a id para facilidad -->
             </div>
-        </div>
-        
-        <div class="botones">
-            <button onclick="location.href='index.php'">Regresar</button>
-            <button onclick="validarFormulario()">Votar</button>
-            <button onclick="verVotos()">Ver todos los votos</button>
-        </div>
-        
+        </form>
+
         <div class="votos-section" id="votosSection">
             <h2>Resultados de Votos</h2>
             <div class="voto-candidato">
-                <img src="Img/mari.jpg" alt="Candidato 1">
+                <img src="Img/BANNERVOTOMARI.jpg" alt="Candidato 1">
                 <div>
-                    <h3>Nombre del Candidato 1</h3>
-                    <p>Cantidad de votos: <strong>5</strong></p>
+                    <h3><?php echo htmlspecialchars($nombrePartido1); ?></h3>
+                    <p>Cantidad de votos: <strong><?php echo isset($votosPorPartido[1]) ? $votosPorPartido[1] : 0; ?></strong></p>
                 </div>
             </div>
             <div class="voto-candidato">
-                <img src="Img/mari2.jpg" alt="Candidato 2">
+                <img src="Img/BANNERVOTOSARA.jpg" alt="Candidato 2">
                 <div>
-                    <h3>Nombre del Candidato 2</h3>
-                    <p>Cantidad de votos: <strong>3</strong></p>
+                    <h3><?php echo htmlspecialchars($nombrePartido2); ?></h3>
+                    <p>Cantidad de votos: <strong><?php echo isset($votosPorPartido[2]) ? $votosPorPartido[2] : 0; ?></strong></p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+
+function mostrarModal(mensaje) {
+            const modal = document.getElementById('modalAviso');
+            const modalTexto = document.getElementById('modalTexto');
+            const cerrar = document.getElementsByClassName('close')[0];
+
+            // Mostrar mensaje
+            modalTexto.innerText = mensaje;
+            modal.style.display = "flex";
+
+            // Cerrar modal
+            cerrar.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // Cerrar modal al hacer clic fuera de él
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
         function validarFormulario() {
             const nombre = document.getElementById('nombre').value;
             const correo = document.getElementById('correo').value;
@@ -292,21 +387,36 @@
 
             if (!nombre || !correo || !candidatoSeleccionado) {
                 alert('Por favor, complete todos los campos antes de votar.');
+                return false;
             } else {
                 alert(`Gracias por votar, ${nombre}!`);
-                // Aquí puedes agregar el código para enviar el voto
+                return true;
             }
         }
 
-        function verVotos() {
+        document.addEventListener('DOMContentLoaded', function () {
+            const verVotosBtn = document.getElementById('verVotosBtn');
             const votosSection = document.getElementById('votosSection');
-            // Alternar la visibilidad de la sección de votos
-            if (votosSection.style.display === "none" || votosSection.style.display === "") {
-                votosSection.style.display = "block";
-            } else {
-                votosSection.style.display = "none";
+
+            votosSection.style.display = "none";
+
+            verVotosBtn.addEventListener('click', function () {
+                console.log("Botón 'Ver todos los votos' fue presionado."); // Línea para depurar
+                if (votosSection.style.display === "none") {
+                    votosSection.style.display = "block";
+                } else {
+                    votosSection.style.display = "none";
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const mensaje = urlParams.get('mensaje');
+            if (mensaje) {
+                mostrarModal(mensaje);
             }
-        }
+        });
     </script>
 </body>
 </html>
