@@ -40,7 +40,7 @@ if (isset($_GET['id'])) {
 
 } else {
     // Si no se proporciona 'id', devolver todos los candidatos
-    $query = "SELECT NOM_CAN, BIOGRAFIA_CAN, EXPERIENCIA_CAN, VISION_CAN, LOGROS_CAN, ID_PAR_CAN FROM CANDIDATOS";
+    $query = "SELECT NOM_CAN, BIOGRAFIA_CAN, EXPERIENCIA_CAN, VISION_CAN, LOGROS_CAN, ID_PAR_CAN  FROM CANDIDATOS";
     $result = mysqli_query($connection, $query);
 
     if (!$result) {

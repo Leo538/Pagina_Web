@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Candidatos</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="candidatos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -36,31 +36,31 @@
 
 <section id="candidates-section-1" class="candidates-section">
     <div class="card">
-        <img src="./Img/prueba_Mary.png" alt="Rectora">
+        <img src="./Img/Mary_Cruz.png" alt="Rectora">
         <h3>Rectora</h3>
-        <p>Descripción breve del candidato 1.</p>
-        <a href="#" class="open-modal" data-id="1" data-modal="modal1">Ver más</a>
+        <p> Profesional con sólida formación en contabilidad y administración. Tiene un doctorado en Economía y Finanzas por la Universidad Rey Juan Carlos de España y la Universidad Técnica de Ambato. </p>
+        <a href="#" class="open-modal" data-id="1" data-modal="modal1" data-img="Mary_Cruz.png">Ver más</a>
     </div>
 
     <div class="card">
-        <img src="candidate2.jpg" alt="Candidato 2">
-        <h3>Vice Rector Administrativo</h3>
-        <p>Descripción breve del candidato 2.</p>
-        <a href="#" class="open-modal" data-id="2" data-modal="modal2">Ver más</a>
+        <img src="./Img/Vinicio_Mejia.png" alt="Candidato 2">
+        <h3>Vicerrector Administrativo</h3>
+        <p>Profesional con un Doctorado en Ciencias Sociales con Mención en Gerencia. Cuenta con un MBA de la Universidad San Francisco de Quito. Su experiencia principal se enfoca en la gestión empresarial y el servicio de atención al cliente. </p>
+        <a href="#" class="open-modal" data-id="2" data-modal="modal2" data-img="Vinicio_Mejia.png">Ver más</a>
     </div>
 
     <div class="card">
-        <img src="candidate3.jpg" alt="Candidato 3">
-        <h3>Vice Rector Investigación</h3>
-        <p>Descripción breve del candidato 3.</p>
-        <a href="#" class="open-modal" data-id="3" data-modal="modal3">Ver más</a>
+        <img src="./Img/Juan_Paredes.png" alt="Candidato 3">
+        <h3>Vicerrector Académico</h3>
+        <p>Profesional en Ingeniería Mecánica con una maestría en Diseño Mecánico de la Universidad Técnica de Ambato. Tiene una línea de investigación enfocada en diseño, materiales y producción.</p>
+        <a href="#" class="open-modal" data-id="3" data-modal="modal3" data-img="Juan_Paredes.png">Ver más</a>
     </div>
 
     <div class="card">
-        <img src="candidate4.jpg" alt="Candidato 4">
-        <h3>Vice Rector Académico</h3>
-        <p>Descripción breve del candidato 4.</p>
-        <a href="#" class="open-modal" data-id="4" data-modal="modal4">Ver más</a>
+        <img src="./Img/Sandra_Villacis.png" alt="Candidato 4">
+        <h3>Vicerrectora de Investigación</h3>
+        <p> Profesional de la Universidad Técnica de Ambato, especializada en medicina. Su trayectoria académica y profesional está verificada por la UTA, donde realiza sus labores docentes y de investigación.</p>
+        <a href="#" class="open-modal" data-id="4" data-modal="modal4" data-img="Sandra_Villacis.png">Ver más</a>
     </div>
 </section>
 
@@ -69,7 +69,7 @@
     <div class="modal-content">
         <span class="close-modal">&times;</span>
         <!-- Imagen del candidato -->
-        <img id="candidate-img-1" src="" alt="Candidato">
+        <img id="candidate-img-1" src="Mary_Cruz.png" alt="Candidato">
         <!-- Nombre del candidato -->
         <h3 id="candidate-name-1"></h3>
         <!-- Biografía -->
@@ -164,31 +164,31 @@
 </h2>
 <section id="candidates-section-2" class="candidates-section">
     <div class="card">
-        <img src="./Img/prueba_Sara.png" alt="Candidato 5">
+        <img src="./Img/Sara_Camacho.png" alt="Candidato 5">
         <h3>Rectora</h3>
-        <p>Descripción breve del candidato 5.</p>
-        <a href="#" class="open-modal" data-id="5" data-modal="modal5">Ver más</a>
+        <p>Profesional de la Universidad Técnica de Ambato, con títulos en Jurisprudencia, Educación e Ingeniería en Comercio Exterior. Con más de 24 años de experiencia en dirección académica y docencia, liderando actividades en la gestión de recursos y desarrollo de programas educativos.</p>
+        <a href="#" class="open-modal" data-id="5" data-modal="modal5"  data-img="Sara_Camacho.png">Ver más</a>
     </div>
 
     <div class="card">
         <img src="candidate6.jpg" alt="Candidato 6">
-        <h3>Vice Rector Administrativo</h3>
-        <p>Descripción breve del candidato 6.</p>
-        <a href="#" class="open-modal" data-id="6" data-modal="modal6">Ver más</a>
+        <h3>Vicerrectora Administrativa</h3>
+        <p>Profesional de la Universidad Técnica de Ambato, especializada en Psicología Clínica. Su trayectoria académica y profesional está verificada por la UTA, donde realiza labores docentes e investigativas en salud y neuropsicología.</p>
+        <a href="#" class="open-modal" data-id="6" data-modal="modal6"  data-img="">Ver más</a>
     </div>
 
     <div class="card">
         <img src="candidate7.jpg" alt="Candidato 7">
-        <h3>Vice Rector Investigación</h3>
-        <p>Descripción breve del candidato 7.</p>
-        <a href="#" class="open-modal" data-id="7" data-modal="modal7">Ver más</a>
+        <h3>Vicerrector Académico</h3>
+        <p>Profesional de la Universidad Técnica de Ambato, especializado en Economía. Su trayectoria académica y profesional está verificada por la UTA, donde se desempeña como Profesor Agregado desde 2015.</p>
+        <a href="#" class="open-modal" data-id="7" data-modal="modal7" data-img="">Ver más</a>
     </div>
 
     <div class="card">
         <img src="candidate8.jpg" alt="Candidato 8">
-        <h3>Vice Rector Académico</h3>
-        <p>Descripción breve del candidato 8.</p>
-        <a href="#" class="open-modal" data-id="8" data-modal="modal8">Ver más</a>
+        <h3>Vicerrector de Investigación</h3>
+        <p>Profesional de la Universidad Técnica de Ambato, especializado en Ingeniería Eléctrica y Energías Renovables. Con experiencia internacional en docencia, investigación y consultoría en eficiencia energética, dirige el grupo de investigación REWA-RD en energías renovables.</p>
+        <a href="#" class="open-modal" data-id="8" data-modal="modal8" data-img="">Ver más</a>
     </div>
 </section>
 
