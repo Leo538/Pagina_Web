@@ -2,10 +2,9 @@
 // Incluir el archivo de conexión
 include("../config/config.php");
 
-// Establecer el encabezado para que el navegador sepa que la respuesta es JSON
 header('Content-Type: application/json');
 
-// Verificar si la conexión es exitosa
+// Verificar la conexión
 if (!$connection) {
     echo json_encode(["error" => "Conexión fallida: " . mysqli_connect_error()]);
     exit;
@@ -15,7 +14,7 @@ if (!$connection) {
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);  // Asegúrate de que 'id' sea un número entero
 
-    // Consulta SQL para obtener los datos del candidato con el id proporcionado
+    // Consulta SQL para obtener los datos del candidato con el ID proporcionado
     $query = "SELECT NOM_CAN, BIOGRAFIA_CAN, EXPERIENCIA_CAN, VISION_CAN, LOGROS_CAN, ID_PAR_CAN FROM CANDIDATOS WHERE ID_CAN = $id";
     $result = mysqli_query($connection, $query);
 
@@ -39,8 +38,8 @@ if (isset($_GET['id'])) {
     }
 
 } else {
-    // Si no se proporciona 'id', devolver todos los candidatos
-    $query = "SELECT NOM_CAN, BIOGRAFIA_CAN, EXPERIENCIA_CAN, VISION_CAN, LOGROS_CAN, ID_PAR_CAN  FROM CANDIDATOS";
+    // Si no se proporciona 'id', devolver todos los candidatos y ordenarlos por el partido
+    $query = "SELECT NOM_CAN, BIOGRAFIA_CAN, EXPERIENCIA_CAN, VISION_CAN, LOGROS_CAN, ID_PAR_CAN FROM CANDIDATOS ORDER BY ID_PAR_CAN";
     $result = mysqli_query($connection, $query);
 
     if (!$result) {
@@ -64,11 +63,9 @@ if (isset($_GET['id'])) {
 
     // Devolver todos los candidatos en formato JSON
     echo json_encode($candidates);
-
 }
 
-
-// Cerrar la conexión
 mysqli_close($connection);
+
 
 ?>
