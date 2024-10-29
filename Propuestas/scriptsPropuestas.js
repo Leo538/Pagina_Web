@@ -1,116 +1,99 @@
-const propuestas = {
-    "Ciencias Administrativas": {
-        candidato1: [
-            { title: "Mejora de la infraestructura académica", description: "Renovación de edificios y adquisición de nuevos equipos." }
-        ],
-        candidato2: [
-            { title: "Desarrollo de programas de bienestar estudiantil", description: "Implementación de programas de apoyo psicológico y bienestar." }
-        ]
-    },
-    "Ciencia e Ingeniería en Alimentos": {
-        candidato1: [
-            { title: "Optimización de laboratorios de alimentos", description: "Mejoras en los laboratorios y prácticas para estudiantes." }
-        ],
-        candidato2: [
-            { title: "Creación de centros de investigación alimentaria", description: "Desarrollo de centros de investigación en tecnología alimentaria." }
-        ]
-    },
-    "Jurisprudencia y Ciencias Sociales": {
-        candidato1: [
-            { title: "Aulas interactivas", description: "Incorporar tecnología interactiva en las aulas para fomentar el aprendizaje dinámico." }
-        ],
-        candidato2: [
-            { title: "Clínica Jurídica Estudiantil", description: "Desarrollar una clínica jurídica donde los estudiantes puedan practicar con casos reales." }
-        ]
-    },
-    "Contabilidad y Auditoría": {
-        candidato1: [
-            { title: "Modernización del programa de contabilidad", description: "Mejoras en el software de contabilidad utilizado en clases." }
-        ],
-        candidato2: [
-            { title: "Integración de auditoría ambiental", description: "Incluir la auditoría ambiental en el currículo de los estudiantes." }
-        ]
-    },
-    "Ciencias Humanas y de la Educación": {
-        candidato1: [
-            { title: "Aulas inclusivas", description: "Creación de aulas inclusivas con acceso para estudiantes con discapacidades." }
-        ],
-        candidato2: [
-            { title: "Desarrollo pedagógico", description: "Programas de capacitación para los profesores en nuevas metodologías pedagógicas." }
-        ]
-    },
-    "Ciencias de la Salud": {
-        candidato1: [
-            { title: "Mejora de laboratorios", description: "Renovación de los laboratorios de prácticas médicas." }
-        ],
-        candidato2: [
-            { title: "Aulas modernas", description: "Equipar aulas con simuladores médicos avanzados." }
-        ]
-    },
-    "Ingeniería Civil y Mecánica": {
-        candidato1: [
-            { title: "Ampliación de laboratorios", description: "Agregar más laboratorios especializados en materiales de construcción." }
-        ],
-        candidato2: [
-            { title: "Nueva biblioteca técnica", description: "Desarrollar una biblioteca técnica con recursos avanzados." }
-        ]
-    },
-    "Ingeniería en Sistemas, Electrónica e Industrial": {
-        candidato1: [
-            { title: "Renovación de equipos", description: "Actualizar equipos de cómputo y electrónica." }
-        ],
-        candidato2: [
-            { title: "Mejora de la enseñanza online", description: "Desarrollar plataformas más eficientes para la enseñanza virtual." }
-        ]
-    },
-    "default": {
-        candidato1: [
-            { title: "No hay propuestas disponibles para este tema.", description: "" }
-        ],
-        candidato2: [
-            { title: "No hay propuestas disponibles para este tema.", description: "" }
-        ]
-    }
-};
+// Mensaje para verificar que el archivo de JavaScript está cargado
+console.log("Script cargado correctamente");
 
 function filterProposals() {
-    const faculty = document.getElementById("faculty").value;
+    console.log("Evento onchange activado"); // Verificar si el evento se activa
+
+    var selectedFaculty = document.getElementById("faculty").value;
+
+    // Realizar una solicitud AJAX para obtener las propuestas desde el servidor
+    fetch('http://localhost/Pagina_Web/Pagina_Web/src/propuestas_queries.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `category=${encodeURIComponent(selectedFaculty)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Datos recibidos del servidor:", data); // Verificar que los nombres de los partidos llegan
+        displayProposals(data);
+    })
+    .catch(error => console.error('Error:', error));
+    
+}
+
+function displayProposals(proposals) {
+    const partido1Nombre = document.getElementById("partido1Nombre");
+    const partido2Nombre = document.getElementById("partido2Nombre");
     const candidato1Description = document.getElementById("candidato1Description");
     const candidato2Description = document.getElementById("candidato2Description");
 
-    const selectedProposals = faculty === 'all'
-        ? Object.values(propuestas).reduce((acc, val) => {
-            acc.candidato1 = [...acc.candidato1, ...val.candidato1.filter(p => p.title !== "No hay propuestas disponibles para este tema.")];
-            acc.candidato2 = [...acc.candidato2, ...val.candidato2.filter(p => p.title !== "No hay propuestas disponibles para este tema.")];
-            return acc;
-        }, { candidato1: [], candidato2: [] })
-        : propuestas[faculty] || propuestas["default"];
+    // Limpia el contenido anterior
+    partido1Nombre.innerHTML = "";
+    partido2Nombre.innerHTML = "";
+    candidato1Description.innerHTML = "";
+    candidato2Description.innerHTML = "";
 
-    // Candidato 1
-    if (selectedProposals.candidato1.length === 0 || selectedProposals.candidato1[0].title === "No hay propuestas disponibles para este tema.") {
-        candidato1Description.innerHTML = `<div class="proposal-item visible"><strong>No hay propuestas disponibles para este tema.</strong></div>`;
-    } else {
-        candidato1Description.innerHTML = selectedProposals.candidato1
-            .map((proposal, index) => `
+    // Agrupamos las propuestas por partidos
+    const partidos = [...new Set(proposals.map(proposal => proposal.partido))];
+
+    // Verificamos si hay al menos un partido
+    if (partidos.length > 0) {
+        // Mostrar siempre el nombre del primer partido
+        const partido1 = partidos[0];
+        partido1Nombre.innerText = partido1;
+
+        // Filtra propuestas para el primer partido y muestra
+        const partido1Proposals = proposals.filter(proposal => proposal.partido === partido1);
+        if (partido1Proposals.length > 0) {
+            candidato1Description.innerHTML = partido1Proposals.map((proposal, index) => `
                 <div class="proposal-item visible">
-                    <strong>Propuesta ${index + 1}: ${proposal.title}</strong>
-                    <p>${proposal.description}</p>
+                    <strong>Propuesta ${index + 1}: ${proposal.titulo}</strong>
+                    <p>${proposal.descripcion}</p>
+                    <p><strong>Categoría:</strong> ${proposal.categoria}</p>
                 </div>
             `).join('');
-    }
+        } else {
+            candidato1Description.innerHTML = `<div class="proposal-item visible"><strong>No hay propuestas disponibles para este partido.</strong></div>`;
+        }
 
-    // Candidato 2
-    if (selectedProposals.candidato2.length === 0 || selectedProposals.candidato2[0].title === "No hay propuestas disponibles para este tema.") {
-        candidato2Description.innerHTML = `<div class="proposal-item visible"><strong>No hay propuestas disponibles para este tema.</strong></div>`;
+        // Mostrar el nombre del segundo partido dinámicamente, aunque no tenga propuestas
+        const segundoPartido = proposals.find(proposal => proposal.partido !== partido1);
+        if (segundoPartido) {
+            const partido2 = segundoPartido.partido;
+            partido2Nombre.innerText = partido2;
+
+            // Filtra propuestas para el segundo partido
+            const partido2Proposals = proposals.filter(proposal => proposal.partido === partido2);
+            if (partido2Proposals.length > 0) {
+                candidato2Description.innerHTML = partido2Proposals.map((proposal, index) => `
+                    <div class="proposal-item visible">
+                        <strong>Propuesta ${index + 1}: ${proposal.titulo}</strong>
+                        <p>${proposal.descripcion}</p>
+                        <p><strong>Categoría:</strong> ${proposal.categoria}</p>
+                    </div>
+                `).join('');
+            } else {
+                candidato2Description.innerHTML = `<div class="proposal-item visible"><strong>No hay propuestas disponibles para este partido.</strong></div>`;
+            }
+        } else {
+            // Si no hay un segundo partido, mostrar un mensaje para el segundo cuadro
+            partido2Nombre.innerText = "Partido no disponible";
+            candidato2Description.innerHTML = `<div class="proposal-item visible"><strong>No hay propuestas disponibles para este partido.</strong></div>`;
+        }
     } else {
-        candidato2Description.innerHTML = selectedProposals.candidato2
-            .map((proposal, index) => `
-                <div class="proposal-item visible">
-                    <strong>Propuesta ${index + 1}: ${proposal.title}</strong>
-                    <p>${proposal.description}</p>
-                </div>
-            `).join('');
+        // Si no hay ningún partido disponible
+        partido1Nombre.innerText = "No hay partidos disponibles";
+        partido2Nombre.innerText = "No hay partidos disponibles";
+        candidato1Description.innerHTML = `<div class="proposal-item visible"><strong>No hay propuestas disponibles para este partido.</strong></div>`;
+        candidato2Description.innerHTML = `<div class="proposal-item visible"><strong>No hay propuestas disponibles para este partido.</strong></div>`;
     }
 }
 
+
+
+
+
+// Inicializar con la primera opción
 filterProposals();
