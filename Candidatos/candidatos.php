@@ -159,6 +159,7 @@
 
 <!-- Nuevos candidatos de otro partido -->
 
+
 <h2>
     <span class="dark-blue">Juntos por</span><span class="light-turquoise"> el Cambio</span>
 </h2>
@@ -171,24 +172,26 @@
     </div>
 
     <div class="card">
-        <img src="candidate6.jpg" alt="Candidato 6">
-        <h3>Vicerrectora Administrativa</h3>
-        <p>Profesional de la Universidad Técnica de Ambato, especializada en Psicología Clínica. Su trayectoria académica y profesional está verificada por la UTA, donde realiza labores docentes e investigativas en salud y neuropsicología.</p>
-        <a href="#" class="open-modal" data-id="6" data-modal="modal6"  data-img="">Ver más</a>
-    </div>
-
-    <div class="card">
-        <img src="candidate7.jpg" alt="Candidato 7">
+        <img src="./Img/Santiago_Lopez.png" alt="Candidato 6">
         <h3>Vicerrector Académico</h3>
         <p>Profesional de la Universidad Técnica de Ambato, especializado en Economía. Su trayectoria académica y profesional está verificada por la UTA, donde se desempeña como Profesor Agregado desde 2015.</p>
-        <a href="#" class="open-modal" data-id="7" data-modal="modal7" data-img="">Ver más</a>
+        <a href="#" class="open-modal" data-id="6" data-modal="modal6"  data-img="Santiago_Lopez.png">Ver más</a>
     </div>
 
     <div class="card">
-        <img src="candidate8.jpg" alt="Candidato 8">
+        <img src="./Img/Alberto_Rios.png" alt="Candidato 7">
         <h3>Vicerrector de Investigación</h3>
         <p>Profesional de la Universidad Técnica de Ambato, especializado en Ingeniería Eléctrica y Energías Renovables. Con experiencia internacional en docencia, investigación y consultoría en eficiencia energética, dirige el grupo de investigación REWA-RD en energías renovables.</p>
-        <a href="#" class="open-modal" data-id="8" data-modal="modal8" data-img="">Ver más</a>
+        <a href="#" class="open-modal" data-id="7" data-modal="modal7" data-img="Alberto_Rios.png">Ver más</a>
+    </div>
+
+    <div class="card">
+        <img src="./Img/Fernanda_Flores.png" alt="Candidato 8">
+        <h3>Vicerrectora Administrativa</h3>
+        <p>Profesional de la Universidad Técnica de Ambato, especializada en Psicología Clínica. Su trayectoria académica y profesional está verificada por la UTA, donde realiza labores docentes e investigativas en salud y neuropsicología.</p>
+        <a href="#" class="open-modal" data-id="8" data-modal="modal8" data-img="Fernanda_Flores.png">Ver más</a>
+       
+        
     </div>
 </section>
 
