@@ -37,38 +37,13 @@ include('../config/config.php');
     <div class="slides">
         <div class="slide slide1 active">
             <div class="content">
-                <h1><?php echo htmlspecialchars($candidato_nombre); ?></h1>
-                <p><?php echo htmlspecialchars($candidato_biografia); ?></p>
+
             </div>
-            <img src="Img\fo1.jpg" alt="Candidate Image">
         </div>
-        <div class="slide slide2">
+        <div class="slide slide5">
             <div class="content">
-                <h1><?php echo htmlspecialchars($propuesta_titulo); ?></h1>
-                <p><?php echo htmlspecialchars($propuesta_descripcion); ?></p>
+
             </div>
-            <img src="Img\mari2.jpg" alt="Propuesta Image">
-        </div>
-        <div class="slide slide2">
-            <div class="content">
-                <h1><?php echo htmlspecialchars($evento_titulo); ?></h1>
-                <p><?php echo htmlspecialchars($evento_descripcion); ?></p>
-            </div>
-            <img src="Img\fo2.jpg" alt="Evento Image">
-        </div>
-        <div class="slide slide2">
-            <div class="content">
-            <h1><?php echo htmlspecialchars($sugerencia_titulo); ?></h1>
-            <p><?php echo htmlspecialchars($sugerencia_descripcion); ?></p>
-            </div>
-            <img src="Img\mari.jpg" alt="Sugerencias Image">
-        </div>
-        <div class="slide slide2">
-            <div class="content">
-            <h1><?php echo htmlspecialchars($nombre_partido); ?></h1>
-            <p><?php echo htmlspecialchars($descripcion_partido); ?></p>
-            </div>
-            <img src="Img\mari.jpg" alt="Sugerencias Image">
         </div>
     </div>
     <button class="prev">&#10094;</button>
@@ -107,7 +82,7 @@ include('../config/config.php');
     <div class="eventos-grid">
         <?php foreach ($eventos_noticias as $evento_noticia): ?>
         <div class="evento-card">
-            <img src="Img\anuncio.jpg" alt="Evento Imagen">
+            <img src="Img\eventosynoticias.jpg" alt="Evento Imagen">
             <div class="evento-info">
                 <h3><?php echo htmlspecialchars($evento_noticia['titulo']); ?></h3>
                 <p><?php echo htmlspecialchars($evento_noticia['descripcion']); ?></p>

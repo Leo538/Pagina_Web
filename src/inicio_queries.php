@@ -64,14 +64,22 @@ $sugerencia_titulo = $sugerencia['SUGERENCIAS_SUG'] ?? 'No hay sugerencias dispo
 $sugerencia_descripcion = $sugerencia['PROPUESTA_SUG'] ?? '';
 $nombre_partido = $sugerencia['NOM_PAR'] ?? 'No disponible';
 
-// Obtener un candidato aleatorio
-$sql_candidato = "SELECT NOM_CAN, BIOGRAFIA_CAN FROM CANDIDATOS ORDER BY RAND() LIMIT 1";
+// Obtener el candidato con ID_CAN = 1
+$sql_candidato = "SELECT NOM_CAN, BIOGRAFIA_CAN, EXPERIENCIA_CAN, VISION_CAN, LOGROS_CAN 
+                  FROM CANDIDATOS WHERE ID_CAN = ?";
 $stmt_candidato = $connection->prepare($sql_candidato);
+$stmt_candidato->bind_param("i", $id);
+$id = 1; // ID del candidato específico
 $stmt_candidato->execute();
 $candidato_result = $stmt_candidato->get_result();
 $candidato = $candidato_result->fetch_assoc();
+
 $candidato_nombre = $candidato['NOM_CAN'] ?? 'No disponible';
 $candidato_biografia = $candidato['BIOGRAFIA_CAN'] ?? 'No disponible';
+$candidato_experiencia = $candidato['EXPERIENCIA_CAN'] ?? 'No disponible';
+$candidato_vision = $candidato['VISION_CAN'] ?? 'No disponible';
+$candidato_logros = $candidato['LOGROS_CAN'] ?? 'No disponible';
+
 
 // Obtener una propuesta aleatoria
 $sql_propuesta = "SELECT TIT_PRO, DESC_PRO FROM PROPUESTAS ORDER BY RAND() LIMIT 1";
@@ -100,7 +108,7 @@ $evento_descripcion = $evento_random['DESC_EVT_NOT'] ?? 'No disponible';
 
 
 // Definir el ID del partido a consultar
-$id_par = 1; // Cambia este valor por el ID que deseas buscar
+$id_par = 2; // Cambia este valor por el ID que deseas buscar
 
 // Preparar y ejecutar la consulta para obtener el nombre y la descripción del partido
 $sql_partido = "SELECT NOM_PAR, DESC_PAR FROM PARTIDOS_POLITICOS WHERE ID_PAR = ?";
